@@ -1,0 +1,2 @@
+class SurfSpotsController < ApplicationController
+end
