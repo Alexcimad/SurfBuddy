@@ -1,0 +1,2 @@
+class SurfSpot < ApplicationRecord
+end
