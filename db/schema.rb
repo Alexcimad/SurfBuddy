@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_17_183523) do
+ActiveRecord::Schema.define(version: 2022_02_17_191921) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,19 @@ ActiveRecord::Schema.define(version: 2022_02_17_183523) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["surf_spot_id"], name: "index_spot_reviews_on_surf_spot_id"
     t.index ["user_id"], name: "index_spot_reviews_on_user_id"
+  end
+
+  create_table "surf_conditions", force: :cascade do |t|
+    t.string "level"
+    t.float "swell"
+    t.integer "period"
+    t.integer "water_temp"
+    t.bigint "surf_spot_id", null: false
+    t.date "start_hour"
+    t.date "end_hour"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["surf_spot_id"], name: "index_surf_conditions_on_surf_spot_id"
   end
 
   create_table "surf_sessions", force: :cascade do |t|
@@ -72,5 +85,8 @@ ActiveRecord::Schema.define(version: 2022_02_17_183523) do
   add_foreign_key "favorite_spots", "users"
   add_foreign_key "spot_reviews", "surf_spots"
   add_foreign_key "spot_reviews", "users"
+  add_foreign_key "surf_conditions", "surf_spots"
+  add_foreign_key "surf_sessions", "surf_spots"
+  add_foreign_key "surf_sessions", "users"
 
 end
