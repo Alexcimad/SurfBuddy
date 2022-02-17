@@ -1,0 +1,23 @@
+<h1>Hello world</h1>
+
+    <%= simple_form_for @level do |f| %>
+        <%= f.input :level, collection: ["Beginner", "Elementary", "Intermediate", "Advanced", "Mastery"], label: "Level"%>
+        <div><%= f.submit "Save" %></div>
+
+    <% end %>
+
+    <%= form_tag offers_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Where ?"
+      %>
+
+ 
+
+      <%# ---------- SUBMIT --------- %>
+      <button name="button" type="submit" class="btn-custom-blue-searchbar">
+        Discover boards 🏄
+      </button>
+      <%# class="btn btn-flat" %>
+      <% end %>

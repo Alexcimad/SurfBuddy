@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2022_02_17_191921) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+
   create_table "favorite_spots", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "surf_spot_id", null: false
@@ -87,4 +88,5 @@ ActiveRecord::Schema.define(version: 2022_02_17_191921) do
   add_foreign_key "surf_conditions", "surf_spots"
   add_foreign_key "surf_sessions", "surf_spots"
   add_foreign_key "surf_sessions", "users"
+
 end
