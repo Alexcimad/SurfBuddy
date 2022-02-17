@@ -4,5 +4,6 @@ class PagesController < ApplicationController
   end
 
   def profile
+    @level = params[:level]
   end
 end
