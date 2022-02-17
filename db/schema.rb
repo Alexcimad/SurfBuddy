@@ -10,20 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_17_181219) do
+ActiveRecord::Schema.define(version: 2022_02_17_183523) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "review_spots", force: :cascade do |t|
-    t.string "comment"
-    t.integer "rating"
-    t.bigint "surf_spot_id", null: false
+  create_table "favorite_spots", force: :cascade do |t|
     t.bigint "user_id", null: false
+    t.bigint "surf_spot_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["surf_spot_id"], name: "index_review_spots_on_surf_spot_id"
-    t.index ["user_id"], name: "index_review_spots_on_user_id"
+    t.index ["surf_spot_id"], name: "index_favorite_spots_on_surf_spot_id"
+    t.index ["user_id"], name: "index_favorite_spots_on_user_id"
   end
 
   create_table "spot_reviews", force: :cascade do |t|
@@ -37,11 +35,20 @@ ActiveRecord::Schema.define(version: 2022_02_17_181219) do
     t.index ["user_id"], name: "index_spot_reviews_on_user_id"
   end
 
+  create_table "surf_sessions", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "surf_spot_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["surf_spot_id"], name: "index_surf_sessions_on_surf_spot_id"
+    t.index ["user_id"], name: "index_surf_sessions_on_user_id"
+  end
+
   create_table "surf_spots", force: :cascade do |t|
     t.string "location"
+    t.text "description"
     t.float "longitude"
     t.float "latitude"
-    t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -60,8 +67,10 @@ ActiveRecord::Schema.define(version: 2022_02_17_181219) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "review_spots", "surf_spots"
-  add_foreign_key "review_spots", "users"
+  add_foreign_key "favorite_spots", "surf_spots"
+  add_foreign_key "favorite_spots", "users"
   add_foreign_key "spot_reviews", "surf_spots"
   add_foreign_key "spot_reviews", "users"
+  add_foreign_key "surf_sessions", "surf_spots"
+  add_foreign_key "surf_sessions", "users"
 end
