@@ -3,10 +3,8 @@
 
 <p>Mon niveau est <%= @user.level %></p>
     <%= form_tag profile_path , method: :get do %>
-      <%= text_field_tag :level,
-        params[:level],
-        collection: ["Beginner", "Elementary", "Intermediate", "Advanced", "Mastery"]
-        # placeholder: "Where ?"
+      <%= select_tag :level,
+        options_for_select(["Beginner", "Elementary", "Intermediate", "Advanced", "Mastery"],@user.level)
       %>
       
       <%# ---------- SUBMIT --------- %>
@@ -14,3 +12,6 @@
         Save
       </button>
     <% end %>
+
+<%# collection: ["Beginner", "Elementary", "Intermediate", "Advanced", "Mastery"] %>
+
