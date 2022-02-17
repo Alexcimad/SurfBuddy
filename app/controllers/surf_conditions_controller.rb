@@ -1,0 +1,2 @@
+class SurfConditionsController < ApplicationController
+end
