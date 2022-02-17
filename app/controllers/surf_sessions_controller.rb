@@ -1,0 +1,2 @@
+class SurfSessionsController < ApplicationController
+end
