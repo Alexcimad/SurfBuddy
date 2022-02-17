@@ -46,9 +46,9 @@ ActiveRecord::Schema.define(version: 2022_02_17_183523) do
 
   create_table "surf_spots", force: :cascade do |t|
     t.string "location"
+    t.text "description"
     t.float "longitude"
     t.float "latitude"
-    t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
