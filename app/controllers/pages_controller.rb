@@ -4,6 +4,17 @@ class PagesController < ApplicationController
   end
 
   def profile
-    @level = params[:level]
+    if params[:level].present?
+      @level = params[:level]
+      @user = current_user
+      @user.level = @level
+      if @user.save
+        redirect_to profile_path
+      else
+        render :new
+      end
+    else
+      @user = current_user
+    end
   end
 end
