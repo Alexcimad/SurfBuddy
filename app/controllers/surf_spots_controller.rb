@@ -2,7 +2,7 @@ class SurfSpotsController < ApplicationController
 
   # READ one
   def show
-    @surf_spot = Surf_spot.find(params[:id])
+    @surf_spot = SurfSpot.find(params[:id])
     respond_to do |format|
       format.html
       format.js
@@ -11,11 +11,11 @@ class SurfSpotsController < ApplicationController
 
   # CREATE
   def new
-    @surf_spot = Surf_spot.new
+    @surf_spot = SurfSpot.new
   end
 
   def create
-    @surf_spot = Surf_spot.new(surf_spot_params)
+    @surf_spot = SurfSpot.new(surf_spot_params)
     @surf_spot.user = current_user
     if @surf_spot.save
       redirect_to surf_spot_path(@surf_spot)
@@ -26,18 +26,18 @@ class SurfSpotsController < ApplicationController
 
   # UPDATE
   def edit
-    @surf_spot = Surf_spot.find(params[:id])
+    @surf_spot = SurfSpot.find(params[:id])
   end
 
   def update
-    @surf_spot = Surf_spot.find(params[:id])
+    @surf_spot = SurfSpot.find(params[:id])
     @surf_spot.update(surf_spot_params)
     redirect_to surf_spots_path
   end
 
   # DELETE
   def destroy
-    @surf_spot = Surf_spot.find(params[:id])
+    @surf_spot = SurfSpot.find(params[:id])
     @surf_spot.destroy
     redirect_to surf_spots_path
   end
