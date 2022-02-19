@@ -1,5 +1,4 @@
-<%# surf_spot envoyer depuis la render %>
-
+<%= link_to surf_spot_path(surf_spot) do%>
 <div class="spot__item">
     <div class="spot__item__img">
         <p class="spot__item__img__title"><%= surf_spot.location %></p>
@@ -42,3 +41,4 @@
         </div>
     </div>
 </div>
+<% end %>
