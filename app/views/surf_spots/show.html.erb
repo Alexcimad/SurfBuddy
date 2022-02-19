@@ -1,11 +1,22 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "Home", root_path %></li>
+    <li class="breadcrumb-item"><%= link_to "All spots", surf_spots_path %></li>
+    <li class="breadcrumb-item active" aria-current="page">Spot : <%= @surf_spot.location %></li>
+  </ol>
+</nav>
+
 <div class="container">
-
-<h1><%= @surf_spot.location %></h1>
-
-<p><%= @surf_spot.description %></p>
-
+  <div class="surf_spot_title">
+    <h1 class="text-center"><%= @surf_spot.location %></h1>
+    <p class="text-center"><%=icon('fas','star')%>(<%= @surf_spot.spot_reviews.length %> comments)</p>
+    <p class="localisation text-center" ><%= @surf_spot.latitude %>, <%= @surf_spot.longitude %></p>
+  </div>
 <hr>
-<h2>Avis</h2>
+<h2>Informations about the spot</h2>
+<p><%= @surf_spot.description %></p>
+<hr>
+<h2>Reviews</h2>
 <% if @surf_spot.spot_reviews.exists? %>
 
   <% @surf_spot.spot_reviews.each do |review| %>
