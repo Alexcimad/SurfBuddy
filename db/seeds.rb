@@ -54,3 +54,8 @@ puts "- #{surf_spot4.location}"
 surf_spots << surf_spot4
 
 # Add Reviews
+
+# Add Favorite_spots
+
+puts "---CREATING FAVORITES SPOTS"
+fav_spot1 = FavoriteSpot.create!(surf_spot_id: surf_spot1.id ,user_id: user2.id)
