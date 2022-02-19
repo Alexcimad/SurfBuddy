@@ -36,8 +36,8 @@ puts "----CREATING JEREMY F. USER"
 jeremyF = User.create!(email: 'jeremyF@gmail.com',password: "WSL2021", nickname: "Jeremy", level: CONST_LEVEL.sample)
 
 # Add Spots
-puts "---CREATING SURF SPOTS"
-surf_spot1 = SurfSpot.create(location: "Paris", description: "Lorem Ipsum")
+
+surf_spot1 = SurfSpot.create!(location: "Paris", description: "Lorem Ipsum")
 puts "- #{surf_spot1.location}"
 surf_spots << surf_spot1
 
