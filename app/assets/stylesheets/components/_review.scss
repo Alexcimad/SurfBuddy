@@ -1,0 +1,24 @@
+.review{
+  background-color: white;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
+.review .review-header{
+  display: flex;
+  align-content: center;
+  justify-content: flex-start;
+}
+.review-img{
+  padding-right: 10px;
+}
+
+.review .review-header img{
+  width : 75px;
+  height: 75px;
+}
+
+.review .review-comment{
+  font-style: italic;
+}
