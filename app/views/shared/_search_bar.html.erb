@@ -1,0 +1,9 @@
+<div class="search-bar-container">
+  <%# ------- SEARCH CITY ------- %>
+  <%= simple_form_for :search, url: surf_spots_path, method: "GET", html: { class: 'search-bar' }  do |f| %>
+    <%= f.input :location, placeholder: "Hossegor", class: "form-control"%>
+    <%= f.input :km, class: "form-control", placeholder: "100 Km" %>
+    <%= f.submit "Search", class: "btn btn-primary" %>
+  <% end %>
+  
+</div>

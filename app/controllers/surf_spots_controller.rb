@@ -1,7 +1,15 @@
 class SurfSpotsController < ApplicationController
   #all surfspots
   def index
-    @surf_spots = SurfSpot.all
+    if params[:search].present?
+      if params[:search][:km].present?
+        @surf_spots = SurfSpot.near(params[:search][:location],params[:search][:km])
+      else
+        @surf_spots = SurfSpot.near(params[:search][:location],100)
+      end
+    else
+      @surf_spots = SurfSpot.all
+    end
 
     @markers = @surf_spots.geocoded.map do |spot|
       {
