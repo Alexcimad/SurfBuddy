@@ -8,6 +8,7 @@
 
 
 puts "---DESTROYING CURRENT DATA"
+FavoriteSpot.destroy_all
 SpotReview.destroy_all
 SurfSpot.destroy_all
 User.destroy_all
