@@ -1,4 +1,8 @@
 class SurfSpotsController < ApplicationController
+  #all surfspots
+  def index
+    @surf_spots = SurfSpot.all
+  end
 
   # READ one
   def show
