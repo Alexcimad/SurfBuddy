@@ -9,7 +9,6 @@
   <p>Mes favoris</p>
   <% @favorite_spots.each do |fav| %>
     <p><%= fav.surf_spot.location %> spot</p>
-    <%= render 'shared/card_spot'%>
   <% end %>
   
   <p>Ma photo</p>
