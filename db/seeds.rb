@@ -36,7 +36,7 @@ puts "----CREATING JEREMY F. USER"
 jeremyF = User.create!(email: 'jeremyF@gmail.com',password: "WSL2021", nickname: "Jeremy", level: CONST_LEVEL.sample)
 
 # Add Spots
-
+puts "---CREATING SURF SPOTS"
 surf_spot1 = SurfSpot.create(location: "Paris", description: "Lorem Ipsum")
 puts "- #{surf_spot.location}"
 surf_spots << surf_spot1
@@ -57,3 +57,6 @@ surf_spots << surf_spot4
 
 # Add Favorite_spots
 
+puts "---CREATING FAVORITES SPOTS"
+fav_spot1 = FavoriteSpot.create!(surf_spot_id: surf_spot1.id ,user_id: user2.id)
+# fav1 = FavoriteSpot.create!(surf_spot_id: surf_spot1[:id] ,user_id: user2[:id])
