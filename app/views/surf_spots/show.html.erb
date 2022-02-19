@@ -17,7 +17,7 @@
       <%end%>
 <%# ------------------------------- %>
       <% if @average_rating >= (@average_rating.to_i + 0.25) && @average_rating < (@average_rating.to_i + 0.75)%>
-        <%= icon('far','star-half-stroke')%>
+        <%= icon('fas','star-half')%>
       <% elsif @average_rating < (@average_rating.to_i + 0.25) %>
         <%= icon('far','star')%>
       <% else %>
