@@ -1,0 +1,31 @@
+.custom {
+	width: 100%;
+	height: 50px;
+	font-size: 20px;
+	text-align: center;
+	text-align: -webkit-center;
+	text-transform: uppercase;
+	line-height: 1;
+	padding: 0 16px;
+	border: none;
+	outline: none;
+	border-radius: 50px;
+	background-color: $grey-lt;
+	cursor: pointer;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+// button
+.btn {
+	height: 55px;
+	width: fit-content;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 12px 48px;
+	border-radius: 50px;
+	&__black {
+		background-color: $black;
+		color: $white !important;
+	}
+}

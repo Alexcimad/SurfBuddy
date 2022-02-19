@@ -1,0 +1,21 @@
+// displaying in center with position absolute
+@mixin absolute-center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+// display flex with center position
+@mixin flex-center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// display flex with center position with column
+@mixin flex-center-column{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
