@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-puts "---DESTROYING CURRENT DATA"
+puts "-DESTROYING CURRENT DATA"
 FavoriteSpot.destroy_all
 SpotReview.destroy_all
 SurfSpot.destroy_all
@@ -15,48 +15,65 @@ User.destroy_all
 
 CONST_LEVEL = ["Beginner", "Intermediate", "Expert"]
 surf_spots = []
+spot_reviews = []
 
 # Add Users
 
-puts "----CREATING ALEXIS USER"
+puts "--CREATING ALEXIS USER"
 user = User.create!(email: 'alex.cimadev@gmail.com', password: "Wagon2021", nickname: "Alexis", level: CONST_LEVEL.sample)
 
-puts "----CREATING THEO USER"
+puts "--CREATING THEO USER"
 user1 = User.create!(email: 'theogalais@gmail.com',password: "theogalais@gmail.com", nickname: "Théo", level: CONST_LEVEL.sample)
 
-puts "----CREATING DAVID USER"
+puts "--CREATING DAVID USER"
 user2 = User.create!(email: 'davidsantos@live.fr',password: "davidsantos@live.fr", nickname: "David", level: CONST_LEVEL.sample)
 
-puts "----CREATING ARON USER"
+puts "--CREATING ARON USER"
 user3 = User.create!(email: 'aron@gmail.com',password: "aron@gmail.com", nickname: "Aron", level: CONST_LEVEL.sample)
 
-puts "----CREATING KELLY S. USER"
+puts "--CREATING KELLY S. USER"
 kellyS = User.create!(email: 'kellyS@gmail.com',password: "WSL2021", nickname: "Kelly", level: CONST_LEVEL.sample)
 
-puts "----CREATING JEREMY F. USER"
+puts "--CREATING JEREMY F. USER"
 jeremyF = User.create!(email: 'jeremyF@gmail.com',password: "WSL2021", nickname: "Jeremy", level: CONST_LEVEL.sample)
 
 # Add Spots
 
 surf_spot1 = SurfSpot.create!(location: "Paris", description: "Lorem Ipsum")
-puts "- #{surf_spot1.location}"
+puts "---CREATING #{surf_spot1.location}"
 surf_spots << surf_spot1
 
-surf_spot2 = SurfSpot.create(location: "Quiberon", description: "Lorem Ipsum")
-puts "- #{surf_spot2.location}"
+surf_spot2 = SurfSpot.create!(location: "Quiberon", description: "Lorem Ipsum")
+puts "---CREATING #{surf_spot2.location}"
 surf_spots << surf_spot2
 
-surf_spot3 = SurfSpot.create(location: "La torche", description: "Lorem Ipsum")
-puts "- #{surf_spot3.location}"
+surf_spot3 = SurfSpot.create!(location: "La torche", description: "Lorem Ipsum")
+puts "---CREATING #{surf_spot3.location}"
 surf_spots << surf_spot3
 
-surf_spot4 = SurfSpot.create(location: "Biarritz", description: "Lorem Ipsum")
-puts "- #{surf_spot4.location}"
+surf_spot4 = SurfSpot.create!(location: "Biarritz", description: "Lorem Ipsum")
+puts "---CREATING #{surf_spot4.location}"
 surf_spots << surf_spot4
 
 # Add Reviews
 
+spot_review1 = SpotReview.create!(comment: "Llorem Ipsum", rating: 3, surf_spot_id: surf_spot1.id, user_id: user1.id)
+puts "----CREATING #{spot_review1.rating} stars"
+spot_reviews << spot_review1
+
+spot_review2 = SpotReview.create!(comment: "Llorem Ipsum", rating: 3, surf_spot_id: surf_spot2.id, user_id: user1.id)
+puts "----CREATING #{spot_review2.rating} stars"
+spot_reviews << spot_review2
+
+spot_review3 = SpotReview.create!(comment: "Llorem Ipsum", rating: 3, surf_spot_id: surf_spot3.id, user_id: user1.id)
+puts "----CREATING #{spot_review3.rating} stars"
+spot_reviews << spot_review3
+
+spot_review4 = SpotReview.create!(comment: "Llorem Ipsum", rating: 4, surf_spot_id: surf_spot1.id, user_id: user2.id)
+puts "----CREATING #{spot_review4.rating} stars"
+spot_reviews << spot_review4
+
 # Add Favorite_spots
 
-puts "---CREATING FAVORITES SPOTS"
+puts "----CREATING FAVORITES SPOTS"
 fav_spot1 = FavoriteSpot.create!(surf_spot_id: surf_spot1.id ,user_id: user2.id)
