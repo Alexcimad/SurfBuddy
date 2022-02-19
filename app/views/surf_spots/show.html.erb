@@ -1,0 +1,31 @@
+<div class="container">
+
+<h1><%= @surf_spot.location %></h1>
+
+<p><%= @surf_spot.description %></p>
+
+<hr>
+<h2>Avis</h2>
+  <% @surf_spot.spot_reviews.each do |review| %>
+    <div class="review">
+      <div class="review-header">
+        <%# <%= cl_image_tag(review.user.photo.key, crop: :fill, :gravity => :face, class: "avatar-bordered")%>
+        <div class="review-img">
+          <img class="avatar-bordered" src="https://a0.muscache.com/defaults/user_pic-225x225.png?im_w=240">
+        </div>
+        <div>
+          <h3><%= review.user.nickname %></h3>
+          <p><%= review.updated_at.strftime("%d %b %Y") %></p>
+        </div>
+      </div>
+      <div class="review-content">
+        <p class="review-comment"> <%review.rating.times do %>
+          <%= icon('fas','star')%><%end%>
+        </p>
+        <p class="review-comment">
+          <%=icon('fa','quote-left')%> <%= review.comment%> <%=icon('fa','quote-right')%>
+        </p>
+      </div>
+    </div>
+  <%end%>
+</div>

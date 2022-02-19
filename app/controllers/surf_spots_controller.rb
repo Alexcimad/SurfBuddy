@@ -7,10 +7,10 @@ class SurfSpotsController < ApplicationController
   # READ one
   def show
     @surf_spot = SurfSpot.find(params[:id])
-    respond_to do |format|
-      format.html
-      format.js
-    end
+    # respond_to do |format|
+    #   format.html
+    #   format.js
+    # end
   end
 
   # CREATE
