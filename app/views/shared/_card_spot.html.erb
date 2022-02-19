@@ -31,7 +31,7 @@
             <p>25.0</p>
         </div>
         <div>
-            <% if user.favorite_spots.reload.pluck(&:id).include?(surf_spot.id) %>
+            <% if user.favorite_spots.pluck(:surf_spot_id).include?(surf_spot.id) %>
                 <span>true</span>
             <% else %>
                 <span>false</span>
