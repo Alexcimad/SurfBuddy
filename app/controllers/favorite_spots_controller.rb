@@ -12,13 +12,28 @@ class FavoriteSpotsController < ApplicationController
         if @favorite.present?
             @favorite.first.destroy
         else
-            FavoriteSpot.create(favorite_spots_params)
+            FavoriteSpot.create(user: @user, surf_spot: @surf_spot)
         end
         respond_to do |format|
-            format.html { redirect_to surf_spots_path }
-            format.js { {surf_spot: @surf_spot, user: @user}}
-        end
+            format.html { render 'shared/_card_spot', locals: { surf_spot: @surf_spot, user: @user } }
+            format.json { render json: { html: render_to_string(partial: "shared/_card_spot", locals: { surf_spot: @surf_spot, user: @user }, formats: [:html]) } }
+          end
     end
+
+    # def favorite
+    #     @user = current_user
+    #     @spot = SurfSpot.find(params[:surf_spot_id])
+    #     @favorite_spot = FavoriteSpot.where(user: @user, surf_spot: @spot)
+    #     if @favorite_spot.present?
+    #       @favorite_spot.first.destroy
+    #     else
+    #       FavoriteSpot.create(user: @user, surf_spot: @spot)
+    #     end
+    #     respond_to do |format|
+    #       format.html { render 'shared/_card', locals: { spot: @spot, user: @user } }
+    #       format.json { render json: { html: render_to_string(partial: "shared/card", locals: { spot: @spot, user: @user }, formats: [:html]) } }
+    #     end
+    # end
 
     # def create
     #     @favorite_spots = FavoriteSpot.new(favorite_spots_params)

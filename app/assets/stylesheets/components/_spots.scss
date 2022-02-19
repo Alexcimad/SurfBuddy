@@ -86,3 +86,18 @@
     }
   }
 }
+
+.test{
+  color: grey;
+  &:hover{
+    color: #ffdc0f;
+  }
+}
+
+.fav{
+  color: #ffdc0f;
+  &:hover{
+    color: grey;
+  }
+}
+

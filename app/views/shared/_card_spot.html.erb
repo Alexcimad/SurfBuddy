@@ -31,13 +31,20 @@
             <p>25.0</p>
         </div>
         <div>
-            <% if user.favorite_spots.reload.pluck(&:id).include?(surf_spot.id) %>
-                <span>true</span>
-            <% else %>
-                <span>false</span>
-            <% end %>
 
-            <%= link_to "test", surf_spot_favorite_path(surf_spot), remote: :true %>
+
+
+        <div data-controller="favorite">
+        <%# <div> class="test" data-favorite-target='favoriteBtn' data-action="click->favorite#toggle" %>
+        <% if user.favorite_spots.pluck(:surf_spot_id).include?(surf_spot.id) %>
+            <%= link_to icon('fas','star') , surf_spot_favorite_path(surf_spot), remote: true, class: "test fav" , data: { favorite_target: 'favoriteBtn', action: "click->favorite#toggle" } %>
+        <% else %>
+            <%= link_to icon('fas','star'), surf_spot_favorite_path(surf_spot), remote: true, class: "test" , data: { favorite_target: 'favoriteBtn', action: "click->favorite#toggle" } %>
+        <% end %>
+
+
+
+    </div>
         </div>
     </div>
 </div>
