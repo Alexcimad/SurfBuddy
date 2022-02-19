@@ -1,21 +1,61 @@
-// displaying in center with position absolute
-@mixin absolute-center{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
+// media query
+@mixin full-hd-min {
+	@media (min-width: $full-hd) {
+		@content;
+	}
 }
-// display flex with center position
-@mixin flex-center{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+@mixin hd-min {
+	@media (min-width: $hd) {
+		@content;
+	}
 }
-
-// display flex with center position with column
-@mixin flex-center-column{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+@mixin hd {
+	@media (max-width: $hd) {
+		@content;
+	}
+}
+@mixin laptop {
+	@media (max-width: $laptop) {
+		@content;
+	}
+}
+@mixin laptop-sm {
+	@media (max-width: $laptop-sm) {
+		@content;
+	}
+}
+@mixin tablet {
+	@media (max-width: $tablet) {
+		@content;
+	}
+}
+@mixin tablet-min {
+	@media (min-width: $tablet) {
+		@content;
+	}
+}
+@mixin tablet-sm {
+	@media (max-width: $tablet-sm) {
+		@content;
+	}
+}
+@mixin tablet-sm-min {
+	@media (min-width: $tablet-sm) {
+		@content;
+	}
+}
+@mixin mobile {
+	@media (max-width: $mobile) {
+		@content;
+	}
+}
+@mixin mobile-sm {
+	@media (max-width: $mobile-sm) {
+		@content;
+	}
+}
+@mixin xsm {
+	@media (max-width: $xsm) {
+		@content;
+	}
 }
