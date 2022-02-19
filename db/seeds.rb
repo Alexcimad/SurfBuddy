@@ -37,20 +37,20 @@ jeremyF = User.create!(email: 'jeremyF@gmail.com',password: "WSL2021", nickname:
 
 # Add Spots
 
-surf_spot1 = SurfSpot.create(location: "Paris", description: "Lorem Ipsum")
-puts "- #{surf_spot.location}"
+surf_spot1 = SurfSpot.create!(location: "Paris", description: "Lorem Ipsum")
+puts "- #{surf_spot1.location}"
 surf_spots << surf_spot1
 
 surf_spot2 = SurfSpot.create(location: "Quiberon", description: "Lorem Ipsum")
-puts "- #{surf_spot.location}"
+puts "- #{surf_spot2.location}"
 surf_spots << surf_spot2
 
 surf_spot3 = SurfSpot.create(location: "La torche", description: "Lorem Ipsum")
-puts "- #{surf_spot.location}"
+puts "- #{surf_spot3.location}"
 surf_spots << surf_spot3
 
 surf_spot4 = SurfSpot.create(location: "Biarritz", description: "Lorem Ipsum")
-puts "- #{surf_spot.location}"
+puts "- #{surf_spot4.location}"
 surf_spots << surf_spot4
 
 # Add Reviews
