@@ -2,6 +2,14 @@ class SurfSpotsController < ApplicationController
   #all surfspots
   def index
     @surf_spots = SurfSpot.all
+
+    @markers = @surf_spots.geocoded.map do |spot|
+      {
+        lat: spot.latitude,
+        lng: spot.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { spot: spot })
+      }
+    end
   end
 
   # READ one
