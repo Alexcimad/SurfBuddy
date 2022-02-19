@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#home'
+  root to: 'surf_spots#index'
   resources :surf_spots do 
     get "favorite", to: "favorite_spots#favorite"
   end
