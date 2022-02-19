@@ -26,9 +26,9 @@
             <div class="spot__item">
               <div class="spot__item__img">
                 <p class="spot__item__img__title"><%= spot.location %></p>
-                <img src="assets/img/camera.svg" alt="camera-icon">
+                <img src="#" alt="camera-icon">
                 <div class="spot__item__img__rating">
-                  <img src="assets/img/star.svg" alt="star-icon">
+                  <img src="#" alt="star-icon">
                   <p>4.0</p>
                 </div>
               </div>
@@ -36,25 +36,33 @@
               <div class="spot__item__details favorite">
                 <div class="spot__item__details__box">
                   <div class="spot__item__details__img">
-                    <img src="assets/img/water-solid.svg" alt="water-icon">
+                    <img src="#" alt="water-icon">
                   </div>
                   <p>1.5 m</p>
                 </div>
 
                 <div class="spot__item__details__box">
                   <div class="spot__item__details__img">
-                    <img src="assets/img/wind-solid.svg" alt="wind-icon">
+                    <img src="#" alt="wind-icon">
                   </div>
                   <p>3.0</p>
                 </div>
 
                 <div class="spot__item__details__box">
                   <div class="spot__item__details__img">
-                    <img src="assets/img/temperature.svg" alt="temperature-icon">
+                    <img src="#" alt="temperature-icon">
                   </div>
                   <p>25.0</p>
                 </div>
               </div>
+            </div>
           <% end %>
         <% end %>
-			</div>
+      </div>
+    </section>
+
+  <div id="map"
+    style="width: 100%; height: 600px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
