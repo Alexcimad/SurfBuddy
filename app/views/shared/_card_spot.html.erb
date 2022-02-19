@@ -1,3 +1,5 @@
+<%# surf_spot envoyer depuis la render %>
+
 <div class="spot__item">
     <div class="spot__item__img">
         <p class="spot__item__img__title"><%= surf_spot.location %></p>
@@ -30,7 +32,13 @@
             <p>25.0</p>
         </div>
         <div>
-            <%# <%= link_to  favorite_path(@offer), remote: :true, 'data-toggle': 'modal', 'data-target': '#modal-window-reviews' do %> %>
+            <% if user.favorite_spots.reload.pluck(&:id).include?(surf_spot.id) %>
+                <span>true</span>
+            <% else %>
+                <span>false</span>
+            <% end %>
+
+            <%= link_to "test", surf_spot_favorite_path(surf_spot), remote: :true %>
         </div>
     </div>
 </div>

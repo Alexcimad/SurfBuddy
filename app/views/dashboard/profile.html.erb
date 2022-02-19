@@ -9,6 +9,8 @@
   <p>Mes favoris</p>
   <% @favorite_spots.each do |fav| %>
     <p><%= fav.surf_spot.location %> spot</p>
+   	<%= render 'shared/card_spot', surf_spot: fav.surf_spot, user: @user %>
+
   <% end %>
   
   <p>Ma photo</p>
@@ -20,5 +22,4 @@
   </button>
 <% end %>
 
-<%# collection: ["Beginner", "Elementary", "Intermediate", "Advanced", "Mastery"] %>
 

@@ -14,7 +14,8 @@ class DashboardController < ApplicationController
           @user = current_user
         end
     
-        @favorite_spots = FavoriteSpot.all.where(user_id: current_user)
-        
+        @favorite_spots = @user.favorite_spots  
       end
 end
+
+# FavoriteSpot.where(user_id: current_user)

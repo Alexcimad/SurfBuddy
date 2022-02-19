@@ -20,7 +20,7 @@
 		<h5 class="section__spot__heading">Your favorite spots</h5>
 
 		<%= @surf_spots.each do |spot| %>
-   			<%= render 'shared/card_spot', surf_spot: spot %>
+   			<%= render 'shared/card_spot', surf_spot: spot, user: current_user %>
 		<% end %>		
 	</div>
 </section>
