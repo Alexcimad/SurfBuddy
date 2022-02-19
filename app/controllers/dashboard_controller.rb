@@ -1,4 +1,5 @@
 class DashboardController < ApplicationController
+    skip_before_action :authenticate_user!, only: [ :profile ]
     def profile
         if params[:level].present?
           @level = params[:level]
@@ -13,7 +14,8 @@ class DashboardController < ApplicationController
           @user = current_user
         end
     
-        @favorite_spots = FavoriteSpot.all.where(user_id: current_user)
-        
+        @favorite_spots = @user.favorite_spots  
       end
 end
+
+# FavoriteSpot.where(user_id: current_user)
