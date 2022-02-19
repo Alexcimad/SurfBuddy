@@ -11,13 +11,13 @@
     <h1 class="text-center"><%= @surf_spot.location %></h1>
     <p class="text-center">
 
-<%# ---------AVERAGE STARS------------- %>
-      <%= @average_rating %>
+<%# ---------AVERAGE RATING------------- %>
       <% @average_rating.to_i.times do %>
         <%= icon('fas','star') %>
       <%end%>
       <% if @average_rating >= (@average_rating.to_i + 0.25) && @average_rating <= (@average_rating.to_i + 0.75)%>
-        <%= icon('fas','star-half')%>
+        <%= icon('fas','star-half-alt')%>
+        <i class="fa-regular fa-star-half-stroke"></i>
       <% elsif @average_rating < (@average_rating.to_i + 0.25) %>
         <%= icon('far','star')%>
       <% else %>
@@ -26,6 +26,7 @@
       <% (5 - @average_rating.to_i - 1).times do %>
         <%= icon('far','star')%>
       <%end%>
+<br>
       
 <%# -----------COMMENTS----------------- %>
       (<%= @surf_spot.spot_reviews.length %> comments)
