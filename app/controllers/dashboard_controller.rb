@@ -1,4 +1,5 @@
 class DashboardController < ApplicationController
+    skip_before_action :authenticate_user!, only: [ :profile ]
     def profile
         if params[:level].present?
           @level = params[:level]

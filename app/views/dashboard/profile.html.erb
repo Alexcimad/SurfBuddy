@@ -1,6 +1,5 @@
 <h1>Hello world</h1>
 
-
 <p>Mon niveau est <%= @user.level %></p>
 <%= form_tag profile_path , method: :get do %>
   <%= select_tag :level,
@@ -8,6 +7,9 @@
   %>
 
   <p>Mes favoris</p>
+  <% @favorite_spots.each do |fav| %>
+    <%= fav.surf_spot.location %>
+  <% end %>
   
   <p>Ma photo</p>
 
