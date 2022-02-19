@@ -16,5 +16,8 @@ class PagesController < ApplicationController
     else
       @user = current_user
     end
+
+    @favorite_spots = FavoriteSpot.all.where(user_id: current_user)
+    
   end
 end

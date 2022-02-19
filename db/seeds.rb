@@ -54,3 +54,6 @@ puts "- #{surf_spot.location}"
 surf_spots << surf_spot4
 
 # Add Reviews
+
+# Add Favorite_spots
+
