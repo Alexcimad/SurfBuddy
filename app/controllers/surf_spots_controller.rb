@@ -22,18 +22,24 @@ class SurfSpotsController < ApplicationController
 
   # READ one
   def show
+    
     @surf_spot = SurfSpot.find(params[:id])
-
-    total_rating = 0
-    @surf_spot.spot_reviews.each do |review|
-      total_rating += review.rating 
+    if @surf_spot.spot_review_ids.present?
+      total_rating = 0
+      @surf_spot.spot_reviews.each do |review|
+        total_rating += review.rating 
+      end
+      @average_rating = total_rating / @surf_spot.spot_reviews.length.to_f
+      # respond_to do |format|
+      #   format.html
+      #   format.js
+      # end
+    else
+      @average_rating = 0
     end
-    @average_rating = total_rating / @surf_spot.spot_reviews.length.to_f
-    # respond_to do |format|
-    #   format.html
-    #   format.js
-    # end
+
   end
+
 
   # CREATE
   def new
