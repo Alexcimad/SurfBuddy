@@ -15,54 +15,18 @@
 			</div>
 </header>
 
+<section class="section__spot">
+	<div class="container">
+		<h5 class="section__spot__heading">Your favorite spots</h5>
 
+    <%= @surf_spots.each do |spot| %>
+   	<%= render 'shared/card_spot', surf_spot: spot, user: current_user %>
+		<% end %>		
 
-		<section class="section__spot">
-			<div class="container">
-				<h5 class="section__spot__heading">All Spots</h5>
-
-        <% @surf_spots.each do |spot| %>
-          <%= link_to surf_spot_path(spot) do %>
-            <div class="spot__item">
-              <div class="spot__item__img">
-                <p class="spot__item__img__title"><%= spot.location %></p>
-                <img src="#" alt="camera-icon">
-                <div class="spot__item__img__rating">
-                  <img src="#" alt="star-icon">
-                  <p>4.0</p>
-                </div>
-              </div>
-
-              <div class="spot__item__details favorite">
-                <div class="spot__item__details__box">
-                  <div class="spot__item__details__img">
-                    <img src="#" alt="water-icon">
-                  </div>
-                  <p>1.5 m</p>
-                </div>
-
-                <div class="spot__item__details__box">
-                  <div class="spot__item__details__img">
-                    <img src="#" alt="wind-icon">
-                  </div>
-                  <p>3.0</p>
-                </div>
-
-                <div class="spot__item__details__box">
-                  <div class="spot__item__details__img">
-                    <img src="#" alt="temperature-icon">
-                  </div>
-                  <p>25.0</p>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-    </section>
-
-  <div id="map"
-    style="width: 100%; height: 600px;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
+    <div id="map"
+      style="width: 100%; height: 600px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+	</div>
+</section>
