@@ -1,13 +1,9 @@
 <%= link_to surf_spot_path(surf_spot) do%>
-<div class="spot__item">
-    <div class="spot__item__img">
-        <p class="spot__item__img__title"><%= surf_spot.location %></p>
-        <img src="assets/img/camera.svg" alt="camera-icon">
-        <div class="spot__item__img__rating">
-            <img src="assets/img/star.svg" alt="star-icon">
-            <p>4.0</p>
-        </div>
+  <div class="spot-card d-flex">
+    <div>
+      <img class="spot-card-img" src="https://api.navily.com/media/AGxLeNtHRsD2SpKfa40DAAN7sC7pCtotaZyLTHQrcAkJSZeXEG1e6Npvkcq1YL9l?w=128&crop_square=true" alt="Spot">
     </div>
+<<<<<<< HEAD
 
     <div class="spot__item__details favorite">
         <div class="spot__item__details__box">
@@ -44,8 +40,11 @@
 
 
 
+=======
+    <div class="spot-card-details">
+      <h2 class="spot-card-h2"><%= surf_spot.location %></h2>
+      <p><%=icon('fas','star')%>(<%= surf_spot.spot_reviews.length %> comments)</p>
+>>>>>>> 2cd63b42d751fc2829c396d2f3d8963b678bdd80
     </div>
-        </div>
-    </div>
-</div>
+  </div>
 <% end %>
