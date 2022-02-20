@@ -1,10 +1,15 @@
-.localisation{
-  background-color: grey;
-  padding: 5px;
-  border-radius: 10px;
-  width: 50%;
-  margin: 0 auto 0 auto;
+.mapboxgl-popup-content{
+  padding: 0px !important;
+  width:350px;
 }
-.surf_spot_title{
-  margin-bottom: 30px;
+.mapboxgl-popup-content{
+  text-align: left !important;
+}
+.custom-img{
+  padding-right: 20px;
+}
+.spot-card-img-modal{
+  border-radius: 0px !important;
+  width: 110px;
+  height: 110px;
 }
