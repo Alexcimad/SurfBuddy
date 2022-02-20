@@ -1,44 +1,30 @@
 <%= link_to surf_spot_path(surf_spot) do%>
 <div class="spot__item">
-    <div class="spot__item__img">
-        <p class="spot__item__img__title"><%= surf_spot.location %></p>
-        <img src="assets/img/camera.svg" alt="camera-icon">
-        <div class="spot__item__img__rating">
-            <img src="assets/img/star.svg" alt="star-icon">
-            <p>4.0</p>
-        </div>
+  <div class="spot__item__img">
+    <p class="spot__item__img__title"><%= surf_spot.location %></p>
+    <img src="assets/img/camera.svg" alt="camera-icon">
+    <div class="spot__item__img__rating">
+      <img src="assets/img/star.svg" alt="star-icon">
+      <p>4.0</p>
     </div>
+  </div>
 
-    <div class="spot__item__details favorite">
-        <div class="spot__item__details__box">
-            <div class="spot__item__details__img">
-                <img src="assets/img/water-solid.svg" alt="water-icon">
-            </div>
-            <p>1.5 m</p>
-        </div>
-
-        <div class="spot__item__details__box">
-            <div class="spot__item__details__img">
-                <img src="assets/img/wind-solid.svg" alt="wind-icon">
-            </div>
-            <p>3.0</p>
-        </div>
-
-        <div class="spot__item__details__box">
-            <div class="spot__item__details__img">
-                <img src="assets/img/temperature.svg" alt="temperature-icon">
-            </div>
-            <p>25.0</p>
-        </div>
-        <div>
-            <% if user.favorite_spots.reload.pluck(&:id).include?(surf_spot.id) %>
-                <span>true</span>
-            <% else %>
-                <span>false</span>
-            <% end %>
-
-            <%= link_to "test", surf_spot_favorite_path(surf_spot), remote: :true %>
-        </div>
+  <div class="spot__item__details favorite">   
+    <div class="spot__item__details__box", data-surf-conditions-target="meteo" data-latitude="<%= surf_spot.latitude %>" data-longitude="<%= surf_spot.longitude %>">
+      <div class="spot__item__details__img">
+        <img src="assets/img/water-solid.svg" alt="water-icon">
+      </div>
+      <p>1.5 m</p>
     </div>
+    <div>
+      <% if user.favorite_spots.reload.pluck(&:id).include?(surf_spot.id) %>
+        <span>true</span>
+      <% else %>
+        <span>false</span>
+      <% end %>
+
+      <%= link_to "test", surf_spot_favorite_path(surf_spot), remote: :true %>
+    </div>
+  </div>
 </div>
 <% end %>
