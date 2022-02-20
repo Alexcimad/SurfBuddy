@@ -1,0 +1,24 @@
+.spot-card{
+  background-color: white;
+  padding: 15px;
+  min-height: 150px;
+  margin-bottom: 20px;
+}
+.spot-card-img{
+  border-radius: 20px;
+  width: 125px;
+  height: 125px;
+}
+.spot-card-details{
+  padding-left: 10px;
+}
+.spot-card-h2{
+  font-size: 25px;
+  font-weight: 700;
+}
+.map-right{
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  border-radius: 20px;
+}
