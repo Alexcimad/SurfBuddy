@@ -57,7 +57,7 @@ surf_spots << surf_spot4
 
 # Add Reviews
 
-spot_review1 = SpotReview.create!(comment: "Llorem Ipsum", rating: 3, surf_spot_id: surf_spot1.id, user_id: user1.id)
+spot_review1 = SpotReview.create!(comment: "Llorem Ipsum", rating: 4, surf_spot_id: surf_spot1.id, user_id: user1.id)
 puts "----CREATING #{spot_review1.rating} stars"
 spot_reviews << spot_review1
 
@@ -72,6 +72,10 @@ spot_reviews << spot_review3
 spot_review4 = SpotReview.create!(comment: "Llorem Ipsum", rating: 4, surf_spot_id: surf_spot1.id, user_id: user2.id)
 puts "----CREATING #{spot_review4.rating} stars"
 spot_reviews << spot_review4
+
+spot_review5 = SpotReview.create!(comment: "Llorem Ipsum", rating: 5, surf_spot_id: surf_spot1.id, user_id: user2.id)
+puts "----CREATING #{spot_review5.rating} stars"
+spot_reviews << spot_review5
 
 # Add Favorite_spots
 
