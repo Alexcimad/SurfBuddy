@@ -1,44 +1,11 @@
 <%= link_to surf_spot_path(surf_spot) do%>
-<div class="spot__item">
-    <div class="spot__item__img">
-        <p class="spot__item__img__title"><%= surf_spot.location %></p>
-        <img src="assets/img/camera.svg" alt="camera-icon">
-        <div class="spot__item__img__rating">
-            <img src="assets/img/star.svg" alt="star-icon">
-            <p>4.0</p>
-        </div>
+<div class="spot-card d-flex">
+    <div>
+      <img class="spot-card-img" src="https://api.navily.com/media/AGxLeNtHRsD2SpKfa40DAAN7sC7pCtotaZyLTHQrcAkJSZeXEG1e6Npvkcq1YL9l?w=128&crop_square=true" alt="Spot">
     </div>
-
-    <div class="spot__item__details favorite">
-        <div class="spot__item__details__box">
-            <div class="spot__item__details__img">
-                <img src="assets/img/water-solid.svg" alt="water-icon">
-            </div>
-            <p>1.5 m</p>
-        </div>
-
-        <div class="spot__item__details__box">
-            <div class="spot__item__details__img">
-                <img src="assets/img/wind-solid.svg" alt="wind-icon">
-            </div>
-            <p>3.0</p>
-        </div>
-
-        <div class="spot__item__details__box">
-            <div class="spot__item__details__img">
-                <img src="assets/img/temperature.svg" alt="temperature-icon">
-            </div>
-            <p>25.0</p>
-        </div>
-        <div>
-            <% if user.favorite_spots.reload.pluck(&:id).include?(surf_spot.id) %>
-                <span>true</span>
-            <% else %>
-                <span>false</span>
-            <% end %>
-
-            <%= link_to "test", surf_spot_favorite_path(surf_spot), remote: :true %>
-        </div>
+    <div class="spot-card-details">
+      <h2 class="spot-card-h2"><%= surf_spot.location %></h2>
+      <p><%=icon('fas','star')%>(<%= surf_spot.spot_reviews.length %> comments)</p>
     </div>
 </div>
 <% end %>
