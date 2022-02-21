@@ -1,11 +1,14 @@
 <%= link_to surf_spot_path(surf_spot) do%>
-  <div class="spot-card d-flex">
     <div>
-      <img class="spot-card-img" src="https://api.navily.com/media/AGxLeNtHRsD2SpKfa40DAAN7sC7pCtotaZyLTHQrcAkJSZeXEG1e6Npvkcq1YL9l?w=128&crop_square=true" alt="Spot">
-    </div>
-    <div class="spot-card-details">
-      <h2 class="spot-card-h2"><%= surf_spot.location %></h2>
-      <p><%=icon('fas','star')%>(<%= surf_spot.spot_reviews.length %> comments)</p>
-    </div>
+        <div class="spot-card d-flex">
+            <div>
+                <img class="spot-card-img" src="https://api.navily.com/media/AGxLeNtHRsD2SpKfa40DAAN7sC7pCtotaZyLTHQrcAkJSZeXEG1e6Npvkcq1YL9l?w=128&crop_square=true" alt="Spot">
+            </div>
+            <div class="spot-card-details">
+                <h2 class="spot-card-h2"><%= surf_spot.location %></h2>
+                <p><%=icon('fas','star')%>(<%= surf_spot.spot_reviews.length %> comments)</p>
+                <p><%= render 'shared/favorite', surf_spot: surf_spot  %></p>
+            </div>
+        </div>
   </div>
 <% end %>

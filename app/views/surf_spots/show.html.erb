@@ -26,7 +26,9 @@
       <% (5 - @average_rating.to_i - 1).times do %>
         <%= icon('far','star')%>
       <%end%>
-<br>
+<%# -----------FAVORIS----------------- %>
+
+      <%= render 'shared/favorite', surf_spot: @surf_spot  %>
       
 <%# -----------COMMENTS----------------- %>
       (<%= @surf_spot.spot_reviews.length %> comments)
