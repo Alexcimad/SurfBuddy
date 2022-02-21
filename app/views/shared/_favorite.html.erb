@@ -1,0 +1,7 @@
+  <div data-controller="favorite">
+  <%# <div> class="test" data-favorite-target='favoriteBtn' data-action="click->favorite#toggle" %>
+  <% if current_user.favorite_spots.pluck(:surf_spot_id).include?(surf_spot.id) %>
+      <%= link_to icon('fas','bookmark') , surf_spot_favorite_path(surf_spot), remote: true, class: "test fav" , data: { favorite_target: 'favoriteBtn', action: "click->favorite#toggle" } %>
+  <% else %>
+      <%= link_to icon('fas','bookmark'), surf_spot_favorite_path(surf_spot), remote: true, class: "test" , data: { favorite_target: 'favoriteBtn', action: "click->favorite#toggle" } %>
+  <% end %>
