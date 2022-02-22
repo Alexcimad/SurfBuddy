@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+require 'open-uri'
 
 puts "-DESTROYING CURRENT DATA"
 FavoriteSpot.destroy_all
@@ -40,7 +40,12 @@ jeremyF = User.create!(email: 'jeremyF@gmail.com',password: "WSL2021", nickname:
 # Add Spots
 
 surf_spot1 = SurfSpot.create!(location: "Paris", description: "Lorem Ipsum")
+file_user = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1644534494/pzrxzpomr8mup05gnztk.jpg")
+surf_spot1.photos.attach(io: file_user, filename: "alexis_photo.jpg", content_type: "image/jpg")
+file_user2 = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1644534494/pzrxzpomr8mup05gnztk.jpg")
+surf_spot1.photos.attach(io: file_user2, filename: "alexis_photo.jpg", content_type: "image/jpg")
 puts "---CREATING #{surf_spot1.location}"
+
 surf_spots << surf_spot1
 
 surf_spot2 = SurfSpot.create!(location: "Quiberon", description: "Lorem Ipsum")
