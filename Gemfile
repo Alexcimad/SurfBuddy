@@ -31,6 +31,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
 gem "breadcrumbs_on_rails"
 gem 'geocoder'
+gem 'httparty'
 
 gem 'cloudinary', '~> 1.16.0'
 
