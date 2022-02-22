@@ -12,6 +12,8 @@ FavoriteSpot.destroy_all
 SpotReview.destroy_all
 SurfSpot.destroy_all
 User.destroy_all
+Tag.destroy_all
+FavoriteSpotTag.destroy_all
 
 CONST_LEVEL = ["Beginner", "Intermediate", "Expert"]
 surf_spots = []
@@ -81,3 +83,14 @@ spot_reviews << spot_review5
 
 puts "----CREATING FAVORITES SPOTS"
 fav_spot1 = FavoriteSpot.create!(surf_spot_id: surf_spot1.id ,user_id: user2.id)
+
+
+puts "----CREATING TAGS"
+tag1 = Tag.create!(name: "Rochers")
+tag2 = Tag.create!(name: "Bikini")
+tag3 = Tag.create!(name: "Otoctone")
+tag4 = Tag.create!(name: "Privé")
+
+puts "----CREATING FAVORITES SPOTS TAGS"
+fst1 = FavoriteSpotTag.create!(favorite_spot_id: fav_spot1.id, tag_id: tag2.id)
+fst1 = FavoriteSpotTag.create!(favorite_spot_id: fav_spot1.id, tag_id: tag4.id)
