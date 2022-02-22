@@ -8,6 +8,11 @@
                 <h2 class="spot-card-h2"><%= surf_spot.location %></h2>
                 <p><%=icon('fas','star')%>(<%= surf_spot.spot_reviews.length %> comments)</p>
                 <p><%= render 'shared/favorite', surf_spot: surf_spot  %></p>
+                <div class="row">
+                <p class="col"><%=icon('fas','wind')%></p>
+                <p class="col"><%=icon('fas','water')%></p>
+                <p class="col"><%=icon('fas','location-arrow')%></p>
+                </div>
             </div>
         </div>
   </div>
