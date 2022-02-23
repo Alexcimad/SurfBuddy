@@ -12,6 +12,7 @@ FavoriteSpot.destroy_all
 SpotReview.destroy_all
 SurfSpot.destroy_all
 User.destroy_all
+SurfCondition.destroy_all
 
 CONST_LEVEL = ["Beginner", "Intermediate", "Expert"]
 surf_spots = []
@@ -107,6 +108,7 @@ SurfSpot.all.each do |spot|
   response_JSON.delete("units")
   response_JSON.delete("warning")
   array_hash = response_JSON.values.transpose.map { |vs| response_JSON.keys.zip(vs).to_h }
+  binding.pry
   surf_condition = SurfCondition.new(wave: array_hash[index_near_future]["waves_height-surface"],
                                      swell: array_hash[index_near_future]["swell1_height-surface"],
                                      period: array_hash[index_near_future]["waves_period-surface"].to_i)

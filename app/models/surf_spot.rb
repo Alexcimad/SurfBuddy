@@ -3,6 +3,6 @@ class SurfSpot < ApplicationRecord
   has_many_attached :photos
   # validates :location, :description, presence: true
   geocoded_by :location
-  has_many :surf_conditions
+  has_many :surf_conditions, dependent: :destroy
   after_validation :geocode, if: :will_save_change_to_location?
 end
