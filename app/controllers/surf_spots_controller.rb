@@ -21,18 +21,6 @@ class SurfSpotsController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: { spot: spot })
       }
     end
-
-    response = HTTParty.post("https://api.windy.com/api/point-forecast/v2",
-    body:{lat: @surf_spots.first.latitude,
-          lon: @surf_spots.first.longitude,
-          model: "gfsWave",
-          parameters: ["waves", "windWaves", "swell1"],
-          key: "ush812LCNxuBzbqH9d7yuakyPxMaoN36"}.to_json,
-    headers: {
-      'Content-Type' => 'application/json',
-       'Accept'=> 'application/json, text/plain, */*'
-    })
-    response_JSON = JSON.parse(response.body)
   end
 
   # READ one
