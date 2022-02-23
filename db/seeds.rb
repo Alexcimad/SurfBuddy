@@ -40,12 +40,11 @@ jeremyF = User.create!(email: 'jeremyF@gmail.com',password: "WSL2021", nickname:
 
 # Add Spots
 
-surf_spot1 = SurfSpot.create!(location: "Paris", description: "Lorem Ipsum")
+surf_spot1 = SurfSpot.create!(location: "Lacanau", description: "Lorem Ipsum")
 file_user = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1644534494/pzrxzpomr8mup05gnztk.jpg")
 surf_spot1.photos.attach(io: file_user, filename: "alexis_photo.jpg", content_type: "image/jpg")
 file_user2 = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1644534494/pzrxzpomr8mup05gnztk.jpg")
 surf_spot1.photos.attach(io: file_user2, filename: "alexis_photo.jpg", content_type: "image/jpg")
-surf_spot1 = SurfSpot.create!(location: "Royan", description: "Lorem Ipsum")
 puts "---CREATING #{surf_spot1.location}"
 
 surf_spots << surf_spot1
@@ -97,7 +96,8 @@ SurfSpot.all.each do |spot|
       lon: spot.longitude,
       model: "gfsWave",
       parameters: ["waves", "windWaves", "swell1"],
-      key: "ush812LCNxuBzbqH9d7yuakyPxMaoN36"}.to_json,
+      key: ENV['WINDY_API_KEY']
+      }.to_json,
   headers: {
   'Content-Type' => 'application/json',
   'Accept'=> 'application/json, text/plain, */*'
@@ -108,7 +108,6 @@ SurfSpot.all.each do |spot|
   response_JSON.delete("units")
   response_JSON.delete("warning")
   array_hash = response_JSON.values.transpose.map { |vs| response_JSON.keys.zip(vs).to_h }
-  binding.pry
   surf_condition = SurfCondition.new(wave: array_hash[index_near_future]["waves_height-surface"],
                                      swell: array_hash[index_near_future]["swell1_height-surface"],
                                      period: array_hash[index_near_future]["waves_period-surface"].to_i)
