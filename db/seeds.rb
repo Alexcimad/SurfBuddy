@@ -12,6 +12,7 @@ FavoriteSpot.destroy_all
 SpotReview.destroy_all
 SurfSpot.destroy_all
 User.destroy_all
+SurfCondition.destroy_all
 
 CONST_LEVEL = ["Beginner", "Intermediate", "Expert"]
 surf_spots = []
@@ -39,7 +40,7 @@ jeremyF = User.create!(email: 'jeremyF@gmail.com',password: "WSL2021", nickname:
 
 # Add Spots
 
-surf_spot1 = SurfSpot.create!(location: "Paris", description: "Lorem Ipsum")
+surf_spot1 = SurfSpot.create!(location: "Lacanau", description: "Lorem Ipsum")
 file_user = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1644534494/pzrxzpomr8mup05gnztk.jpg")
 surf_spot1.photos.attach(io: file_user, filename: "alexis_photo.jpg", content_type: "image/jpg")
 file_user2 = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1644534494/pzrxzpomr8mup05gnztk.jpg")
@@ -52,7 +53,7 @@ surf_spot2 = SurfSpot.create!(location: "Quiberon", description: "Lorem Ipsum")
 puts "---CREATING #{surf_spot2.location}"
 surf_spots << surf_spot2
 
-surf_spot3 = SurfSpot.create!(location: "La torche", description: "Lorem Ipsum")
+surf_spot3 = SurfSpot.create!(location: "Hossegor", description: "Lorem Ipsum")
 puts "---CREATING #{surf_spot3.location}"
 surf_spots << surf_spot3
 
@@ -86,3 +87,32 @@ spot_reviews << spot_review5
 
 puts "----CREATING FAVORITES SPOTS"
 fav_spot1 = FavoriteSpot.create!(surf_spot_id: surf_spot1.id ,user_id: user2.id)
+
+puts "------CREATING INITIAL SURF CONDITIONS FOR SPOTS"
+
+SurfSpot.all.each do |spot|
+  response = HTTParty.post("https://api.windy.com/api/point-forecast/v2",
+  body:{lat: spot.latitude,
+      lon: spot.longitude,
+      model: "gfsWave",
+      parameters: ["waves", "windWaves", "swell1"],
+      key: ENV['WINDY_API_KEY']
+      }.to_json,
+  headers: {
+  'Content-Type' => 'application/json',
+  'Accept'=> 'application/json, text/plain, */*'
+  })
+  response_JSON = JSON.parse(response.body)
+  timestamp=response_JSON["ts"]
+  index_near_future = timestamp.index(timestamp.find { |element| Time.at(element) >= Time.now})
+  response_JSON.delete("units")
+  response_JSON.delete("warning")
+  array_hash = response_JSON.values.transpose.map { |vs| response_JSON.keys.zip(vs).to_h }
+  surf_condition = SurfCondition.new(wave: array_hash[index_near_future]["waves_height-surface"],
+                                     swell: array_hash[index_near_future]["swell1_height-surface"],
+                                     period: array_hash[index_near_future]["waves_period-surface"].to_i)
+  
+  surf_condition.surf_spot = spot
+  surf_condition.save!
+
+  end
