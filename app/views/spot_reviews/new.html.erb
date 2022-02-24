@@ -1,0 +1,12 @@
+<div class="container">
+  <%= simple_form_for [@surf_spot, @spot_review] do |f| %>
+    <div class="m-2">
+        <%= f.input :comment,label: :Comment, :input_html => {:style => 'width: 100%', :rows => 3 } %>
+        <%= f.input :rating, label: "Rating"%>
+    </div>
+    <div class="row">
+        <div><%= link_to "Cancel", surf_spot_path(@surf_spot), class: "btn btn-flat btn-cta m-2" %></div>
+        <div><%= f.submit "Confirm", class: "btn btn-flat btn-cta m-2"%></div>
+    </div>
+  <% end %>
+</div>

@@ -8,9 +8,11 @@
 
 <div class="container">
   <div class="surf_spot_title">
+    <%# -----------FAVORIS----------------- %>
+    <%= render 'shared/favorite', surf_spot: @surf_spot %>
     <h1 class="text-center"><%= @surf_spot.location %></h1>
-    <p class="text-center">
 
+    <p class="text-center">
 <%# ---------AVERAGE RATING------------- %>
       <% @average_rating.to_i.times do %>
         <%= icon('fas','star') %>
@@ -26,20 +28,53 @@
       <% (5 - @average_rating.to_i - 1).times do %>
         <%= icon('far','star')%>
       <%end%>
-<%# -----------FAVORIS----------------- %>
-
-      <%= render 'shared/favorite', surf_spot: @surf_spot  %>
-      
 <%# -----------COMMENTS----------------- %>
-      (<%= @surf_spot.spot_reviews.length %> comments)
+    <a href="#comments" >(<%= @surf_spot.spot_reviews.length %> comments)</a>
     </p>
-    <p class="localisation text-center" ><%= @surf_spot.latitude %>, <%= @surf_spot.longitude %></p>
+    <p class="localisation text-center" ><%= icon('fas','location-arrow')%> <%= @surf_spot.latitude %>, <%= @surf_spot.longitude %></p>
+  </div>
+<%# -----------IMAGES----------------- %>
+<div class="card-offer-detail-carousel">
+    <div id="carouselExampleIndicators" class="carousel slide text-center" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <% @surf_spot.photos.count.times do |i| %>
+          <li data-target="#carouselExampleIndicators" data-slide-to="<%= i %>" class="<%= i == 0 ? 'active' : '' %>"></li>
+        <% end %>
+      </ol>
+
+      <div class="carousel-inner">
+        <% @surf_spot.photos.each_with_index do |photo, index| %>
+          <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
+            <%= cl_image_tag(photo.key, class: 'carousel-imagetag carousel-img', crop: :fill) %>
+          </div>
+        <% end %>
+      </div>
+
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
   </div>
 <hr>
 <h2>Informations about the spot</h2>
 <p><%= @surf_spot.description %></p>
 <hr>
-<h2>Reviews</h2>
+<%# -----------API----------------- %>
+<h2 class="text-center">Our score of this spot</h2>
+
+  <div class="d-flex justify-content-around">
+    <p class="picto"><%=icon('fas','wind')%></p>
+    <p class="picto"><%=icon('fas','water')%></p>
+    <p class="picto"><%=icon('fas','location-arrow')%></p>
+  </div>
+<hr>
+<h2 id="comments">Reviews (<%= @surf_spot.spot_reviews.length %>)</h2>
 <% if @surf_spot.spot_reviews.exists? %>
 
   <% @surf_spot.spot_reviews.each do |review| %>
@@ -55,7 +90,7 @@
         </div>
       </div>
       <div class="review-content">
-        <p class="review-comment"> 
+        <p class="review-comment">
           <%review.rating.times do %>
             <%= icon('fas','star')%>
           <%end%>
@@ -69,9 +104,17 @@
       </div>
     </div>
   <%end%>
-
   <% else %>
-  <p>They are no comments and rating</p>
-
+    <p>They are no comments and rating</p>
   <% end %>
 </div>
+
+<!-- Button trigger modal -->
+<div class="text-center">
+  <button type="button" class="btn btn-primary text-center" data-toggle="modal" data-target="#exampleModal">
+    <%=icon('fa','plus')%> Add a review
+  </button>
+</div>
+
+<!-- Modal -->
+<%= render 'shared/review_spot', surf_spot: @surf_spot %>

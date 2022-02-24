@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_22_190701) do
+ActiveRecord::Schema.define(version: 2022_02_23_010853) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2022_02_22_190701) do
 
   create_table "favorite_spot_tags", force: :cascade do |t|
     t.bigint "favorite_spot_id", null: false
-    t.bigint "suf", null: false
+    t.bigint "tag_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["favorite_spot_id"], name: "index_favorite_spot_tags_on_favorite_spot_id"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 2022_02_22_190701) do
     t.date "end_hour"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "wave"
     t.index ["surf_spot_id"], name: "index_surf_conditions_on_surf_spot_id"
   end
 

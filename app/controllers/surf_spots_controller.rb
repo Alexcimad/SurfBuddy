@@ -1,3 +1,6 @@
+require 'rest-client'
+require 'httparty'
+
 class SurfSpotsController < ApplicationController
 
   # before_action :set_tags, only: [:index, :show]
@@ -26,33 +29,30 @@ class SurfSpotsController < ApplicationController
 
   # READ one
   def show
-    
+    @spot_review = SpotReview.new
     @surf_spot = SurfSpot.find(params[:id])
-    if @surf_spot.spot_review_ids.present?
+    if @surf_spot.spot_reviews.present?
       total_rating = 0
       @surf_spot.spot_reviews.each do |review|
-        total_rating += review.rating 
+        total_rating += review.rating
       end
       @average_rating = total_rating / @surf_spot.spot_reviews.length.to_f
-      # respond_to do |format|
-      #   format.html
-      #   format.js
-      # end
     else
       @average_rating = 0
     end
   end
 
-
-  # CREATE
+  # NEW
   def new
     @surf_spot = SurfSpot.new
   end
 
+  # def create
   def create
     @surf_spot = SurfSpot.new(surf_spot_params)
     @surf_spot.user = current_user
     if @surf_spot.save
+      # test API respo
       redirect_to surf_spot_path(@surf_spot)
     else
       render :new
