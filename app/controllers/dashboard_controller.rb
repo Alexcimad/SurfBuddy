@@ -13,8 +13,14 @@ class DashboardController < ApplicationController
         else
           @user = current_user
         end
-    
+        set_tags
         @favorite_spots = @user.favorite_spots  
+      end
+
+      private 
+
+      def set_tags
+        @ftags = FavoriteSpotTag.all
       end
 end
 

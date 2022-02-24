@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2022_02_22_190701) do
 
   create_table "favorite_spot_tags", force: :cascade do |t|
     t.bigint "favorite_spot_id", null: false
-    t.bigint "tag_id", null: false
+    t.bigint "suf", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["favorite_spot_id"], name: "index_favorite_spot_tags_on_favorite_spot_id"

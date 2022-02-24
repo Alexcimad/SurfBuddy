@@ -12,6 +12,10 @@
                 <p class="col"><%=icon('fas','wind')%></p>
                 <p class="col"><%=icon('fas','water')%></p>
                 <p class="col"><%=icon('fas','location-arrow')%></p>
+                <% @ftags_filtred = @ftags.where(favorite_spot_id: surf_spot.favorite_spots) %>
+                <% @ftags_filtred.each do |tag| %>
+                        <%= tag.tag.name %>
+                <% end %>
                 </div>
             </div>
         </div>

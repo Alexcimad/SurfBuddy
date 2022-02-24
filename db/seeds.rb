@@ -83,6 +83,9 @@ spot_reviews << spot_review5
 
 puts "----CREATING FAVORITES SPOTS"
 fav_spot1 = FavoriteSpot.create!(surf_spot_id: surf_spot1.id ,user_id: user2.id)
+fav_spot2 = FavoriteSpot.create!(surf_spot_id: surf_spot2.id ,user_id: user2.id)
+fav_spot3 = FavoriteSpot.create!(surf_spot_id: surf_spot3.id ,user_id: user2.id)
+
 
 # Add Tags
 
@@ -95,5 +98,7 @@ tag4 = Tag.create!(name: "Privé")
 # Add Favorite_spots_tags
 
 puts "----CREATING FAVORITES SPOTS TAGS"
-fst1 = FavoriteSpotTag.create!(favorite_spot_id: fav_spot1.id, tag_id: tag2.id)
-fst1 = FavoriteSpotTag.create!(favorite_spot_id: fav_spot1.id, tag_id: tag4.id)
+FavoriteSpotTag.create!(favorite_spot_id: fav_spot1.id, tag_id: tag2.id)
+FavoriteSpotTag.create!(favorite_spot_id: fav_spot1.id, tag_id: tag4.id)
+FavoriteSpotTag.create!(favorite_spot_id: fav_spot2.id, tag_id: tag3.id)
+FavoriteSpotTag.create!(favorite_spot_id: fav_spot3.id, tag_id: tag3.id)
