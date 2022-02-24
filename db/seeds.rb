@@ -129,11 +129,38 @@ def fetch_current_conditions(surf_spot)
   response_wind_temp_JSON = JSON.parse(response_wind_temp.body)
   wind_info = convert_API_response_to_hash(response_wind_temp_JSON)
   wind_speed = Math.sqrt(wind_info[1][wind_info[0]]["wind_u-surface"]**2 + wind_info[1][wind_info[0]]["wind_v-surface"]**2)/0.514
+  wind_direction_rad = Math.atan2(wind_info[1][wind_info[0]]["wind_v-surface"],wind_info[1][wind_info[0]]["wind_u-surface"])
+  binding.pry
+  if (wind_direction_rad < 0)
+    wind_direction_rad = wind_direction_rad + 2 * Math::PI
+  end
+
+  if wind_direction_rad <= (Math::PI/8) && wind_direction_rad > 0
+    wind_direction = "E"
+  elsif wind_direction_rad <= (3*Math::PI/8) && wind_direction_rad > (Math::PI/8) 
+    wind_direction = "NE"
+  elsif wind_direction_rad <= (5*Math::PI/8) && wind_direction_rad > (3*Math::PI/8) 
+    wind_direction = "N"
+  elsif wind_direction_rad <= (7*Math::PI/8)  && wind_direction_rad > (5*Math::PI/8) 
+    wind_direction = "NW"
+  elsif wind_direction_rad <= (9*Math::PI/8) && wind_direction_rad > (7*Math::PI/8)
+    wind_direction = "W"
+  elsif wind_direction_rad <= (11*Math::PI/8) && wind_direction_rad > (9*Math::PI/8)
+    wind_direction = "SW"
+  elsif wind_direction_rad <= (13*Math::PI/8) && wind_direction_rad > (11*Math::PI/8)
+    wind_direction = "S"
+  elsif wind_direction_rad <= (15*Math::PI/8) && wind_direction_rad > (13*Math::PI/8)
+    wind_direction = "SE"
+  elsif wind_direction_rad <= (2*Math::PI/8) && wind_direction_rad > (15*Math::PI/8)
+    wind_direction = "E"
+  end
+  
   surf_condition = SurfCondition.new(wave: waves_info[1][waves_info[0]]["waves_height-surface"],
                                      swell: waves_info[1][waves_info[0]]["swell1_height-surface"],
                                      period: waves_info[1][waves_info[0]]["waves_period-surface"].to_i,
                                      temp: (wind_info[1][wind_info[0]]["temp-surface"] - 273.15).to_i,
-                                     wind_speed: wind_speed)
+                                     wind_speed: wind_speed,
+                                     wind_direction: wind_direction)
   surf_condition.surf_spot = surf_spot
   surf_condition.save!
 end

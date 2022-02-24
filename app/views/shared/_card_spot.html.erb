@@ -11,7 +11,7 @@
                 <div class="row">
                 <p class="col"><%=icon('fas','wind')%><%= surf_spot.surf_conditions[0].wind_speed.ceil(1)%> kt</p>
                 <p class="col"><%=icon('fas','water')%><%= surf_spot.surf_conditions[0].wave.ceil(2)%> m</p>
-                <p class="col"><%=icon('fas','location-arrow')%></p>
+                <p class="col"><%=icon('fas','location-arrow')%><%= surf_spot.surf_conditions[0].wind_direction%></p>
                 </div>
             </div>
         </div>
