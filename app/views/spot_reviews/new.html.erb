@@ -5,7 +5,7 @@
         <%= f.input :rating, label: "Rating"%>
     </div>
     <div class="row">
-        <div><%= link_to "Cancel", root_path, class: "btn btn-flat btn-cta m-2" %></div>
+        <div><%= link_to "Cancel", surf_spot_path(@surf_spot), class: "btn btn-flat btn-cta m-2" %></div>
         <div><%= f.submit "Confirm", class: "btn btn-flat btn-cta m-2"%></div>
     </div>
   <% end %>
