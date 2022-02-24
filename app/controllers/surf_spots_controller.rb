@@ -1,3 +1,6 @@
+require 'rest-client'
+require 'httparty'
+
 class SurfSpotsController < ApplicationController
   #all surfspots
   def index
@@ -35,15 +38,17 @@ class SurfSpotsController < ApplicationController
     end
   end
 
-  # CREATE
+  # NEW
   def new
     @surf_spot = SurfSpot.new
   end
 
+  # def create
   def create
     @surf_spot = SurfSpot.new(surf_spot_params)
     @surf_spot.user = current_user
     if @surf_spot.save
+      # test API respo
       redirect_to surf_spot_path(@surf_spot)
     else
       render :new
@@ -73,4 +78,5 @@ class SurfSpotsController < ApplicationController
   def surf_spot_params
     params.require(:surf_spot).permit(:title, :description, :longitude, :latitude, :location, :created_at, :updated_at, photos: [])
   end
+
 end
