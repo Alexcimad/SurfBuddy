@@ -17,6 +17,11 @@
                         <%= tag.tag.name %>
                 <% end %>
                 </div>
+                <div>
+                    <% if !current_page?(url_for(:controller => 'dashboard', :action => 'profile')) %>
+                        show some stuff
+                    <% end %>
+                </div>
             </div>
         </div>
   </div>
