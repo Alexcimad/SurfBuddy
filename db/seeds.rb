@@ -130,7 +130,7 @@ def fetch_current_conditions(surf_spot)
   wind_info = convert_API_response_to_hash(response_wind_temp_JSON)
   wind_speed = Math.sqrt(wind_info[1][wind_info[0]]["wind_u-surface"]**2 + wind_info[1][wind_info[0]]["wind_v-surface"]**2)/0.514
   wind_direction_rad = Math.atan2(wind_info[1][wind_info[0]]["wind_v-surface"],wind_info[1][wind_info[0]]["wind_u-surface"])
-  binding.pry
+  
   if (wind_direction_rad < 0)
     wind_direction_rad = wind_direction_rad + 2 * Math::PI
   end
