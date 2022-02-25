@@ -9,14 +9,14 @@
             </div>
             <div class="modal-body">
                 <div class="container">
-                    <% @ftags.each do |tag|%>
+                    <% @tags.each do |tag|%>
                         
                         
                         <div data-controller="favorite" class="text-right picto">
-                            <% if current_user.favorite_spots.pluck(:surf_spot_id).include?(tag.favorite_spot.id) %>
+                            <% if current_user.favorite_spots.pluck(:id).include?(tag) %>
                                 <%= link_to icon('fas','heart') , surf_spot_favorite_path(surf_spot), remote: true, class: "test fav" , data: { favorite_target: 'favoriteBtn', action: "click->favorite#toggleTag" } %>
                             <% else %>
-                                <%= link_to tag.tag.name , tags_path(tag), remote: true, class: "test" , data: { favoriteTag_target: 'favoriteBtn', action: "click->favorite#toggleTag" } %>
+                                <%= link_to tag.name , favorite_tag_path(tag), remote: true, class: "test" , data: { favoriteTag_target: 'favoriteBtn', action: "click->favorite#toggleTag" } %>
                             <% end %>
                         </div>
 

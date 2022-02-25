@@ -1,6 +1,7 @@
 class DashboardController < ApplicationController
     skip_before_action :authenticate_user!, only: [ :profile ]
     def profile
+      @tags = Tag.all
         if params[:level].present?
           @level = params[:level]
           @user = current_user

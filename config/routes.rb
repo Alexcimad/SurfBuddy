@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   get "profile", to: "dashboard#profile"
+  get "favorite_tag", to: "tags#favoriteTag"
 
   resources :tags, only: [:index, :new, :create] do
     resources :favorite_spot_tags, only: [:new, :create]

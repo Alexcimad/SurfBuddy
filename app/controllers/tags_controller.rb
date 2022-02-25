@@ -19,15 +19,15 @@ class TagsController < ApplicationController
       @tags = Tag.all
   end
 
-  def favoriteTag
+  def favoriteTag(tag)
     @user = current_user
     @favorite_spot = FavoriteSpot.where(user: @user)
-    @favorite = FavoriteSpotTag.where(favorite_spot: @favorite_spot)
+    @favorite = FavoriteSpotTag.where(favorite_spot: @favorite_spot, tag: tag)
   raise
     if @favorite.present?
         @favorite.first.destroy
     else
-      FavoriteSpotTag.create(user: @user, tag: @tag)
+      FavoriteSpotTag.create(user: @user, tag: tag)
     end
       # respond_to do |format|
       #     format.html { render 'shared/_card_spot', locals: { surf_spot: @surf_spot, user: @user } }
