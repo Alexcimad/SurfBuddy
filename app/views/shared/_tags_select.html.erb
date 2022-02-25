@@ -12,12 +12,16 @@
                     <% @ftags.each do |tag|%>
                         
                         
-                        
-                        <%= tag.tag.name %>
+                        <div data-controller="favorite" class="text-right picto">
+                            <% if current_user.favorite_spots.pluck(:surf_spot_id).include?(tag.favorite_spot.id) %>
+                                <%= link_to icon('fas','heart') , surf_spot_favorite_path(surf_spot), remote: true, class: "test fav" , data: { favorite_target: 'favoriteBtn', action: "click->favorite#toggleTag" } %>
+                            <% else %>
+                                <%= link_to tag.tag.name , tags_path(tag), remote: true, class: "test" , data: { favoriteTag_target: 'favoriteBtn', action: "click->favorite#toggleTag" } %>
+                            <% end %>
+                        </div>
 
 
 
-                        
                     <% end %>
                 </div>
 
