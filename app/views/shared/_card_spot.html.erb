@@ -20,7 +20,15 @@
                 <div>
 
                     <% if current_page?(url_for(:controller => 'dashboard', :action => 'profile')) %>
-                        show some stuff
+                        <!-- Button trigger modal -->
+                        <div class="text-center">
+                        <button type="button" class="btn btn-primary text-center" data-toggle="modal" data-target="#tagModal">
+                            <%=icon('fa','plus')%> 
+                        </button>
+                        </div>
+
+                        <!-- Modal -->
+                        <%= render 'shared/tags_select', surf_spot: @surf_spot %>
                     <% end %>
                 </div>
             </div>
