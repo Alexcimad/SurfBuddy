@@ -120,6 +120,56 @@ def convert_API_response_to_hash(windy_response)
   return [index_near_future, windy_response.values.transpose.map { |vs| windy_response.keys.zip(vs).to_h }]
 end
 
+def calculate_spot_level_rating(args={})
+  global_rate = 0
+  level = "" 
+  
+  # Use wave weight condition in calculation
+  wave_height = args[:wave_height]
+  if wave_height < 1.0
+    level = "Beginner"
+    global_rate += 1
+  elsif wave_height < 2.0
+    level = "Intermediate"
+    global_rate += 2
+  else
+    level = "Expert"
+    global_rate += 3
+  end
+
+  #Use period condition in wave weight condition
+  period = args[:period]
+  if period <= 5
+    global_rate += 1
+  elsif (6..8).include? period
+    global_rate +=2
+  elsif (9..10).include? period
+    global_rate +=3
+  elsif (11..12).include? period
+    global_rate +=4
+  else
+    global_rate += 5
+  end
+
+  # Use wind direction/speed into calculation
+  wind_speed = args[:wind_speed]
+  wind_dir = args[:wind_direction]
+  if wind_speed > 7
+    case wind_dir
+    when "NW"
+    when "SW"
+      global_rate += 1
+    when "W" 
+      global_rate += 2
+    end
+  elsif wind_speed < 3
+    global_rate += 2
+  end
+
+  return {level: level, rating: global_rate}
+
+end
+
 def fetch_current_conditions(surf_spot)
   # fetch wave information for each spot
   response = HTTParty.post("https://api.windy.com/api/point-forecast/v2",
@@ -176,13 +226,17 @@ def fetch_current_conditions(surf_spot)
   elsif wind_direction_rad <= (2*Math::PI/8) && wind_direction_rad > (15*Math::PI/8)
     wind_direction = "E"
   end
-  
+
+  rating_results = calculate_spot_level_rating({wave_height: waves_info[1][waves_info[0]]["waves_height-surface"], period: waves_info[1][waves_info[0]]["waves_period-surface"].to_i, wind_direction: wind_direction, wind_speed: wind_speed })
   surf_condition = SurfCondition.new(wave: waves_info[1][waves_info[0]]["waves_height-surface"],
                                      swell: waves_info[1][waves_info[0]]["swell1_height-surface"],
                                      period: waves_info[1][waves_info[0]]["waves_period-surface"].to_i,
                                      temp: (wind_info[1][wind_info[0]]["temp-surface"] - 273.15).to_i,
                                      wind_speed: wind_speed,
-                                     wind_direction: wind_direction)
+                                     wind_direction: wind_direction,
+                                     rating: rating_results[:rating],
+                                     level: rating_results[:level],
+                                     start_hour: Time.at(waves_info[1][waves_info[0]]["ts"]/1000))
   surf_condition.surf_spot = surf_spot
   surf_condition.save!
 end
