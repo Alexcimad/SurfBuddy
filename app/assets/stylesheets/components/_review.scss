@@ -1,11 +1,11 @@
-.review{
+.review-card{
   background-color: white;
   margin-bottom: 10px;
   padding: 5px 10px;
   border-radius: 20px;
 }
 
-.review .review-header{
+.review-card .review-header{
   display: flex;
   align-content: center;
   justify-content: flex-start;
@@ -14,11 +14,11 @@
   padding-right: 10px;
 }
 
-.review .review-header img{
+.review-card .review-header img{
   width : 75px;
   height: 75px;
 }
 
-.review .review-comment{
+.review-card .review-comment{
   font-style: italic;
 }
