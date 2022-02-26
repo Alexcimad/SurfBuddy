@@ -1,0 +1,37 @@
+
+    <div id="<%= surf_spot.location %>-spotcard">
+        <div class="spot-card-single d-flex">
+        <%= link_to surf_spot_path(surf_spot) do %>
+          <img class="spot-card-img" src="https://api.navily.com/media/AGxLeNtHRsD2SpKfa40DAAN7sC7pCtotaZyLTHQrcAkJSZeXEG1e6Npvkcq1YL9l?w=128&crop_square=true" alt="Spot">
+            <div class="spot-card-details">
+                <h2 class="spot-card-h2"><%= surf_spot.location %></h2>
+                <p><%=icon('fas','star')%>(<%= surf_spot.spot_reviews.length %> comments)</p>
+                <div class="row">
+                <p class="col"><%=icon('fas','wind')%><%=surf_spot.surf_conditions[0].wind_speed%>kts</p>
+                <p class="col"><%=icon('fas','water')%><%=surf_spot.surf_conditions[0].wave.ceil(2)%>m</p>
+                <p class="col"><%=icon('fas','location-arrow')%><%=surf_spot.surf_conditions[0].wind_direction%></p>
+                <% @ftags_filtred = @ftags.where(favorite_spot_id: surf_spot.favorite_spots) %>
+                <% @ftags_filtred.each do |tag| %>
+                        <%= tag.tag.name %>
+                <% end %>
+                </div>
+                <div>
+
+                    <% if current_page?(url_for(:controller => 'dashboard', :action => 'profile')) %>
+                        <!-- Button trigger modal -->
+                        <div class="text-center">
+                        <button type="button" class="btn btn-primary text-center" data-toggle="modal" data-target="#tagModal">
+                            <%=icon('fa','plus')%>
+                        </button>
+                        </div>
+
+                        <!-- Modal -->
+                        <%= render 'shared/tags_select', surf_spot: @surf_spot %>
+                    <% end %>
+
+                </div>
+                <div><%= render 'shared/favorite', surf_spot: surf_spot  %></div>
+            </div>
+          <% end %>
+        </div>
+  </div>
