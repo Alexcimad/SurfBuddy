@@ -120,6 +120,35 @@ def convert_API_response_to_hash(windy_response)
   return [index_near_future, windy_response.values.transpose.map { |vs| windy_response.keys.zip(vs).to_h }]
 end
 
+def calc_wind_direction(v_wind_direction_rad)
+  wind_dir_result = ""
+  if (v_wind_direction_rad < 0)
+    v_wind_direction_rad = v_wind_direction_rad + 2 * Math::PI
+  end
+
+  if v_wind_direction_rad <= (Math::PI/8) && v_wind_direction_rad > 0
+    wind_dir_result = "E"
+  elsif v_wind_direction_rad <= (3*Math::PI/8) && v_wind_direction_rad > (Math::PI/8) 
+    wind_dir_result = "NE"
+  elsif v_wind_direction_rad <= (5*Math::PI/8) && v_wind_direction_rad > (3*Math::PI/8) 
+    wind_dir_result = "N"
+  elsif v_wind_direction_rad <= (7*Math::PI/8)  && v_wind_direction_rad > (5*Math::PI/8) 
+    wind_dir_result = "NW"
+  elsif v_wind_direction_rad <= (9*Math::PI/8) && v_wind_direction_rad > (7*Math::PI/8)
+    wind_dir_result = "W"
+  elsif v_wind_direction_rad <= (11*Math::PI/8) && v_wind_direction_rad > (9*Math::PI/8)
+    wind_dir_result = "SW"
+  elsif v_wind_direction_rad <= (13*Math::PI/8) && v_wind_direction_rad > (11*Math::PI/8)
+    wind_dir_result = "S"
+  elsif v_wind_direction_rad <= (15*Math::PI/8) && v_wind_direction_rad > (13*Math::PI/8)
+    wind_dir_result = "SE"
+  elsif v_wind_direction_rad <= (2*Math::PI/8) && v_wind_direction_rad > (15*Math::PI/8)
+    wind_dir_result = "E"
+  end
+  
+  return wind_dir_result
+end
+
 def calculate_spot_level_rating(args={})
   global_rate = 0
   level = "" 
@@ -200,45 +229,24 @@ def fetch_current_conditions(surf_spot)
   
   response_wind_temp_JSON = JSON.parse(response_wind_temp.body)
   wind_info = convert_API_response_to_hash(response_wind_temp_JSON)
-  wind_speed = Math.sqrt(wind_info[1][wind_info[0]]["wind_u-surface"]**2 + wind_info[1][wind_info[0]]["wind_v-surface"]**2)/0.514
-  wind_direction_rad = Math.atan2(wind_info[1][wind_info[0]]["wind_v-surface"],wind_info[1][wind_info[0]]["wind_u-surface"])
-  
-  if (wind_direction_rad < 0)
-    wind_direction_rad = wind_direction_rad + 2 * Math::PI
+ 
+  for i in 0..7 do
+    wind_speed = Math.sqrt(wind_info[1][wind_info[0]+i]["wind_u-surface"]**2 + wind_info[1][wind_info[0]+i]["wind_v-surface"]**2)/0.514
+    wind_direction_rad = Math.atan2(wind_info[1][wind_info[0]+i]["wind_v-surface"],wind_info[1][wind_info[0]+i]["wind_u-surface"])
+    wind_direction = calc_wind_direction(wind_direction_rad)
+    rating_results = calculate_spot_level_rating({wave_height: waves_info[1][waves_info[0]+i]["waves_height-surface"], period: waves_info[1][waves_info[0]+i]["waves_period-surface"].to_i, wind_direction: wind_direction, wind_speed: wind_speed })
+    surf_condition = SurfCondition.new(wave: waves_info[1][waves_info[0]+i]["waves_height-surface"],
+                                      swell: waves_info[1][waves_info[0]+i]["swell1_height-surface"],
+                                      period: waves_info[1][waves_info[0]+i]["waves_period-surface"].to_i,
+                                      temp: (wind_info[1][wind_info[0]+i]["temp-surface"] - 273.15).to_i,
+                                      wind_speed: wind_speed,
+                                      wind_direction: wind_direction,
+                                      rating: rating_results[:rating],
+                                      level: rating_results[:level],
+                                      start_hour: Time.at(waves_info[1][waves_info[0]+i]["ts"]/1000))
+    surf_condition.surf_spot = surf_spot
+    surf_condition.save!
   end
-
-  if wind_direction_rad <= (Math::PI/8) && wind_direction_rad > 0
-    wind_direction = "E"
-  elsif wind_direction_rad <= (3*Math::PI/8) && wind_direction_rad > (Math::PI/8) 
-    wind_direction = "NE"
-  elsif wind_direction_rad <= (5*Math::PI/8) && wind_direction_rad > (3*Math::PI/8) 
-    wind_direction = "N"
-  elsif wind_direction_rad <= (7*Math::PI/8)  && wind_direction_rad > (5*Math::PI/8) 
-    wind_direction = "NW"
-  elsif wind_direction_rad <= (9*Math::PI/8) && wind_direction_rad > (7*Math::PI/8)
-    wind_direction = "W"
-  elsif wind_direction_rad <= (11*Math::PI/8) && wind_direction_rad > (9*Math::PI/8)
-    wind_direction = "SW"
-  elsif wind_direction_rad <= (13*Math::PI/8) && wind_direction_rad > (11*Math::PI/8)
-    wind_direction = "S"
-  elsif wind_direction_rad <= (15*Math::PI/8) && wind_direction_rad > (13*Math::PI/8)
-    wind_direction = "SE"
-  elsif wind_direction_rad <= (2*Math::PI/8) && wind_direction_rad > (15*Math::PI/8)
-    wind_direction = "E"
-  end
-
-  rating_results = calculate_spot_level_rating({wave_height: waves_info[1][waves_info[0]]["waves_height-surface"], period: waves_info[1][waves_info[0]]["waves_period-surface"].to_i, wind_direction: wind_direction, wind_speed: wind_speed })
-  surf_condition = SurfCondition.new(wave: waves_info[1][waves_info[0]]["waves_height-surface"],
-                                     swell: waves_info[1][waves_info[0]]["swell1_height-surface"],
-                                     period: waves_info[1][waves_info[0]]["waves_period-surface"].to_i,
-                                     temp: (wind_info[1][wind_info[0]]["temp-surface"] - 273.15).to_i,
-                                     wind_speed: wind_speed,
-                                     wind_direction: wind_direction,
-                                     rating: rating_results[:rating],
-                                     level: rating_results[:level],
-                                     start_hour: Time.at(waves_info[1][waves_info[0]]["ts"]/1000))
-  surf_condition.surf_spot = surf_spot
-  surf_condition.save!
 end
 
 SurfSpot.all.each do |spot|
