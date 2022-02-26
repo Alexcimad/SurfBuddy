@@ -1,14 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'surf_spots#index'
+  root to: 'pages#home'
   resources :surf_spots do
     resources :spot_reviews, only: [:index, :show, :new, :create]
     get "favorite", to: "favorite_spots#favorite"
-      resources :favorite_spot_tags, only: [:new, :create]
   end
 
   get "profile", to: "dashboard#profile"
-  get "favorite_tag", to: "tags#favoriteTag"
+
 
   resources :tags, only: [:index, :new, :create] do
     resources :favorite_spot_tags, only: [:new, :create]

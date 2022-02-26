@@ -17,6 +17,15 @@
         <li class="nav-item">
           <%= link_to "Messages", "#", class: "nav-link" %>
         </li>
+
+        <!-- Button trigger modal -->
+        <li class="nav-item">
+            <button type="button" class="btn btn-primary text-center" data-toggle="modal" data-target="#exampleModal">
+              <p><%=icon('fa','search')%> Search</p>
+            </button>
+          <%= render 'shared/search_bar_modal'%>
+        </li>
+
         <li class="nav-item">
           <%= link_to "Profile", profile_path, class: "nav-link" %>
         </li>

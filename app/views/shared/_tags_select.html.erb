@@ -1,4 +1,4 @@
-<div class="modal fade" id="tagModal" tabindex="-1" role="dialog" aria-labelledby="tagModalLabel" aria-hidden="true">
+<div class="modal fade" id="tagModal<%= fav.id%>" tabindex="-1" role="dialog" aria-labelledby="tagModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -12,10 +12,11 @@
                     <% @tags.each do |tag|%>
                         
                         <div data-controller="favorite" class="text-right picto">
-                            <% if current_user.favorite_spots.ids.include?(tag.favorite_spot_tag_ids) %>
-                                <%= link_to icon('fas','heart') , surf_spot_favorite_path(surf_spot), remote: true, class: "test fav" , data: { favorite_target: 'favoriteBtn', action: "click->favorite#toggleTag" } %>
+                            <% if fav.tags.include?(tag) %>
+
+                                <%= link_to tag.name , "#" , remote: true, class: "test fav" , data: { favoriteTag_target: 'favoriteBtn', action: "click->favorite#toggleTag" } %>
                             <% else %>
-                                <%= link_to tag.name , favorite_tag_path(tag), remote: true, class: "test" , data: { favoriteTag_target: 'favoriteBtn', action: "click->favorite#toggleTag" } %>
+                                <%= link_to tag.name , tag_favorite_spot_tags_path(tag, fav: fav.id), remote: true, method: :post, class: "test" , data: { favoriteTag_target: 'favoriteBtn', action: "click->favorite#toggleTag" } %>
                             <% end %>
                         </div>
 

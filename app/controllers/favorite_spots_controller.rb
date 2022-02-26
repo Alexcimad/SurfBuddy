@@ -4,6 +4,10 @@ class FavoriteSpotsController < ApplicationController
 #     @favorite_spots = FavoriteSpot.new
 #   end
 
+    def index
+        @favorite_spots = FavoriteSpot.all
+    end
+
     def favorite
         @user = current_user
         @surf_spot = SurfSpot.find(params[:surf_spot_id])
