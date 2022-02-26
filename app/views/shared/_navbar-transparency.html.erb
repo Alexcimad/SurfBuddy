@@ -1,9 +1,9 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon_transparency">
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
   <% end %>
 
-<div class="nav-item">
+<!--<div class="nav-item">
   <button type="button" class="btn1 btn1-primary text-center  mt-3" data-toggle="modal" data-target="#exampleModal">
     <p><%=icon('fa','search')%> Search</p>
   </button>
@@ -20,9 +20,9 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
 
-          <!--Button trigger modal-->
+         Button trigger modal-->
 
-        <li class="nav-item">
+        <!--<li class="nav-item">
           <%= link_to "Profile", profile_path, class: "nav-link float-right" %>
         </li>
         <li class="nav-item dropdown">
@@ -38,7 +38,7 @@
       <% end %>
     </ul>
   </div>
-</div>
+</div>-->
 
 
  <!-- <header class="fixed-top">
@@ -67,51 +67,3 @@
                 <li><a href="fr/navily-premium.html" title="Navily Premium">Navily Premium</a></li>
                 <li><a href="http://blog.navily.com/" title="Blog" target="_blank">Blog</a></li>
 </header>-->
-
- <!--</div>
-            <header class="fixed-top">
-    <div class="container container-large">
-
-
-        <div class="menu-mobile">
-        <div class="wrapper-logo">
-            <a href="index.html">
-                <img src="images/logos/logo-blue.svg" class="logo-blue w-100" loading="lazy" alt="">
-            </a>
-        </div>
-
-        <div class="px-4 search-modal-triggerer wrapper-search-icon flex-grow-1">
-            <img class="float-right icon" src="images/icons/utils/search-main-dark.svg" alt="Icone recherche">
-        </div>
-
-        <div id="menuToggle">
-
-            <div id="menu-icon">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-
-            <ul id="menu">
-                <li><a href="fr/carte.html" title="Carte">Carte</a></li>
-                <li><a href="fr/navily-premium.html" title="Navily Premium">Navily Premium</a></li>
-                <li><a href="http://blog.navily.com/" title="Blog" target="_blank">Blog</a></li>
-
-
-                <div class="dropdown dropleft">
-                    <div class="d-flex dropdown-toggle pointer" data-toggle="dropdown">
-                        <div class="sm-plus-icon d-flex align-items-center">
-                            <img src="images/flags/fr.jpg" class="w-100" loading="lazy" alt="French">
-                        </div>
-                        <div class="mx-2 select-arrow-down d-flex align-items-center">
-                            <img src="images/icons/arrows/arrow-down-blue.svg" class="w-100"
-                                 loading="lazy" alt="Afficher la liste des langues">
-                        </div>
-                    </div>
-                </div>
-            </ul>
-        </div>
-    </div>
-    </div>
-</header>

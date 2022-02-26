@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
-    skip_before_action :authenticate_user!, only: [ :profile ]
+    skip_before_action :authenticate_user!, only: [:profile ]
     def profile
       @tags = Tag.all
         if params[:level].present?
@@ -15,10 +15,10 @@ class DashboardController < ApplicationController
           @user = current_user
         end
         set_tags
-        @favorite_spots = @user.favorite_spots  
+        @favorite_spots = @user.favorite_spots
       end
 
-      private 
+      private
 
       def set_tags
         @ftags = FavoriteSpotTag.all
