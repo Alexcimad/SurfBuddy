@@ -11,10 +11,7 @@ const buildMap = (mapElement) => {
 
   const addMarkersToMap = (map, markers) => {
     markers.forEach((marker) => {
-      const popup = new mapboxgl.Popup({
-        closeButton: false,
-        className: "custom_map",
-      }).setHTML(marker.info_window);
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window);
       const element = document.createElement('div');
       element.className = 'marker';
       element.style.backgroundImage = `url('${marker.image_url}')`;
