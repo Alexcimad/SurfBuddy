@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(version: 2022_02_23_221204) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "favorite_spot_tags", force: :cascade do |t|
+    t.bigint "favorite_spot_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["favorite_spot_id"], name: "index_favorite_spot_tags_on_favorite_spot_id"
+    t.index ["tag_id"], name: "index_favorite_spot_tags_on_tag_id"
+  end
+
   create_table "favorite_spots", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "surf_spot_id", null: false
@@ -91,6 +100,12 @@ ActiveRecord::Schema.define(version: 2022_02_23_221204) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -106,6 +121,8 @@ ActiveRecord::Schema.define(version: 2022_02_23_221204) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "favorite_spot_tags", "favorite_spots"
+  add_foreign_key "favorite_spot_tags", "tags"
   add_foreign_key "favorite_spots", "surf_spots"
   add_foreign_key "favorite_spots", "users"
   add_foreign_key "spot_reviews", "surf_spots"

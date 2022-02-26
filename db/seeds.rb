@@ -12,6 +12,8 @@ FavoriteSpot.destroy_all
 SpotReview.destroy_all
 SurfSpot.destroy_all
 User.destroy_all
+Tag.destroy_all
+FavoriteSpotTag.destroy_all
 SurfCondition.destroy_all
 
 CONST_LEVEL = ["Beginner", "Intermediate", "Expert"]
@@ -87,6 +89,26 @@ spot_reviews << spot_review5
 
 puts "----CREATING FAVORITES SPOTS"
 fav_spot1 = FavoriteSpot.create!(surf_spot_id: surf_spot1.id ,user_id: user2.id)
+fav_spot2 = FavoriteSpot.create!(surf_spot_id: surf_spot2.id ,user_id: user2.id)
+fav_spot3 = FavoriteSpot.create!(surf_spot_id: surf_spot3.id ,user_id: user1.id)
+fav_spot4 = FavoriteSpot.create!(surf_spot_id: surf_spot3.id ,user_id: user1.id)
+
+
+# Add Tags
+
+puts "----CREATING TAGS"
+tag1 = Tag.create!(name: "Rochers")
+tag2 = Tag.create!(name: "Bikini")
+tag3 = Tag.create!(name: "Otoctone")
+tag4 = Tag.create!(name: "Privé")
+
+# Add Favorite_spots_tags
+
+puts "----CREATING FAVORITES SPOTS TAGS"
+FavoriteSpotTag.create!(favorite_spot_id: fav_spot1.id, tag_id: tag2.id)
+FavoriteSpotTag.create!(favorite_spot_id: fav_spot1.id, tag_id: tag4.id)
+FavoriteSpotTag.create!(favorite_spot_id: fav_spot3.id, tag_id: tag3.id)
+FavoriteSpotTag.create!(favorite_spot_id: fav_spot4.id, tag_id: tag3.id)
 
 puts "------CREATING INITIAL SURF CONDITIONS FOR SPOTS"
 
@@ -169,4 +191,3 @@ SurfSpot.all.each do |spot|
   fetch_current_conditions(spot)
 end
 
-  

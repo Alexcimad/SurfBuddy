@@ -2,6 +2,9 @@ require 'rest-client'
 require 'httparty'
 
 class SurfSpotsController < ApplicationController
+
+  # before_action :set_tags, only: [:index, :show]
+  
   #all surfspots
   def index
     if params[:search].present?
@@ -21,6 +24,7 @@ class SurfSpotsController < ApplicationController
         info_window: render_to_string(partial: "info_window", locals: { spot: spot })
       }
     end
+    set_tags
   end
 
   # READ one
@@ -79,4 +83,7 @@ class SurfSpotsController < ApplicationController
     params.require(:surf_spot).permit(:title, :description, :longitude, :latitude, :location, :created_at, :updated_at, photos: [])
   end
 
+  def set_tags
+    @ftags = FavoriteSpotTag.all
+  end
 end
