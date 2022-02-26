@@ -10,7 +10,11 @@ Rails.application.routes.draw do
 
 
   resources :tags, only: [:index, :new, :create] do
-    resources :favorite_spot_tags, only: [:new, :create]
+    resources :favorite_spot_tags, only: [:new, :create] 
+    member do
+      get "tag_delete", to: "favorite_spot_tags#tag_delete"
+    end
+
   end
 end
 

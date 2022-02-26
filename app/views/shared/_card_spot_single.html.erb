@@ -12,7 +12,9 @@
                     <p class="col"><%=icon('fas','location-arrow')%><%=surf_spot.surf_conditions[0].wind_direction%></p>
                     <% @ftags_filtred = @ftags.where(favorite_spot_id: surf_spot.favorite_spots) %>
                     <% @ftags_filtred.each do |tag| %>
+                        <div class="tagborder">
                             <%= tag.tag.name %>
+                        </div>
                     <% end %>
                 </div>
             </div>
@@ -21,7 +23,7 @@
     <div>
         <!-- Button trigger modal -->
         <div class="text-center">
-            <div id="tagButton" class="btn btn-primary text-center" data-toggle="modal" data-target="#tagModal<%= fav.id%>">
+            <div  class="btn btn-primary text-center" data-toggle="modal" data-target="#tagModal<%= fav.id%>">
                 <%=icon('fa','plus')%>
             </div>
         </div>
