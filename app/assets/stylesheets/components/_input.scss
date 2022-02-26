@@ -18,14 +18,39 @@
 
 // button
 .btn {
-	height: 55px;
+	height: 45px;
 	width: fit-content;
-	font-size: 18px;
-	font-weight: bold;
+	font-size: 14px;
 	padding: 12px 48px;
 	border-radius: 50px;
 	&__black {
 		background-color: $black;
-		color: $white !important;
+		color: $white !important;}
+  &__white {
+    background-color: white;
+    color: rgb(114, 114, 114) !important;
+    text-align: left;
+    margin-top: 1vh;
+    margin-left: 6vh;
+    width: 45vh !important;
+    padding: 12px 30px !important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 	}
+  &__white2 {
+    background-color: none;
+    border: solid;
+    border-color: white;
+    border-width: 2px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    padding: 12px 30px !important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4vh;
+    width: 30vh !important;
+  }
 }
