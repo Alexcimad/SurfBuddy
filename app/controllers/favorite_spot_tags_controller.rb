@@ -17,4 +17,3 @@ class FavoriteSpotTagsController < ApplicationController
 
 end
 
-end
