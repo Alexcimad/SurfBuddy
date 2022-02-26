@@ -1,25 +1,27 @@
-<h1>Hello world</h1>
-
-<p>Mon niveau est <%= @user.level %></p>
+<div class="container mt-3">
+  <div class="profile text-center">
+      <%# <% if current_user.photo.attached? %>
+        <%# <%= cl_image_tag(current_user.photo.key, crop: :fill, :gravity => :face, class: "profile-picture avatar") %>
+      <%# <% else %>
+        <%= image_tag "https://res.cloudinary.com/dmnzqtckp/image/upload/v1643915308/production/r6sp2xfnoh8ke196o0bu91wl570s.png", class: "profile-picture" %>
+      <%# <% end %>
+    </div>
+  <h1 class="text-center mt-3"><%= @user.nickname %></h1>
+  <p class="text-center"> <strong><%= @user.level %></strong></p>
+<div class="text-center">
 <%= form_tag profile_path , method: :get do %>
   <%= select_tag :level,
     options_for_select(["Beginner", "Elementary", "Intermediate", "Advanced", "Mastery"],@user.level)
   %>
-
-  <p>Mes favoris</p>
-  <% @favorite_spots.each do |fav| %>
-    <p><%= fav.surf_spot.location %> spot</p>
-   	<%= render 'shared/card_spot', surf_spot: fav.surf_spot, user: @user %>
-
-  <% end %>
-  
-  <p>Ma photo</p>
-
-
-  <%# ---------- SUBMIT --------- %>
   <button name="button" type="submit">
     Save
   </button>
 <% end %>
+</div>
 
-
+<hr>
+<h2>My Favorites Spots</h2>
+  <% @favorite_spots.each do |fav| %>
+    <%= render 'shared/card_spot_single', surf_spot: fav.surf_spot, user: @user %>
+  <% end %>
+</div>
