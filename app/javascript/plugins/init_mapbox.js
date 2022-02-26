@@ -14,12 +14,20 @@ const buildMap = (mapElement) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window);
       const element = document.createElement('div');
       element.className = 'marker';
-      element.style.backgroundImage = `url('${marker.image_url}')`;
+      if (marker.level == "Beginner"){
+        element.style.backgroundImage = `url(assets/level_beginner.png)`;
+      }
+      else if (marker.level == "Intermediate"){
+        element.style.backgroundImage = `url(assets/level_intermediate.png)`;
+      }
+      else {
+        element.style.backgroundImage = `url(assets/level_expert.png)`;
+      }
       element.style.backgroundSize = 'contain';
-      element.style.width = '25px';
-      element.style.height = '25px';
+      element.style.width = '50px';
+      element.style.height = '50px';
 
-      new mapboxgl.Marker()
+      new mapboxgl.Marker(element)
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(map);
