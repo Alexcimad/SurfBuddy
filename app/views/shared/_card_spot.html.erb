@@ -17,14 +17,21 @@
                             <%= tag.tag.name %>
                     <% end %>
                 </div>
+                
+                
                 <div>
+                    <% @ftags_filtred = @ftags.where(favorite_spot_id: surf_spot.favorite_spots) %>
+                    <% @ftags_filtred.each do |tag| %>
+                            <%= tag.tag.name %>
+                    <% end %>
 
+                    <%# Modal on Profile %>
                     <% if current_page?(url_for(:controller => 'dashboard', :action => 'profile')) %>
                         <!-- Button trigger modal -->
                         <div class="text-center">
-                        <button type="button" class="btn btn-primary text-center" data-toggle="modal" data-target="#tagModal">
-                            <%=icon('fa','plus')%> 
-                        </button>
+                            <button type="button" class="btn btn-primary text-center" data-toggle="modal" data-target="#tagModal">
+                                <%=icon('fa','plus')%> 
+                            </button>
                         </div>
 
                         <!-- Modal -->

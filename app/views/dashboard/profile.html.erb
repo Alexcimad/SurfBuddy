@@ -22,6 +22,6 @@
 <hr>
 <h2>My Favorites Spots</h2>
   <% @favorite_spots.each do |fav| %>
-    <%= render 'shared/card_spot_single', surf_spot: fav.surf_spot, user: @user %>
+    <%= render 'shared/card_spot_single', surf_spot: fav.surf_spot, user: @user, fav: fav %>
   <% end %>
 </div>
