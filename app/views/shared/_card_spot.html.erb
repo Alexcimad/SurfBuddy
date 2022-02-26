@@ -7,9 +7,9 @@
                 <h2 class="spot-card-h2"><%= surf_spot.location %></h2>
                 <p><%=icon('fas','star')%>(<%= surf_spot.spot_reviews.length %> comments)</p>
                 <div class="row">
-                <p class="col"><%=icon('fas','wind')%></p>
-                <p class="col"><%=icon('fas','water')%> 
-                <p class="col"><%=icon('fas','location-arrow')%></p>
+                <p class="col"><%=icon('fas','wind')%><%=surf_spot.surf_conditions[0].wind_speed%>kts</p>
+                <p class="col"><%=icon('fas','water')%><%=surf_spot.surf_conditions[0].wave.ceil(2)%>m</p>
+                <p class="col"><%=icon('fas','location-arrow')%><%=surf_spot.surf_conditions[0].wind_direction%></p>
                 <% @ftags_filtred = @ftags.where(favorite_spot_id: surf_spot.favorite_spots) %>
                 <% @ftags_filtred.each do |tag| %>
                         <%= tag.tag.name %>
