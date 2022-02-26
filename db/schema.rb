@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_26_114252) do
+ActiveRecord::Schema.define(version: 2022_02_26_140154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,8 +71,8 @@ ActiveRecord::Schema.define(version: 2022_02_26_114252) do
     t.integer "period"
     t.integer "water_temp"
     t.bigint "surf_spot_id", null: false
-    t.date "start_hour"
-    t.date "end_hour"
+    t.datetime "start_hour"
+    t.datetime "end_hour"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.float "wave"
