@@ -1,0 +1,40 @@
+<ul class="nav nav-pills schedules">
+  <% surf_spot.surf_conditions.each_with_index do |surf_condition,index| %>
+    <% if index == 0 %>
+      <li class="active schedule"><a data-toggle="tab" aria-current="page" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('Paris'), format: "%Hh"%></a></li>
+    <% else %>
+      <li class="schedule" ><a data-toggle="tab" aria-current="page" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('Paris'), format: "%Hh"%></a></li>
+    <%end%>
+  <%end%>
+</ul>
+<div class="tab-content">
+  <% surf_spot.surf_conditions.each_with_index do |surf_condition,index| %>
+    <% if index == 0 %>
+    <div id="slot<%=index%>" class="tab-pane fade in active show">
+    <% else %>
+    <div id="slot<%=index%>" class="tab-pane fade">
+    <% end %>
+      <div class="d-flex justify-content-around">
+        <p class="text-center"><%=icon('fas','wind')%><%= surf_condition.wind_speed %>kts</p>
+        <p class="text-center"><%=icon('fas','water')%><%= surf_condition.wave.ceil(2) %>m</p>
+        <p class="text-center"><%=icon('fas','location-arrow')%><%= surf_condition.wind_direction %></p>
+      </div>
+      <h3 class="text-center">Our score</h3>
+      <div class="d-flex justify-content-around">
+        <div class="text-center">
+        <% if surf_condition.rating <= 4%>
+        <div class="level-red d-flex align-items-center justify-content-center"><strong><%= surf_condition.rating %> / 10</strong></div>
+        <% elsif surf_condition.rating >= 7%>
+        <div class="level-green d-flex align-items-center justify-content-center"><strong><%= surf_condition.rating %> / 10</strong></div>
+        <% else %>
+        <div class="level-orange d-flex align-items-center justify-content-center"><strong><%= surf_condition.rating %> / 10</strong></div>
+        <% end %>
+        </div>
+        <div class="d-flex align-items-center">
+          <div class="mr-2 text-center">Pefect level for :</div> <strong> <%= surf_condition.level %> </strong>
+        </div>
+      </div>
+    </div>
+  <%end%>
+</div>
+  
