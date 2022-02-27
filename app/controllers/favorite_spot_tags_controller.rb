@@ -10,7 +10,8 @@ class FavoriteSpotTagsController < ApplicationController
   end
 
   def tag_delete
-    @favorite_spot_tag = FavoriteSpotTag.find_by tag_id: params[:tag_id], favorite_spot_id: params[:fav]
+    raise
+    @favorite_spot_tag = FavoriteSpotTag.find_by tag_id: params[:tag], favorite_spot_id: params[:fav]
     @favorite_spot_tag.destroy
   end   
 

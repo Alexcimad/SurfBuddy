@@ -1,8 +1,16 @@
 .tagborder{
     // background-color: red;
-    border: 1px solid red;
-    border-radius: 40px;
-    padding: 2px;
-    justify-content: center;
+    border: 2px solid rgba(119, 215, 253, 0.76);
+    border-radius: 50px;
+    padding: 4px;
+    margin: 5px;
+    color: gray;
+    font-size: 1em;
+
+}
+
+.tags-container{
+    width: 100%;
+    background-color: white;
     align-items: center;
 }

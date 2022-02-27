@@ -1,35 +1,59 @@
 
-<div id="<%= surf_spot.location %>-spotcard">
-    <div class="spot-card-single d-flex">
-        <%= link_to surf_spot_path(surf_spot) do %>
-            <img class="spot-card-img" src="https://api.navily.com/media/AGxLeNtHRsD2SpKfa40DAAN7sC7pCtotaZyLTHQrcAkJSZeXEG1e6Npvkcq1YL9l?w=128&crop_square=true" alt="Spot">
-            <div class="spot-card-details">
-                <h2 class="spot-card-h2"><%= surf_spot.location %></h2>
-                <p><%=icon('fas','star')%>(<%= surf_spot.spot_reviews.length %> comments)</p>
-                <div class="row">
-                    <p class="col"><%=icon('fas','wind')%><%=surf_spot.surf_conditions[0].wind_speed%>kts</p>
-                    <p class="col"><%=icon('fas','water')%><%=surf_spot.surf_conditions[0].wave.ceil(2)%>m</p>
-                    <p class="col"><%=icon('fas','location-arrow')%><%=surf_spot.surf_conditions[0].wind_direction%></p>
+
+    <div id="<%= surf_spot.location %>-spotcard">
+        <div class="mb-3">
+            <div class="spot-card d-flex">
+                <img class="spot-card-img d-flex align-items-center" src="https://api.navily.com/media/AGxLeNtHRsD2SpKfa40DAAN7sC7pCtotaZyLTHQrcAkJSZeXEG1e6Npvkcq1YL9l?w=128&crop_square=true" alt="Spot">
+                <div class="spot-card-details">
+                    <div class="d-flex justify-content-between">
+                    <h2 class="spot-card-h2"><%= surf_spot.location %></h2>
+                    <%= render 'shared/favorite', surf_spot: surf_spot  %>
+                    </div>
+                    <!-- Infos Spot -->
+                    <div class="d-flex justify-content-between">
+                        <div class="weather-spot d-flex flex-column">
+                            <p><%=icon('fas','wind')%><%= surf_spot.surf_conditions[0].wind_speed %>kts</p>
+                            <p><%=icon('fas','water')%><%= surf_spot.surf_conditions[0].wave.ceil(2) %>m</p>
+                            <p><%=icon('fas','location-arrow')%><%= surf_spot.surf_conditions[0].wind_direction %></p>
+                        </div>
+
+                        <div class="level-spot">
+                            <h4 class="text-center">   
+                                <strong>
+                                <% if surf_spot.surf_conditions[0].level == "Beginner" %>
+                                    <div class="green"><%= surf_spot.surf_conditions[0].level %></div>
+                                <% elsif surf_spot.surf_conditions[0].level == "Intermediate" %>
+                                    <div class="orange"><%= surf_spot.surf_conditions[0].level %></div>
+                                <% else%>
+                                    <div class="red"><%= surf_spot.surf_conditions[0].level %></div>
+                                <% end %>
+                                </strong>
+                            </h4>
+                            <div class="level d-flex align-items-center justify-content-center m-auto"><strong><%= surf_spot.surf_conditions[0].rating %> / 10</strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tags -->
+            <div class="tags-container">
+                <div class="d-flex">
                     <% @ftags_filtred = @ftags.where(favorite_spot_id: surf_spot.favorite_spots) %>
                     <% @ftags_filtred.each do |tag| %>
                         <div class="tagborder">
                             <%= tag.tag.name %>
                         </div>
                     <% end %>
+                    <div>
+                         <!-- Button trigger modal -->
+                        <div class="text-center">
+                            <div  class="btn btn-primary text-center" data-toggle="modal" data-target="#tagModal<%= fav.id%>">
+                                <%=icon('fa','plus')%>
+                            </div>
+                        </div>
+                         <!-- Modal -->
+                        <%= render 'shared/tags_select', fav: fav %>
+                    </div>
                 </div>
-            </div>
-        <% end %>
-    </div>
-    <div>
-        <!-- Button trigger modal -->
-        <div class="text-center">
-            <div  class="btn btn-primary text-center" data-toggle="modal" data-target="#tagModal<%= fav.id%>">
-                <%=icon('fa','plus')%>
-            </div>
+            </div>    
         </div>
-
-        <!-- Modal -->
-        <%= render 'shared/tags_select', fav: fav %>
     </div>
-    <div><%= render 'shared/favorite', surf_spot: surf_spot  %></div>
-</div>
