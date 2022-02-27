@@ -33,6 +33,7 @@
     </p>
     <p class="localisation text-center" ><%= icon('fas','location-arrow')%> <%= @surf_spot.latitude %>, <%= @surf_spot.longitude %></p>
   </div>
+
 <%# -----------IMAGES----------------- %>
 <div class="card-offer-detail-carousel">
     <div id="carouselExampleIndicators" class="carousel slide text-center" data-ride="carousel">
@@ -69,6 +70,14 @@
 <h2 class="text-center">Stats of the spot</h2>
 <%= render 'surf_conditions', surf_spot: @surf_spot%>
 <hr>
+<%# -----------TAGS----------------- %>
+<div class="tags-container">
+  <% @ftags_filtred = FavoriteSpotTag.where(favorite_spot_id: @surf_spot.favorite_spots) %>
+  <% @ftags_filtred.each do |tag| %>
+      <span class="badge badge-pill badge-warning"><%= tag.tag.name %></span>
+  <% end %>
+</div>
+<%# -----------REVIEWS----------------- %>
 <h2 id="comments">Reviews (<%= @surf_spot.spot_reviews.length %>)</h2>
 <% if @surf_spot.spot_reviews.exists? %>
 
