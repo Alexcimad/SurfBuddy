@@ -91,16 +91,17 @@ puts "----CREATING FAVORITES SPOTS"
 fav_spot1 = FavoriteSpot.create!(surf_spot_id: surf_spot1.id ,user_id: user2.id)
 fav_spot2 = FavoriteSpot.create!(surf_spot_id: surf_spot2.id ,user_id: user2.id)
 fav_spot3 = FavoriteSpot.create!(surf_spot_id: surf_spot3.id ,user_id: user1.id)
-fav_spot4 = FavoriteSpot.create!(surf_spot_id: surf_spot3.id ,user_id: user1.id)
+fav_spot4 = FavoriteSpot.create!(surf_spot_id: surf_spot4.id ,user_id: user3.id)
 
 
 # Add Tags
 
 puts "----CREATING TAGS"
-tag1 = Tag.create!(name: "Rochers")
-tag2 = Tag.create!(name: "Bikini")
-tag3 = Tag.create!(name: "Otoctone")
-tag4 = Tag.create!(name: "Privé")
+tag1 = Tag.create!(name: "beach break")
+tag2 = Tag.create!(name: "reef break")
+tag3 = Tag.create!(name: "galets")
+tag4 = Tag.create!(name: "sable")
+tag5 = Tag.create!(name: "roches")
 
 # Add Favorite_spots_tags
 
