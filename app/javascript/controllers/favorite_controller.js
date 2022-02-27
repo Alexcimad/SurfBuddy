@@ -13,6 +13,4 @@ export default class extends Controller {
   toggleTag(event) {
     event.currentTarget.classList.toggle('fav');
   }
-
-
 }
