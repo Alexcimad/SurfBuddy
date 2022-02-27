@@ -1,11 +1,27 @@
+.badge-pill {
+    margin: 4px;
+}
+
+.badge-warning {
+    color: #fff;
+    background-color: #12c4d4;
+    border: 1px solid #12c4d4;
+}
+
+.tag-no-favorite {
+    background-color: white;
+    border: 1px solid #12c4d4;
+    color: #12c4d4;
+}
+
 .tagborder{
     // background-color: red;
     border: 2px solid rgba(119, 215, 253, 0.76);
     border-radius: 50px;
     padding: 4px;
-    margin: 5px;
     color: gray;
     font-size: 1em;
+    margin: 15px;
 
 }
 
@@ -13,4 +29,8 @@
     width: 100%;
     background-color: white;
     align-items: center;
+}
+
+.tag-add{
+    cursor: pointer;
 }
