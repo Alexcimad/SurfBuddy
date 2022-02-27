@@ -1,9 +1,9 @@
-<ul class="nav nav-pills schedules">
+<ul class="nav nav-pills schedules d-flew justify-content-around">
   <% surf_spot.surf_conditions.each_with_index do |surf_condition,index| %>
     <% if index == 0 %>
-      <li class="active schedule"><a data-toggle="tab" aria-current="page" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('Paris'), format: "%Hh"%></a></li>
+      <li><a class="active schedule" data-toggle="tab" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('Paris'), format: "%Hh"%></a></li>
     <% else %>
-      <li class="schedule" ><a data-toggle="tab" aria-current="page" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('Paris'), format: "%Hh"%></a></li>
+      <li><a class="schedule" data-toggle="tab" aria-current="page" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('Paris'), format: "%Hh"%></a></li>
     <%end%>
   <%end%>
 </ul>
