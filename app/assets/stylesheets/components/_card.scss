@@ -1,15 +1,17 @@
 .spot-card{
   background-color: white;
-  min-height: 150px;
+  max-height: 150px;
   width : 100vw;
-  max-height : calc(100vh - 66px - 568.4px)
 }
 .spot-card-img{
   border-radius: 20px;
-  padding: 15px;
+  padding: 5px;
+  width: 150px;
+  height: 150px;
 }
 .spot-card-details{
-  padding: 15px;
+  padding-left: 5px;
+  padding-right: 5px;
   width : 100vw;
 }
 .spot-card-h2{
@@ -26,4 +28,6 @@
 .spot-card-single{
   background-color: white;
   min-height: 150px;
+  // z-index: 900;
+  // position: absolute;
 }

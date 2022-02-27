@@ -4,7 +4,7 @@ require 'httparty'
 class SurfSpotsController < ApplicationController
 
   # before_action :set_tags, only: [:index, :show]
-  
+
   #all surfspots
   def index
     if params[:search].present?
@@ -21,6 +21,7 @@ class SurfSpotsController < ApplicationController
       {
         lat: spot.latitude,
         lng: spot.longitude,
+        level: spot.surf_conditions[0].level,
         info_window: render_to_string(partial: "info_window", locals: { spot: spot })
       }
     end
