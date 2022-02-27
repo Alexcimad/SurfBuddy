@@ -8,9 +8,9 @@ Rails.application.routes.draw do
 
   get "profile", to: "dashboard#profile"
 
-
   resources :tags, only: [:index, :new, :create] do
-    resources :favorite_spot_tags, only: [:new, :create]
+    resources :favorite_spot_tags, only: [:new, :create, :destroy] 
+
   end
 end
 

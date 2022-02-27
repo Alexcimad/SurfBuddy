@@ -8,27 +8,20 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="container">
+                <div class="tags-container d-flex">
                     <% @tags.each do |tag|%>
                         
                         <div data-controller="favorite" class="text-right picto">
                             <% if fav.tags.include?(tag) %>
-
-                                <%= link_to tag.name , "#" , remote: true, class: "test fav" , data: { favoriteTag_target: 'favoriteBtn', action: "click->favorite#toggleTag" } %>
+                                <% @favorite_spot_tag = FavoriteSpotTag.find_by tag_id: tag.id, favorite_spot_id: fav.id %>
+                                <%= link_to tag.name , tag_favorite_spot_tag_path(tag_id: tag.id, id: @favorite_spot_tag.id), method: :delete, class: "badge badge-pill badge-warning" ,remote: true, data: { favoriteTag_target: 'favoriteBtn', action: "click->favorite#toggleTag" } %>
                             <% else %>
-                                <%= link_to tag.name , tag_favorite_spot_tags_path(tag, fav: fav.id), remote: true, method: :post, class: "test" , data: { favoriteTag_target: 'favoriteBtn', action: "click->favorite#toggleTag" } %>
+                                <%= link_to tag.name , tag_favorite_spot_tags_path(tag, fav: fav.id), remote: true, method: :post, class: "badge badge-pill badge-warning tag-no-favorite" , data: { favoriteTag_target: 'favoriteBtn', action: "click->favorite#toggleTag" } %>
                             <% end %>
                         </div>
-
-
-
                     <% end %>
                 </div>
             </div>
         </div>
     </div>
-
-
-
-<%# <% raise %> %>
 </div>
