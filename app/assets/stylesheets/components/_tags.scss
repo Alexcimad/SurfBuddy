@@ -1,5 +1,13 @@
 .badge-pill {
     margin: 4px;
+    background-color: #86c6f4;
+    border: 1px solid #86c6f4;
+    color: white;
+}
+.badge-pill-select {
+    background-color: #86c6f4;
+    border: 1px solid #86c6f4;
+    color: white;
 }
 
 .badge-warning {
@@ -22,13 +30,12 @@
     color: gray;
     font-size: 1em;
     margin: 15px;
-
+    
 }
 
 .tags-container{
     display: flex;
     flex-wrap: wrap;
-    background-color: white;
     align-items: center;
 }
 
