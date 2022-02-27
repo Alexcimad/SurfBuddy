@@ -36,19 +36,17 @@
             </div>
             <!-- Tags -->
             <div class="tags-container">
-                <div class="d-flex">
-                    <% @ftags_filtred = @ftags.where(favorite_spot_id: surf_spot.favorite_spots) %>
-                    <% @ftags_filtred.each do |tag| %>
-                        <span class="badge badge-pill badge-warning"><%= tag.tag.name %></span>
-                    <% end %>
-                    <div>
-                         <!-- Button add tag modal -->
-                        <div class="text-center">
-                            <span  class="badge badge-pill badge-primary tag-add" data-toggle="modal" data-target="#tagModal<%= fav.id%>">+</span>
-                        </div>
-                         <!-- Modal -->
-                        <%= render 'shared/tags_select', fav: fav %>
+                <% @ftags_filtred = @ftags.where(favorite_spot_id: surf_spot.favorite_spots) %>
+                <% @ftags_filtred.each do |tag| %>
+                    <span class="badge badge-pill badge-warning"><%= tag.tag.name %></span>
+                <% end %>
+                <div>
+                        <!-- Button add tag modal -->
+                    <div class="text-center">
+                        <span  class="badge badge-pill badge-primary tag-add" data-toggle="modal" data-target="#tagModal<%= fav.id%>">+</span>
                     </div>
+                        <!-- Modal -->
+                    <%= render 'shared/tags_select', fav: fav %>
                 </div>
             </div>    
         </div>

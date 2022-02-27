@@ -26,7 +26,8 @@
 }
 
 .tags-container{
-    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
     background-color: white;
     align-items: center;
 }
