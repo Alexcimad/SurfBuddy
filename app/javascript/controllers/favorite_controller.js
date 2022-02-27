@@ -11,7 +11,7 @@ export default class extends Controller {
   }
 
   toggleTag(event) {
-    event.currentTarget.classList.toggle('fav');
+    event.currentTarget.classList.toggle('badge badge-pill badge-warning tag-no-favorite');
   }
 
 
