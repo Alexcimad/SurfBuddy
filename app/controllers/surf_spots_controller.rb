@@ -22,8 +22,8 @@ class SurfSpotsController < ApplicationController
       {
         lat: spot.latitude,
         lng: spot.longitude,
-        level: spot.surf_conditions[0].level,
-        info_window: render_to_string(partial: "info_window", locals: { spot: spot })
+        info_window: render_to_string(partial: "info_window", locals: { spot: spot }),
+        image_url: choose_marker_icon(spot)
       }
     end
     set_tags
@@ -88,4 +88,16 @@ class SurfSpotsController < ApplicationController
   def set_tags
     @ftags = FavoriteSpotTag.all
   end
+
+  def choose_marker_icon(v_spot)
+    if v_spot.surf_conditions[0].level == "Beginner"
+      return helpers.asset_url("level_beginner.png")
+    elsif v_spot.surf_conditions[0].level == "Intermediate"
+      return helpers.asset_url("level_intermediate.png")
+    else
+      return helpers.asset_url("level_expert.png")
+    end
+
+  end
+
 end
