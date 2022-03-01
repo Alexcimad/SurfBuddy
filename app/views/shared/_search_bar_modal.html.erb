@@ -2,7 +2,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Search Spot</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -14,8 +14,8 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <div><%= f.submit "Search", class: "btn btn-primary" %></div>
+        <div type="button" class="btn btn-secondary" data-dismiss="modal">Close</div>
+        <div><%= f.submit "Search", class: "btn btn-premium" %></div>
         <%= link_to "Explore the map", surf_spots_path, class:"btn btn-white btn-explore"%>
       </div>
       <% end %>
