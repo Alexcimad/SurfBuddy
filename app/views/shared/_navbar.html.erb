@@ -3,6 +3,13 @@
     <%= image_tag "/assets/logo_surf_buddy_dark.png", class: "custom_logo" %>
   <% end %>
 
+<div class="nav-item">
+  <button type="button" class="btn1 btn1-primary text-center  mt-3" data-toggle="modal" data-target="#exampleModal">
+    <p><%=icon('fa','search')%> Search</p>
+  </button>
+  <%= render 'shared/search_bar_modal'%>
+</div>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -15,22 +22,15 @@
           <%= link_to "Home", root_path, class: "nav-link" %>
         </li>
 
-        <!-- Button trigger modal -->
-        <li class="nav-item">
-            <button type="button" class="btn btn-primary text-center" data-toggle="modal" data-target="#exampleModal">
-              <p><%=icon('fa','search')%> Search</p>
-            </button>
-          <%= render 'shared/search_bar_modal'%>
-        </li>
+
+          <!--Button trigger modal-->
 
         <li class="nav-item">
-          <%= link_to "Profile", profile_path, class: "nav-link" %>
+          <%= link_to "Profile", profile_path, class: "nav-link float-right" %>
         </li>
         <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle float-right", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
