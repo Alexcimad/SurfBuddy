@@ -18,12 +18,9 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto text-center">
       <% if user_signed_in? %>
-        <li class="nav-item dropdown">
-          <%= image_tag "https://res.cloudinary.com/dmnzqtckp/image/upload/v1644680497/development/24zlvs0qfskr1ujeuwkzl49yu7hc.jpg", class: "avatar dropdown-toggle float-right", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+        <li class="nav-item dropdown dropdown-menu-right">
             <%= link_to "Profile", profile_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
         </li>
       <% else %>
         <li class="nav-item">
