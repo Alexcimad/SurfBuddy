@@ -55,35 +55,58 @@ surf_spot2 = SurfSpot.create!(location: "Quiberon", description: "Lorem Ipsum")
 puts "---CREATING #{surf_spot2.location}"
 surf_spots << surf_spot2
 
-surf_spot3 = SurfSpot.create!(location: "Hossegor", description: "Lorem Ipsum")
+surf_spot3 = SurfSpot.create!(location: "Culs nus Hossegor", longitude: -1.44018, latitude: 43.6773, description: "Awesome beach for surfing while being naked")
 puts "---CREATING #{surf_spot3.location}"
 surf_spots << surf_spot3
 
-surf_spot4 = SurfSpot.create!(location: "Biarritz", description: "Lorem Ipsum")
+surf_spot4 = SurfSpot.create!(location: "Grande Plage Biarritz", description: "Awesome beach for surfing just before going to the casino ;)")
 puts "---CREATING #{surf_spot4.location}"
 surf_spots << surf_spot4
 
-# Add Reviews
+surf_spot5 = SurfSpot.create!(location: "Côte des basques", description: "Great beach! Really secure for family surfing with a great view of villa Belza")
+puts "---CREATING #{surf_spot5.location}"
+surf_spots << surf_spot5
 
-spot_review1 = SpotReview.create!(comment: "I like this place because this place like me", rating: 4, surf_spot_id: surf_spot1.id, user_id: user1.id)
+surf_spot6 = SurfSpot.create!(location: "Grande plage Quiberon", description: "Beautiful beach of Quiberon even if it's a little cold for surfing")
+puts "---CREATING #{surf_spot6.location}"
+surf_spots << surf_spot6
+
+surf_spot7 = SurfSpot.create!(location: "Plage de sainte barbe", description: "Great naturist and surfing beach but a little cold. I prefer basque country!")
+puts "---CREATING #{surf_spot7.location}"
+surf_spots << surf_spot7
+
+
+
+# Add Reviews
+spot_review1 = SpotReview.create!(comment: "I love this beach it was awesome", rating: 4, surf_spot_id: surf_spot1.id, user_id: user1.id)
 puts "----CREATING #{spot_review1.rating} stars"
 spot_reviews << spot_review1
 
-spot_review2 = SpotReview.create!(comment: "La Guérite is usually very poor quality compared to other spots in Morbihan - Brittany", rating: 3, surf_spot_id: surf_spot2.id, user_id: user1.id)
+spot_review2 = SpotReview.create!(comment: "What a great place for surfing!", rating: 3, surf_spot_id: surf_spot2.id, user_id: user1.id)
 puts "----CREATING #{spot_review2.rating} stars"
 spot_reviews << spot_review2
 
-spot_review3 = SpotReview.create!(comment: "The Spot can offer better rides with a light wind behind them", rating: 3, surf_spot_id: surf_spot3.id, user_id: user1.id)
+spot_review3 = SpotReview.create!(comment: "I wish I could surf there avery day all day!", rating: 3, surf_spot_id: surf_spot3.id, user_id: user1.id)
 puts "----CREATING #{spot_review3.rating} stars"
 spot_reviews << spot_review3
 
-spot_review4 = SpotReview.create!(comment: "A 30 minute walk from the nearest parking", rating: 4, surf_spot_id: surf_spot1.id, user_id: user2.id)
+spot_review4 = SpotReview.create!(comment: "Very good surfing spot even if it is a bit rocky!", rating: 4, surf_spot_id: surf_spot1.id, user_id: user2.id)
 puts "----CREATING #{spot_review4.rating} stars"
 spot_reviews << spot_review4
 
-spot_review5 = SpotReview.create!(comment: "The Spot is a fickle surf spot that only works a few times a year", rating: 5, surf_spot_id: surf_spot1.id, user_id: user2.id)
+spot_review5 = SpotReview.create!(comment: "Perfect for a surf lover as I am!", rating: 5, surf_spot_id: surf_spot1.id, user_id: user2.id)
 puts "----CREATING #{spot_review5.rating} stars"
 spot_reviews << spot_review5
+
+spot_review6 = SpotReview.create!(comment: "perfect spot for beginner surfer with a beautiful view on Villa Belza!", rating: 5, surf_spot_id: surf_spot5.id, user_id: user1.id)
+puts "----CREATING #{spot_review6.rating} stars"
+spot_reviews << spot_review6
+
+spot_review7 = SpotReview.create!(comment: "Really nice surf spot for beginner in Britanny really close to visit Plouharnel! I recommend!", rating: 5, surf_spot_id: surf_spot7.id, user_id: user1.id)
+puts "----CREATING #{spot_review7.rating} stars"
+spot_reviews << spot_review7
+
+
 
 # Add Favorite_spots
 
@@ -230,7 +253,6 @@ def fetch_current_conditions(surf_spot)
   
   response_wind_temp_JSON = JSON.parse(response_wind_temp.body)
   wind_info = convert_API_response_to_hash(response_wind_temp_JSON)
- 
   for i in 0..7 do
     wind_speed = Math.sqrt(wind_info[1][wind_info[0]+i]["wind_u-surface"]**2 + wind_info[1][wind_info[0]+i]["wind_v-surface"]**2)/0.514
     wind_direction_rad = Math.atan2(wind_info[1][wind_info[0]+i]["wind_v-surface"],wind_info[1][wind_info[0]+i]["wind_u-surface"])
