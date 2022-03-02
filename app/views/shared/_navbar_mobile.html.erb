@@ -1,0 +1,41 @@
+    <nav class="nav--icons">
+      <ul>
+        <li>
+          <%= link_to root_path do %>
+            <%= icon('fa','home') %>
+            <span>Home</span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to surf_spots_path do %>
+            <%= icon('fa','map-marked-alt') %>
+            <span>Maps</span>
+          <% end %>
+        </li>
+
+        <li>
+          <a data-toggle="modal" data-target="#exampleModal" class="link">
+          <%= icon('fa','search') %>
+            <span>Search</span>
+          </a>
+          <%= render 'shared/search_bar_modal'%>
+        </li>
+        
+        <% if user_signed_in? %>
+        <li>
+          <%= link_to profile_path do %>
+            <%= icon('fa','user-alt') %>
+            <span>Profile</span>
+            <% end %>
+        </li>
+        <% else %>
+        <li>
+          <%= link_to new_user_session_path do %>
+            <%= icon('fa','user-alt') %>
+            <span>Login</span>
+            <% end %>
+        </li>
+        <% end %>
+
+      </ul>
+    </nav>
