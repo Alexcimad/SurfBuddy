@@ -63,11 +63,10 @@
     </div>
   </div>
 <hr>
-<h2>Informations about the spot</h2>
 <p><%= @surf_spot.description %></p>
 <hr>
 <%# -----------API----------------- %>
-<h2 class="text-center">Stats of the spot</h2>
+<h2 class="text-center">Spot's conditions</h2>
 <%= render 'surf_conditions', surf_spot: @surf_spot%>
 <hr>
 <%# -----------TAGS----------------- %>
