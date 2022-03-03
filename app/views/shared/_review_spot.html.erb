@@ -12,7 +12,7 @@
           <%= simple_form_for [@surf_spot, @spot_review] do |f| %>
             <div class="m-2">
                 <%= f.input :comment,label: :Comment, :input_html => {:style => 'width: 100%', :rows => 3 } %>
-                <%= f.input :rating, label: "Rating"%>
+                <%= f.input :rating, collection: (1..5), label: "Rating", id: "review_rating"%>
             </div>
         </div>
       </div>

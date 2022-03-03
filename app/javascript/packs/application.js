@@ -40,3 +40,6 @@ import { initMapbox } from '../plugins/init_mapbox';
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
 })
+
+import { initStarRating } from '../plugins/init_star_rating';
+initStarRating();
