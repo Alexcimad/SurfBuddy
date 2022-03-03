@@ -11,8 +11,9 @@
         <div class="container">
           <%= simple_form_for [@surf_spot, @spot_review] do |f| %>
             <div class="m-2">
-                <%= f.input :comment,label: :Comment, :input_html => {:style => 'width: 100%', :rows => 3 } %>
-                <%= f.input :rating, collection: (1..5), label: "Rating", id: "review_rating"%>
+                <%= f.input :comment, label: false,:input_html => {:style => 'width: 100%', :rows => 3 } %>
+                <%= f.input :rating, collection: (1..5), label: false, id: "review_rating"%>
+                <%# Pour changer les couleurs des étoiles : ouvrir le fichier SurfBuddy\node_modules\jquery-bar-rating\dist\themes\css-stars.css %>
             </div>
         </div>
       </div>
