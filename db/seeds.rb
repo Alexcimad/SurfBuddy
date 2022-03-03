@@ -75,9 +75,7 @@ surf_spot7 = SurfSpot.create!(location: "Plage de sainte barbe", description: "G
 puts "---CREATING #{surf_spot7.location}"
 surf_spots << surf_spot7
 
-surf_spot8 = SurfSpot.create!(location: "Ty Hoche Plouharnel", description: "Great beach for surfing and if you want to visit Plouharnel in after surf! ")
-puts "---CREATING #{surf_spot8.location}"
-surf_spots << surf_spot8
+
 
 # Add Reviews
 spot_review1 = SpotReview.create!(comment: "I love this beach it was awesome", rating: 4, surf_spot_id: surf_spot1.id, user_id: user1.id)
