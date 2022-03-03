@@ -45,34 +45,44 @@ jeremyF = User.create!(email: 'jeremyF@gmail.com',password: "WSL2021", nickname:
 surf_spot1 = SurfSpot.create!(location: "Lacanau", description: "Lorem Ipsum")
 file_user = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1644534494/pzrxzpomr8mup05gnztk.jpg")
 surf_spot1.photos.attach(io: file_user, filename: "alexis_photo.jpg", content_type: "image/jpg")
-file_user2 = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1644534494/pzrxzpomr8mup05gnztk.jpg")
-surf_spot1.photos.attach(io: file_user2, filename: "alexis_photo.jpg", content_type: "image/jpg")
 puts "---CREATING #{surf_spot1.location}"
 
 surf_spots << surf_spot1
 
 surf_spot2 = SurfSpot.create!(location: "Quiberon", description: "Lorem Ipsum")
+file_user2 = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1644534494/pzrxzpomr8mup05gnztk.jpg")
+surf_spot2.photos.attach(io: file_user2, filename: "alexis_photo.jpg", content_type: "image/jpg")
 puts "---CREATING #{surf_spot2.location}"
 surf_spots << surf_spot2
 
 surf_spot3 = SurfSpot.create!(location: "Culs nus Hossegor", longitude: -1.44018, latitude: 43.6773, description: "Awesome beach for surfing while being naked")
 puts "---CREATING #{surf_spot3.location}"
+file_user3 = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1644534494/pzrxzpomr8mup05gnztk.jpg")
+surf_spot3.photos.attach(io: file_user3, filename: "alexis_photo.jpg", content_type: "image/jpg")
 surf_spots << surf_spot3
 
 surf_spot4 = SurfSpot.create!(location: "Grande Plage Biarritz", description: "Awesome beach for surfing just before going to the casino ;)")
 puts "---CREATING #{surf_spot4.location}"
+file_user4 = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1644534494/pzrxzpomr8mup05gnztk.jpg")
+surf_spot4.photos.attach(io: file_user4, filename: "alexis_photo.jpg", content_type: "image/jpg")
 surf_spots << surf_spot4
 
 surf_spot5 = SurfSpot.create!(location: "Côte des basques", description: "Great beach! Really secure for family surfing with a great view of villa Belza")
 puts "---CREATING #{surf_spot5.location}"
+file_user5 = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1644534494/pzrxzpomr8mup05gnztk.jpg")
+surf_spot5.photos.attach(io: file_user5, filename: "alexis_photo.jpg", content_type: "image/jpg")
 surf_spots << surf_spot5
 
 surf_spot6 = SurfSpot.create!(location: "Grande plage Quiberon", description: "Beautiful beach of Quiberon even if it's a little cold for surfing")
 puts "---CREATING #{surf_spot6.location}"
+file_user6 = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1644534494/pzrxzpomr8mup05gnztk.jpg")
+surf_spot6.photos.attach(io: file_user6, filename: "alexis_photo.jpg", content_type: "image/jpg")
 surf_spots << surf_spot6
 
 surf_spot7 = SurfSpot.create!(location: "Plage de sainte barbe", description: "Great naturist and surfing beach but a little cold. I prefer basque country!")
 puts "---CREATING #{surf_spot7.location}"
+file_user7 = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1644534494/pzrxzpomr8mup05gnztk.jpg")
+surf_spot7.photos.attach(io: file_user7, filename: "alexis_photo.jpg", content_type: "image/jpg")
 surf_spots << surf_spot7
 
 
@@ -152,11 +162,11 @@ def calc_wind_direction(v_wind_direction_rad)
 
   if v_wind_direction_rad <= (Math::PI/8) && v_wind_direction_rad > 0
     wind_dir_result = "E"
-  elsif v_wind_direction_rad <= (3*Math::PI/8) && v_wind_direction_rad > (Math::PI/8) 
+  elsif v_wind_direction_rad <= (3*Math::PI/8) && v_wind_direction_rad > (Math::PI/8)
     wind_dir_result = "NE"
-  elsif v_wind_direction_rad <= (5*Math::PI/8) && v_wind_direction_rad > (3*Math::PI/8) 
+  elsif v_wind_direction_rad <= (5*Math::PI/8) && v_wind_direction_rad > (3*Math::PI/8)
     wind_dir_result = "N"
-  elsif v_wind_direction_rad <= (7*Math::PI/8)  && v_wind_direction_rad > (5*Math::PI/8) 
+  elsif v_wind_direction_rad <= (7*Math::PI/8)  && v_wind_direction_rad > (5*Math::PI/8)
     wind_dir_result = "NW"
   elsif v_wind_direction_rad <= (9*Math::PI/8) && v_wind_direction_rad > (7*Math::PI/8)
     wind_dir_result = "W"
@@ -169,14 +179,14 @@ def calc_wind_direction(v_wind_direction_rad)
   elsif v_wind_direction_rad <= (2*Math::PI/8) && v_wind_direction_rad > (15*Math::PI/8)
     wind_dir_result = "E"
   end
-  
+
   return wind_dir_result
 end
 
 def calculate_spot_level_rating(args={})
   global_rate = 0
-  level = "" 
-  
+  level = ""
+
   # Use wave weight condition in calculation
   wave_height = args[:wave_height]
   if wave_height < 1.0
@@ -212,7 +222,7 @@ def calculate_spot_level_rating(args={})
     when "NW"
     when "SW"
       global_rate += 1
-    when "W" 
+    when "W"
       global_rate += 2
     end
   elsif wind_speed < 3
@@ -250,7 +260,7 @@ def fetch_current_conditions(surf_spot)
     'Content-Type' => 'application/json',
     'Accept'=> 'application/json, text/plain, */*'
     })
-  
+
   response_wind_temp_JSON = JSON.parse(response_wind_temp.body)
   wind_info = convert_API_response_to_hash(response_wind_temp_JSON)
   for i in 0..7 do
@@ -275,4 +285,3 @@ end
 SurfSpot.all.each do |spot|
   fetch_current_conditions(spot)
 end
-
