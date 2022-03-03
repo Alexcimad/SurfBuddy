@@ -18,14 +18,24 @@
     Surfbuddy latest spots
   </h2>
 
-  <div class="cards1 mr-4 ml-4">
-    <% @surf_spots_last.each do |spot| %>
-      <div class="card1-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path spot.photos.first.key, crop: :fill %>)">
-      <%= spot.location %>
-      </div>
-    <% end %>
+<div class="hp-cards ">
+<% @surf_spots_last.each do |spot| %>
+  <div class="hp-card">
+    <p class="hp-card-img" ><%= cl_image_tag(spot.photos.first.key, class: 'hp-card--img', crop: :fill) %></p>
+    <h3><%= spot.location %></h3>
+    <div class="test container row">
+    <p class="hp-card-tags col mr-2">tag</p>
+    <p class="hp-card-tags col mr-2">tag</p>
+    <p class="hp-card-tags col mr-2">tag</p>
+    </div>
+    <div class="test">
+    <p class="hp-card-level"><%= spot.surf_conditions[0].level %></p>
+    </div>
   </div>
+<% end %>
 </div>
+
+
 
 <section class="container container-large mosaic my-5">
     <div class="text-center mb-5">
