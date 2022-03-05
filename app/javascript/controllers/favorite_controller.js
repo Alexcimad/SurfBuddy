@@ -2,7 +2,7 @@ import { Controller } from "stimulus"
 
 
 export default class extends Controller {
-  static targets = [ "output" ]
+  static targets = [ "output", "modal" ]
 
   toggle(event) {
     // console.log('toggle');
@@ -11,6 +11,10 @@ export default class extends Controller {
   }
 
   toggleTag(event) {
-    event.currentTarget.classList.toggle('tag-no-favorite');
+    event.currentTarget.classList.toggle('card-tags-favorite');
+    // console.log(this.modalTarget)
+    // $('#tagModal').on('hidden.bs.modal', function () {
+    //   window.alert('hidden event fired!');
+    // });
   }
 }
