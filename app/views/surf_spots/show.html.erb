@@ -1,4 +1,4 @@
-<div class="container-without-navbar"> 
+<div class="container-without-navbar show-container"> 
   <div class="show-header">
     <div class="nav-absolute-left">
       <%= link_to surf_spots_path do %>
@@ -86,30 +86,30 @@
       <% if @surf_spot.spot_reviews.exists? %>
 
         <% @surf_spot.spot_reviews.each do |review| %>
-          <div class="review-card">
-            <div class="review-header">
-              <%#= cl_image_tag(review.user.photo.key, crop: :fill, :gravity => :face, class: "avatar-bordered")%>
+          <div class="review-card d-flex">
               <div class="review-img">
-                <img class="avatar-bordered" src="https://a0.muscache.com/defaults/user_pic-225x225.png?im_w=240">
+                <img class="avatar-bordered review-photo" src="https://a0.muscache.com/defaults/user_pic-225x225.png?im_w=240">
               </div>
               <div>
-                <h3><%= review.user.nickname %></h3>
-                <p><%= review.updated_at.strftime("%d %b %Y") %></p>
+                <div class="review-header d-flex justify-content-between">
+                  <%#= cl_image_tag(review.user.photo.key, crop: :fill, :gravity => :face, class: "avatar-bordered")%>
+                    <h3><%= review.user.nickname %></h3>
+                    <p><%= review.updated_at.strftime("%d %b %Y") %></p>
+                </div>
+                <div class="review-content">
+                  <p class="review-comment">
+                    <%= review.comment%>
+                  </p>
+                  <p class="review-comment">
+                    <%review.rating.times do %>
+                      <%= icon('fas','star')%>
+                    <%end%>
+                    <%(5 - review.rating).times do %>
+                      <%= icon('far','star')%>
+                    <%end%>
+                  </p>
+                </div>
               </div>
-            </div>
-            <div class="review-content">
-              <p class="review-comment">
-                <%review.rating.times do %>
-                  <%= icon('fas','star')%>
-                <%end%>
-                <%(5 - review.rating).times do %>
-                  <%= icon('far','star')%>
-                <%end%>
-              </p>
-              <p class="review-comment">
-                <%=icon('fa','quote-left')%> <%= review.comment%> <%=icon('fa','quote-right')%>
-              </p>
-            </div>
           </div>
         <%end%>
       <% else %>
@@ -117,7 +117,7 @@
       <% end %>
     </div> 
     <!-- Button trigger modal -->
-    <div class="text-center m-2 mb-4">
+    <div class="text-center mt-4">
       <button type="button" class="hp-card-level text-center" data-toggle="modal" data-target="#Modalreview">
         <%=icon('fa','plus')%> Add a review
       </button>
