@@ -8,11 +8,19 @@
 </div>
 
 <div class="card-absolute">
-  <div id="owl-carousel" class="owl-carousel owl-theme">
+  <% if @surf_spots.count { |spot| spot } == 1 %>
     <% @surf_spots.each do |spot| %>
-      <div class="item">
+      <div class="item item-solo">
         <%= render 'shared/card_spot_bis', surf_spot: spot, user: current_user %>
       </div>
     <% end %>
-  </div>
+  <% else %>
+    <div id="owl-carousel" class="owl-carousel owl-theme">
+      <% @surf_spots.each do |spot| %>
+        <div class="item">
+          <%= render 'shared/card_spot_bis', surf_spot: spot, user: current_user %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>

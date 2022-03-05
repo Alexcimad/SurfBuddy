@@ -5,7 +5,7 @@ import $ from 'jquery';
 const initSlider = () => {
     console.log("Owl carousel init")
     $('.owl-carousel').owlCarousel({
-        loop: true,
+        loop: false,
         margin: 50,
         items: 1.4,
         dots:false,
