@@ -3,7 +3,10 @@
   bottom: 0px;
   width: 100vw;
   z-index: 10000;
-  background-color: #113a73;
+  background-color: #42c2ff;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  height: 60px;
   ul {
     list-style-type: none;
     display: flex;
@@ -53,4 +56,7 @@
 }
 li{
   margin: 6px;
+}
+.nav-i{
+  font-size: 25px;
 }
