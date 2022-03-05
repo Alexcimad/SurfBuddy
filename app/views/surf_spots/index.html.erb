@@ -15,9 +15,9 @@
       </div>
     <% end %>
   <% else %>
-    <div id="owl-carousel" class="owl-carousel owl-theme">
+    <div id="owl-carousel"  class="owl-carousel owl-theme">
       <% @surf_spots.each do |spot| %>
-        <div class="item">
+        <div  class="item" id="<%= spot.id %>">
           <%= render 'shared/card_spot_bis', surf_spot: spot, user: current_user %>
         </div>
       <% end %>

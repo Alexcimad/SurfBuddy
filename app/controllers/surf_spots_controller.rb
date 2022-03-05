@@ -18,6 +18,7 @@ class SurfSpotsController < ApplicationController
       {
         lat: spot.latitude,
         lng: spot.longitude,
+        id: spot.id,
         info_window: render_to_string(partial: "info_window", locals: { spot: spot }),
         image_url: choose_marker_icon(spot)
       }
