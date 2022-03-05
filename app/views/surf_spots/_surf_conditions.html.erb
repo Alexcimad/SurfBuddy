@@ -1,13 +1,16 @@
 <div class="stat-container">
-  <ul class="nav nav-pills schedules d-flew justify-content-around">
-    <% surf_spot.surf_conditions.each_with_index do |surf_condition,index| %>
-      <% if index == 0 %>
-        <li><a class="active schedule" data-toggle="tab" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('Paris'), format: "%Hh"%></a></li>
-      <% else %>
-        <li><a class="schedule" data-toggle="tab" aria-current="page" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('Paris'), format: "%Hh"%></a></li>
+  <%# --------HOURS --------- %>
+  <div>
+    <ul class="nav hours-container">
+      <% surf_spot.surf_conditions.each_with_index do |surf_condition,index| %>
+        <% if index == 0 %>
+          <li><a class="active schedule" data-toggle="tab" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('Paris'), format: "%Hh"%></a></li>
+        <% else %>
+          <li><a class="schedule" data-toggle="tab" aria-current="page" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('Paris'), format: "%Hh"%></a></li>
+        <%end%>
       <%end%>
-    <%end%>
-  </ul>
+    </ul>
+  </div>
   <div class="tab-content">
     <% surf_spot.surf_conditions.each_with_index do |surf_condition,index| %>
       <% if index == 0 %>
