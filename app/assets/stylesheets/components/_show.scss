@@ -1,0 +1,29 @@
+.stat-container{
+    background-color: grey;
+    padding: 8px;
+}
+
+.reviews-container{
+    background-color: grey;
+    padding: 8px;
+}
+
+.hours-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(5px, auto);
+    li{
+        margin: 0px;
+    }
+}
+
+.sliderr {
+    background-color: #F4FEFD;
+    padding-top: 44px;
+    padding-bottom: 16px;
+    padding-left: 22px;
+    display: flex;
+    gap: 19px;
+    overflow-x: scroll;
+}
+

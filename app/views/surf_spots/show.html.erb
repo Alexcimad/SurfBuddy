@@ -57,15 +57,7 @@
   </div>
 
 
-  <!-- Button trigger modal -->
-  <div class="text-center">
-    <button type="button" class="btn btn-premium text-center" data-toggle="modal" data-target="#Modalreview">
-      <%=icon('fa','plus')%> Add a review
-    </button>
-  </div>
 
-  <!-- Modal -->
-  <%= render 'shared/review_spot', surf_spot: @surf_spot %>
 
   <p class="text-center">
     <%# ---------AVERAGE RATING------------- %>
@@ -89,37 +81,48 @@
   <p class="localisation text-center" ><%= icon('fas','location-arrow')%> <%= @surf_spot.latitude %>, <%= @surf_spot.longitude %></p>
 
   <%# -----------REVIEWS----------------- %>
-  <h2 id="comments">Reviews (<%= @surf_spot.spot_reviews.length %>)</h2>
-  <% if @surf_spot.spot_reviews.exists? %>
+  <div class="reviews-container">
+    <!-- Button trigger modal -->
+    <div class="text-center">
+      <button type="button" class="btn btn-premium text-center" data-toggle="modal" data-target="#Modalreview">
+        <%=icon('fa','plus')%> Add a review
+      </button>
+    </div>
+    <!-- Modal -->
+    
+    <%= render 'shared/review_spot', surf_spot: @surf_spot %>
+    <h2 id="comments">Reviews (<%= @surf_spot.spot_reviews.length %>)</h2>
+    <% if @surf_spot.spot_reviews.exists? %>
 
-    <% @surf_spot.spot_reviews.each do |review| %>
-      <div class="review-card">
-        <div class="review-header">
-          <%#= cl_image_tag(review.user.photo.key, crop: :fill, :gravity => :face, class: "avatar-bordered")%>
-          <div class="review-img">
-            <img class="avatar-bordered" src="https://a0.muscache.com/defaults/user_pic-225x225.png?im_w=240">
+      <% @surf_spot.spot_reviews.each do |review| %>
+        <div class="review-card">
+          <div class="review-header">
+            <%#= cl_image_tag(review.user.photo.key, crop: :fill, :gravity => :face, class: "avatar-bordered")%>
+            <div class="review-img">
+              <img class="avatar-bordered" src="https://a0.muscache.com/defaults/user_pic-225x225.png?im_w=240">
+            </div>
+            <div>
+              <h3><%= review.user.nickname %></h3>
+              <p><%= review.updated_at.strftime("%d %b %Y") %></p>
+            </div>
           </div>
-          <div>
-            <h3><%= review.user.nickname %></h3>
-            <p><%= review.updated_at.strftime("%d %b %Y") %></p>
+          <div class="review-content">
+            <p class="review-comment">
+              <%review.rating.times do %>
+                <%= icon('fas','star')%>
+              <%end%>
+              <%(5 - review.rating).times do %>
+                <%= icon('far','star')%>
+              <%end%>
+            </p>
+            <p class="review-comment">
+              <%=icon('fa','quote-left')%> <%= review.comment%> <%=icon('fa','quote-right')%>
+            </p>
           </div>
         </div>
-        <div class="review-content">
-          <p class="review-comment">
-            <%review.rating.times do %>
-              <%= icon('fas','star')%>
-            <%end%>
-            <%(5 - review.rating).times do %>
-              <%= icon('far','star')%>
-            <%end%>
-          </p>
-          <p class="review-comment">
-            <%=icon('fa','quote-left')%> <%= review.comment%> <%=icon('fa','quote-right')%>
-          </p>
-        </div>
-      </div>
-    <%end%>
-  <% else %>
-    <p>They are no comments and rating</p>
-  <% end %>
+      <%end%>
+    <% else %>
+      <p>They are no comments and rating</p>
+    <% end %>
+  </div>
 </div>
