@@ -6,8 +6,8 @@ const initSlider = () => {
     console.log("Owl carousel init")
     $('.owl-carousel').owlCarousel({
         loop: true,
-        margin: 10,
-        items: 1.5,
+        margin: 50,
+        items: 1.4,
         dots:false,
         nav:false,
         autoHeight: true,
