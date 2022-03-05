@@ -13,8 +13,19 @@ const initSlider = () => {
         autoHeight: true,
         center: true
     })
-
+    
+    $('#owl-carousel-hp').owlCarousel({
+        loop: true,
+        margin: 30,
+        items: 1.7,
+        dots:true,
+        nav:true,
+        autoHeight: true,
+        center: true
+    })
     window.addEventListener ("dragmove", function (event) { event.preventDefault (); }, {passive: false});
+
+
 };
 
 export {initSlider};
