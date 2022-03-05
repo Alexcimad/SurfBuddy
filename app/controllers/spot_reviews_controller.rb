@@ -20,7 +20,7 @@ class SpotReviewsController < ApplicationController
     if @spot_review.save
       redirect_to surf_spot_path(@spot_review.surf_spot)
     else
-      render "surf_spots/show"
+      redirect_to surf_spot_path(@spot_review.surf_spot)
     end
   end
 

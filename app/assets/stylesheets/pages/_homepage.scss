@@ -1,0 +1,38 @@
+.top{
+  background-image: url(https://res.cloudinary.com/dmnzqtckp/image/upload/v1646334549/development/surf_buddy_background_olau1k.png);
+  height: 100vh;
+}
+.form-control{
+  border : none !important;
+}
+.logo{
+  height: 100px;
+}
+.title-custom{
+  color: white;
+  text-align: left;
+  max-width: 290px;
+}
+
+.h1-title{
+  font-size: 50px;
+  font-weight: 700;
+}
+.h2-title{
+  color: #0C2A3E;
+
+}
+label{
+  display: none;
+}
+#search_location{
+  padding: 23px;
+}
+.button-custom{
+  background-color: #42C2FF !important;
+  color: white !important;
+}
+.button-custom:hover{
+  background-color: white !important;
+  color: #42C2FF !important;
+}

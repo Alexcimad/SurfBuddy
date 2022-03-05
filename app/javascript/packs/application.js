@@ -42,3 +42,6 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initSlider();
 })
+
+import { initStarRating } from '../plugins/init_star_rating';
+initStarRating();

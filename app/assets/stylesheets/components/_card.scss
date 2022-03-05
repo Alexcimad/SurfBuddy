@@ -36,7 +36,42 @@
   background-color: white;
   border-radius: 4px;
   padding: 10px 5px;
-  font-size: 24px;  
+  font-size: 24px;
+}
+
+// Homepage Card
+.hp-card{
+  background-color: white;
+  border-radius: 15px;
+  padding: 15px;
+}
+.hp-card-img{
+  text-align: center;
+}
+.hp-card--img{
+  width: 100%;
+  border-radius: 15px;
+}
+.hp-card-level{
+  background-color: #42c2ff;
+  color: white;
+  font-weight: 700;
+  padding: 5px;
+  border-radius: 10px;
+}
+.test{
+  width: 37%;
+  text-align: center;
+}
+.hp-card-tags{
+  background-color: #DCDCDC;
+  color: #0C2A3E;
+  padding: 5px;
+  border-radius: 10px;
+}
+h3{
+  color:#0C2A3E;
+  font-weight: 700;
 }
 
 // Design spot card of sliders
