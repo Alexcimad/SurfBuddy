@@ -5,5 +5,6 @@ class PagesController < ApplicationController
     @users = User.all.length
     @surf_sessions = SurfSession.all.length
     @surf_spots_last = SurfSpot.last(3)
+    @ftags = FavoriteSpotTag.all
   end
 end
