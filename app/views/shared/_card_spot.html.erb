@@ -1,7 +1,6 @@
-
-        <div class="spot-card-slider d-flex">
         <%= link_to surf_spot_path(surf_spot) do%>
-          <%# <img class="spot-card-img d-flex align-items-center" src="https://res.cloudinary.com/dmnzqtckp/image/upload/v1646163664/picto_uutzcc.jpg" alt="Spot"> %>
+        <div class="spot-card-slider">
+          <img class="spot-card-img-slider" src="https://res.cloudinary.com/dmnzqtckp/image/upload/v1646163664/picto_uutzcc.jpg" alt="Spot">
             <div class="spot-card-slider-details">
               <h2><%= surf_spot.location %></h2>
               <div class="slider-conditions">
@@ -16,6 +15,6 @@
                 </div>
               </div>
             </div>
-        <%end %>
         </div>
+      <%end %>
 
