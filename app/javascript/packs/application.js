@@ -36,9 +36,11 @@ document.addEventListener('turbolinks:load', () => {
 import "controllers"
 
 import { initMapbox } from '../plugins/init_mapbox';
+import { initSlider } from "../plugins/init_slider";
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  initSlider();
 })
 
 import { initStarRating } from '../plugins/init_star_rating';

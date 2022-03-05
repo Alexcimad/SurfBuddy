@@ -73,3 +73,45 @@ h3{
   color:#0C2A3E;
   font-weight: 700;
 }
+
+// Design spot card of sliders
+.spot-card-slider{
+  display: flex;
+  border-radius: 4px;
+  background-color: white;
+  padding: 3px 5px;
+  border-color: #62C3FE;
+}
+
+.spot-card-slider h2{
+  font-size : 16px;
+  color: #62C3FE;
+}
+
+.slider-conditions{
+  display: flex;
+  color:#62C3FE;
+
+}
+
+.slider-level-card{
+  display: flex;
+  background-color: #62C3FE;
+  color: white;
+  border-radius: 4px;
+}
+
+.slider-spot-rating{
+  background-color: white;
+  color: #62C3FE;
+}
+
+
+
+.spot-card-img-slider{
+  border-radius: 20px;
+  padding: 5px;
+  width: 50px;
+  height: 50px;
+  margin : 3px;
+}

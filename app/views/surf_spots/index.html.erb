@@ -10,10 +10,15 @@
             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
           </div>
       </div>
-      <div class="spots-left col-sm-6 col-md-4">
+
+    </div>
+    <div class="container">
+      <div id="owl-carousel" class="owl-carousel owl-theme">
         <% @surf_spots.each do |spot| %>
-            <%= render 'shared/card_spot', surf_spot: spot, user: current_user %>
-          <% end %>
+        <div class="item">
+-          <%= render 'shared/card_spot', surf_spot: spot, user: current_user %>
+        </div>
+        <% end %>
       </div>
     </div>
 </section>
