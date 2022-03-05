@@ -26,14 +26,6 @@
       img{
         max-width: 55px;
       }
-      &__title{
-        font-size: 13px;
-        font-weight: normal;
-        margin: 0;
-        position: absolute;
-        top: 4px;
-        left: 4px;
-      }
       &__rating{
         display: flex;
         align-items: flex-end;
@@ -94,4 +86,3 @@
 .fav{
   color: #86C6F4;
 }
-

@@ -1992,7 +1992,6 @@ input::placeholder {
 
 .home-search-wrapper {
     position: absolute;
-    bottom: 5.5rem;
     left: 50%;
     transform: translate(-50%, 15%);
     width: 75%;
@@ -2001,14 +2000,13 @@ input::placeholder {
 
 @media (max-width:1350px) {
     .home-search-wrapper {
-        width: 90%
+        width: 100%
     }
 }
 
 @media (max-width:767px) {
     .home-search-wrapper {
         transform: translate(-50%);
-        bottom: .6rem
     }
 }
 
@@ -2039,9 +2037,6 @@ input::placeholder {
     padding: 0
 }
 
-.search-module form .btn-explore {
-    max-width: 240px
-}
 
 .search-module a {
     min-width: 220px;
@@ -3670,4 +3665,21 @@ input::placeholder {
 
 .card1-category:hover {
   transform: scale(1.04);
+}
+.logo{
+  height: 100px;
+}
+.title-custom{
+  color: white;
+  text-align: left;
+  padding-left: 15px;
+  max-width: 290px;
+}
+
+.h1-title{
+  font-size: 50px;
+  font-weight: 700;
+}
+label{
+  display: none;
 }
