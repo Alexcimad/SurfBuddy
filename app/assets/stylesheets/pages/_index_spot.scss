@@ -1,7 +1,7 @@
 .search-bar-absolute{
   position: absolute;
   top : 30px;
-  left:12px;
+  left:60px;
   z-index: 1000;
 }
 .card-absolute{
@@ -24,4 +24,10 @@
   width: 30% !important;
   height: 30% !important;
   margin: auto;
+}
+.item-solo{
+  margin-left: 47px;
+}
+#search_location{
+  border-radius: 30px;
 }
