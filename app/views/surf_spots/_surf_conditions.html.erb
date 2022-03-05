@@ -1,7 +1,7 @@
 <div class="stat-container">
   <%# --------HOURS --------- %>
   <div>
-    <ul class="nav hours-container">
+    <ul class="nav sliderr">
       <% surf_spot.surf_conditions.each_with_index do |surf_condition,index| %>
         <% if index == 0 %>
           <li><a class="active schedule" data-toggle="tab" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('Paris'), format: "%Hh"%></a></li>
