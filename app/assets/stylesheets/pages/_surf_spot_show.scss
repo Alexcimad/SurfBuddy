@@ -25,7 +25,6 @@ i{
   padding: 10px;
 }
 .carousel-img{
-  border-radius: 10px;
   width: 100%;
 }
 .schedules{
@@ -45,7 +44,6 @@ text-align: center;
 font-size: 24px;
 }
 .schedule.active{
-font-weight: 900;
 color: #00b5d9;
 border: 2px solid #00b5d9;
 }
@@ -54,4 +52,31 @@ border: 2px solid #00b5d9;
   width: 70px;
   height: 70px;
   border: 5px solid black;
+}
+.show-header{
+  position: relative;
+}
+.nav-absolute-left{
+  position: absolute;
+  left: 15px;
+  top:10px;
+  color: white;
+  z-index: 1000;
+}
+.nav-absolute-right{
+  position: absolute;
+  right: 15px;
+  top:17px;
+  color: white;
+  z-index: 1000;
+}
+.nav-i-back{
+  font-size: 35px;
+}
+.nav-i-fav{
+  font-size: 25px;
+  color: white;
+}
+.surf_spot_conditions{
+  background-color: #EFFFFD;
 }
