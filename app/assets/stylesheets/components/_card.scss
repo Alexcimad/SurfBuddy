@@ -72,10 +72,10 @@ h3{
 // Design spot card of sliders
 .spot-card-slider{
   display: flex;
-  border-radius: 4px;
+  border-radius: 15px;
   background-color: white;
   padding: 3px 5px;
-  border-color: #62C3FE;
+  min-height: 150px;
 }
 
 .spot-card-slider h2{

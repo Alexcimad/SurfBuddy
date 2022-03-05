@@ -9,3 +9,19 @@
   bottom: 75px;
   z-index: 1000;
 }
+.test-card{
+  display: flex;
+  height: 125px;
+  width: 280px;
+  background-color: white;
+  border-radius: 20px;
+}
+.test-card-details{
+  width: 100%;
+  color:black;
+}
+.test-card-img{
+  width: 30% !important;
+  height: 30% !important;
+  margin: auto;
+}

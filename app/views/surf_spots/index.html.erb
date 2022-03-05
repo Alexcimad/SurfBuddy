@@ -11,7 +11,7 @@
   <div id="owl-carousel" class="owl-carousel owl-theme">
     <% @surf_spots.each do |spot| %>
       <div class="item">
-        <%= render 'shared/card_spot', surf_spot: spot, user: current_user %>
+        <%= render 'shared/card_spot_bis', surf_spot: spot, user: current_user %>
       </div>
     <% end %>
   </div>
