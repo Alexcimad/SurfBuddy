@@ -80,9 +80,15 @@
 }
 
 .test{
-  color: grey;
+  color: #86c6f434;
+  &:hover{
+    color: #86c6f434;
+  }
 }
 
 .fav{
   color: #86C6F4;
+  &:hover{
+    color: #86C6F4;
+  }
 }
