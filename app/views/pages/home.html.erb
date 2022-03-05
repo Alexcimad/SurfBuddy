@@ -17,24 +17,15 @@
   <h2 class="h2-title text-center m-4">
     Surfbuddy latest spots
   </h2>
-
-<div class="hp-cards ">
-<% @surf_spots_last.each do |spot| %>
-  <div class="hp-card">
-    <p class="hp-card-img" ><%= cl_image_tag(spot.photos.first.key, class: 'hp-card--img', crop: :fill) %></p>
-    <h3><%= spot.location %></h3>
-    <div class="test container row">
-        <% @ftags_filtred = @ftags.where(favorite_spot_id: spot.favorite_spots) %>
-        <% @ftags_filtred.each do |tag|%>
-            <p class="card-tags"><%= tag.tag.name %></p>
-        <% end %>
+  <div class="owl-carousel owl-theme" id="owl-carousel-hp">
+  <% @surf_spots_last.each do |spot| %>
+    <div class="item">
+      <%= render "shared/card_spot_hp", spot: spot %>
     </div>
-    <div class="test">
-    <p class="hp-card-level"><%= spot.surf_conditions[0].level %></p>
-    </div>
+  <% end %>
   </div>
-<% end %>
 </div>
+
 
 
 
