@@ -41,9 +41,9 @@
                 <% @ftags_filtred = @ftags.where(favorite_spot_id: surf_spot.favorite_spots) %>
                 <% @ftags_filtred.each do |tag| %>
                     <% if tag.favorite_spot.user == current_user %>
-                        <span class="badge badge-pill badge-warning"><%= tag.tag.name %></span>
+                        <span class="card-tags card-tags-favorite"><%= tag.tag.name %></span>
                     <% else %>
-                        <span class="badge badge-pill other badge-warning"><%= tag.tag.name %></span>
+                        <span class="card-tags"><%= tag.tag.name %></span>
                     <% end %>
                 <% end %>
                 <div>
