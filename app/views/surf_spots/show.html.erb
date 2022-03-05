@@ -1,15 +1,46 @@
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><%= link_to "Home", root_path %></li>
-    <li class="breadcrumb-item"><%= link_to "All spots", surf_spots_path %></li>
-    <li class="breadcrumb-item active" aria-current="page">Spot : <%= @surf_spot.location %></li>
-  </ol>
-</nav>
+<%# -----------NAV----------------- %>
+<div class="show-header">
+<div class="nav-absolute-left">
+  <%= link_to surf_spots_path do %>
+    <div class="nav-i-back"><%= icon('fa','angle-left') %></div>
+  <% end %>
+</div>
+
+<%# -----------FAVORIS----------------- %>
+<div class="nav-absolute-right nav-i-header"><%= render 'shared/favorite', surf_spot: @surf_spot %></div>
+</div>
+
+<%# -----------IMAGES----------------- %>
+<div class="card-offer-detail-carousel">
+    <div id="carouselExampleIndicators" class="carousel slide text-center" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <% @surf_spot.photos.count.times do |i| %>
+          <li data-target="#carouselExampleIndicators" data-slide-to="<%= i %>" class="<%= i == 0 ? 'active' : '' %>"></li>
+        <% end %>
+      </ol>
+
+      <div class="carousel-inner">
+        <% @surf_spot.photos.each_with_index do |photo, index| %>
+          <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
+            <%= cl_image_tag(photo.key, class: 'carousel-imagetag carousel-img', crop: :fill) %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
 
 <div class="container">
   <div class="surf_spot_title">
-    <%# -----------FAVORIS----------------- %>
-    <%= render 'shared/favorite', surf_spot: @surf_spot %>
+
     <h1 class="text-center"><%= @surf_spot.location %></h1>
 
     <p class="text-center">
@@ -34,34 +65,7 @@
     <p class="localisation text-center" ><%= icon('fas','location-arrow')%> <%= @surf_spot.latitude %>, <%= @surf_spot.longitude %></p>
   </div>
 
-<%# -----------IMAGES----------------- %>
-<div class="card-offer-detail-carousel">
-    <div id="carouselExampleIndicators" class="carousel slide text-center" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <% @surf_spot.photos.count.times do |i| %>
-          <li data-target="#carouselExampleIndicators" data-slide-to="<%= i %>" class="<%= i == 0 ? 'active' : '' %>"></li>
-        <% end %>
-      </ol>
 
-      <div class="carousel-inner">
-        <% @surf_spot.photos.each_with_index do |photo, index| %>
-          <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
-            <%= cl_image_tag(photo.key, class: 'carousel-imagetag carousel-img', crop: :fill) %>
-          </div>
-        <% end %>
-      </div>
-
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
-  </div>
 <hr>
 <p><%= @surf_spot.description %></p>
 <hr>
@@ -122,5 +126,3 @@
     <p>They are no comments and rating</p>
   <% end %>
 </div>
-
-
