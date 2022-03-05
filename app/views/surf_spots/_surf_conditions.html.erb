@@ -1,4 +1,4 @@
-<div class="stat-container">
+<div class="stat-container mb-4">
   <%# --------HOURS --------- %>
   <div>
     <ul class="nav sliderr">
@@ -25,9 +25,9 @@
             <p class="text-center"><%=icon('fas','location-arrow')%><%= surf_condition.wind_direction %></p>
           </div>
           <%# --------LEVEL --------- %>
-          <div class="d-flex justify-content-around align-items-center ">
+          <div class="d-flex justify-content-between align-items-center ">
             <div class="hp-card-level"> 
-              <p class=" level-spot mr-2 text-center">Level: <strong><%= surf_condition.level %> </strong></p>
+              <p class="text-center"><%= surf_condition.level %></p>
             </div>
             <%# ------------CONDITIONS RATING------------- %>
             <% if surf_condition.rating >= 7 %>  

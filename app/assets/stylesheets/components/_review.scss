@@ -2,7 +2,7 @@
   background-color: white;
   margin-bottom: 10px;
   padding: 5px 10px;
-  border-radius: 20px;
+  box-shadow: 3px 3px 10px rgba(175, 175, 175, 0.308);
 }
 
 .review-card .review-header{
@@ -21,4 +21,8 @@
 
 .review-card .review-comment{
   font-style: italic;
+}
+
+.review-photo{
+  width: 67px;
 }
