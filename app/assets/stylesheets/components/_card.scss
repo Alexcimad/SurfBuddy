@@ -38,3 +38,37 @@
   padding: 10px 5px;
   font-size: 24px;  
 }
+
+// Design spot card of sliders
+.spot-card-slider{
+  border-radius: 4px;
+  background-color: white;
+  padding: 3px 5px;
+  border-color: #62C3FE;
+}
+
+.spot-card-slider h2{
+  font-size : 16px;
+  color: #62C3FE;
+}
+
+.slider-conditions{
+  display: flex;
+  color:#62C3FE;
+
+}
+
+.slider-level-card{
+  display: flex;
+  background-color: #62C3FE;
+  color: white;
+  border-radius: 4px;
+}
+
+.slider-spot-rating{
+  background-color: white;
+  color: #62C3FE;
+}
+
+
+

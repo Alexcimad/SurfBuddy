@@ -1,37 +1,21 @@
 
-    <div id="<%= surf_spot.location %>-spotcard">
-        <div class="spot-card d-flex">
+        <div class="spot-card-slider d-flex">
         <%= link_to surf_spot_path(surf_spot) do%>
-          <img class="spot-card-img d-flex align-items-center" src="https://res.cloudinary.com/dmnzqtckp/image/upload/v1646163664/picto_uutzcc.jpg" alt="Spot">
-            <div class="spot-card-details">
-                <div class="d-flex justify-content-between">
-                  <h2 class="spot-card-h2"><%= surf_spot.location %></h2>
-                  <%= render 'shared/favorite', surf_spot: surf_spot  %>
+          <%# <img class="spot-card-img d-flex align-items-center" src="https://res.cloudinary.com/dmnzqtckp/image/upload/v1646163664/picto_uutzcc.jpg" alt="Spot"> %>
+            <div class="spot-card-slider-details">
+              <h2><%= surf_spot.location %></h2>
+              <div class="slider-conditions">
+                <p><%=icon('fas','wind')%><%= surf_spot.surf_conditions[0].wind_speed %>kts</p>
+                <p><%=icon('fas','water')%><%= surf_spot.surf_conditions[0].wave.ceil(2) %>m</p>
+                <p><%=icon('fas','location-arrow')%><%= surf_spot.surf_conditions[0].wind_direction %></p>
+              </div>
+              <div class="slider-level-card">
+                <p><%= surf_spot.surf_conditions[0].level %></p>
+                <div class="slider-spot-rating">
+                  <p><%= surf_spot.surf_conditions[0].rating/2 %>⭐<p>
                 </div>
-
-              <div class="d-flex justify-content-between">
-                  <div class="weather-spot d-flex flex-column">
-                    <p><%=icon('fas','wind')%><%= surf_spot.surf_conditions[0].wind_speed %>kts</p>
-                    <p><%=icon('fas','water')%><%= surf_spot.surf_conditions[0].wave.ceil(2) %>m</p>
-                    <p><%=icon('fas','location-arrow')%><%= surf_spot.surf_conditions[0].wind_direction %></p>
-                  </div>
-
-                  <div class="level-spot">
-                      <h4 class="text-center">
-                        <strong>
-                          <% if surf_spot.surf_conditions[0].level == "Beginner" %>
-                            <div class="green"><%= surf_spot.surf_conditions[0].level %></div>
-                          <% elsif surf_spot.surf_conditions[0].level == "Intermediate" %>
-                            <div class="orange"><%= surf_spot.surf_conditions[0].level %></div>
-                          <% else%>
-                            <div class="red"><%= surf_spot.surf_conditions[0].level %></div>
-                          <% end %>
-                        </strong>
-                      </h4>
-                      <div class="level d-flex align-items-center justify-content-center m-auto"><strong><%= surf_spot.surf_conditions[0].rating %> / 10</strong></div>
-                  </div>
               </div>
             </div>
         <%end %>
         </div>
-    </div>
+

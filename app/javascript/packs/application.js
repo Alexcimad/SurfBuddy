@@ -36,7 +36,9 @@ document.addEventListener('turbolinks:load', () => {
 import "controllers"
 
 import { initMapbox } from '../plugins/init_mapbox';
+import { initSlider } from "../plugins/init_slider";
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  initSlider();
 })
