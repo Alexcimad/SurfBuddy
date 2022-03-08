@@ -47,3 +47,5 @@ document.addEventListener('turbolinks:load', () => {
   initStarRating();
 })
 
+initStarRating();
+
