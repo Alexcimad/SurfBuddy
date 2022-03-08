@@ -50,22 +50,40 @@
     align-items: center;
 }
 
+.tags-container-modal{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
 .tag-add{
     cursor: pointer;
+    margin: 4px;
+    border-radius: 10px;
+    padding: 2px 5px;
+    border: 1px solid $darkblue;
+
 }
 
 .card-tags{
-    background-color: #DCDCDC;
-    color: #0C2A3E;
+    background-color: white;
+    color: #aaaaaa;
+    border: 1px solid #aaaaaa;
     padding: 2px 5px;
     margin: 4px;
     border-radius: 10px;
     &:hover{
-        color: #0C2A3E;
+        color: #aaaaaa;
+        text-decoration: none;
       }
 }
 
 .card-tags-favorite{
-    background-color: #a0a0a0;
+    color: $darkblue;
+    border: 1px solid $darkblue;
+    &:hover{
+        color: $darkblue;
+        text-decoration: none;
+      }
 }
 
