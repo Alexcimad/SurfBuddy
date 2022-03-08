@@ -3,6 +3,5 @@
   <%= simple_form_for :search, url: surf_spots_path, method: "GET", html: { class: 'search-bar' }  do |f| %>
     <%= f.input :location, placeholder: "Beach, coast, city...", class: "form-control"%>
     <%= f.submit "Search", class: "btn button-custom mb-2" %>
-    <%= link_to "Explore the map", surf_spots_path, class:"btn btn-white btn-explore"%>
   <% end %>
 </div>
