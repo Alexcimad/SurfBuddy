@@ -10,7 +10,7 @@
                             <h2 class="spot-card-h2"><%= surf_spot.location %></h2>
                             <%= render 'shared/favorite', surf_spot: surf_spot  %>
                         </div>
-                        <div class="tags-container">
+                        <div class="tags-container-card">
                             <% @ftags_filtred = @ftags.where(favorite_spot_id: surf_spot.favorite_spots) %>
                             <% @ftags_filtred.each do |tag| %>
                                 <% if tag.favorite_spot.user == current_user %>
