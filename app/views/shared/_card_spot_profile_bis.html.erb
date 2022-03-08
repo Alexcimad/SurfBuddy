@@ -1,0 +1,38 @@
+
+<div class="card-profile">
+    <div id="<%= surf_spot.location %>-spotcard">
+        <div class="mb-3">
+            <div class="spot-card d-flex">
+                <%= link_to surf_spot_path(surf_spot) do%>
+                    <img class="d-flex align-items-center" src="https://api.navily.com/media/AGxLeNtHRsD2SpKfa40DAAN7sC7pCtotaZyLTHQrcAkJSZeXEG1e6Npvkcq1YL9l?w=128&crop_square=true" alt="Spot">
+                    <div class="spot-card-details">
+                        <div class="d-flex justify-content-between">
+                            <h2 class="spot-card-h2"><%= surf_spot.location %></h2>
+                            <%= render 'shared/favorite', surf_spot: surf_spot  %>
+                        </div>
+                        <div class="tags-container">
+                            <% @ftags_filtred = @ftags.where(favorite_spot_id: surf_spot.favorite_spots) %>
+                            <% @ftags_filtred.each do |tag| %>
+                                <% if tag.favorite_spot.user == current_user %>
+                                    <span class="card-tags card-tags-favorite"><%= tag.tag.name %></span>
+                                <% else %>
+                                    <span class="card-tags"><%= tag.tag.name %></span>
+                                <% end %>
+                            <% end %>
+                            <div>
+                                <!-- Button add tag modal -->
+                                <div class="text-center">
+                                    <span  class="tag-add hp-card-level" data-toggle="modal" data-target="#tagModal<%= fav.id%>">+</span>
+                                </div>
+                                    <!-- Modal -->
+                                <%= render 'shared/tags_select', fav: fav %>
+                            </div>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+            <!-- Tags -->
+    
+        </div>
+    </div>
+</div>
