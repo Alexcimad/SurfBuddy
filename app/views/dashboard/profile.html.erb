@@ -14,14 +14,26 @@
   </div>
   <hr>
   <div class="profile-container">
+
+    <%# ----------MY BOOKINGS----------- %>
     <div class="profile-booking-container">
       <h2>My Bookings</h2>
     </div>
-    <div class="profile-favorite-container">
-      <h2>My Favorites Spots</h2>
-      <% @favorite_spots.each do |fav| %>
-        <%= render 'shared/card_spot_profile_bis', surf_spot: fav.surf_spot, user: @user, fav: fav %>
-      <% end %>
+    <%# ----------FAVORITE SPOTS----------- %>
+      <div class="profile-favorite-container">
+        <p>
+          <a  data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="true" aria-controls="collapseExample">
+            My Favorites Spots
+          </a>
+        </p>
+        <div class="collapse" id="collapseExample">
+          <div class="card card-body">
+            <% @favorite_spots.each do |fav| %>
+              <%= render 'shared/card_spot_profile_bis', surf_spot: fav.surf_spot, user: @user, fav: fav %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

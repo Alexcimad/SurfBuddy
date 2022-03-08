@@ -3,7 +3,8 @@
 }
 
 .tags-container{
-    margin: 8px;
+    margin: 0px 8px;
+    position: absolute;
 }
 
 .stat-container{
@@ -40,5 +41,9 @@
 }
 
 .nav {
-    flex-wrap: none;
+    flex-wrap: nowrap !important;
+}
+
+.spot-card-details{
+    position: relative;
 }
