@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   resources :surf_spots do
+    resources :surf_sessions, only: :create
     resources :spot_reviews, only: [:index, :show, :new, :create]
     get "favorite", to: "favorite_spots#favorite"
   end
