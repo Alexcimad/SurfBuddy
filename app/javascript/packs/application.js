@@ -38,12 +38,12 @@ import "controllers"
 import { initMapbox } from '../plugins/init_mapbox';
 import { initSlider } from "../plugins/init_slider";
 import { initAutocomplete } from "../plugins/init_autocomplete";
+import { initStarRating } from '../plugins/init_star_rating';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initSlider();
   initAutocomplete();
+  initStarRating();
 })
 
-import { initStarRating } from '../plugins/init_star_rating';
-initStarRating();

@@ -1,5 +1,5 @@
-import "jquery-bar-rating";
 import $ from 'jquery';
+import "jquery-bar-rating";
 
 const initStarRating = () => {
     $('#spot_review_rating').barrating({

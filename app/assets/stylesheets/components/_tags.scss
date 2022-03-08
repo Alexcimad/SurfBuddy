@@ -43,6 +43,8 @@
 // }
 
 .tags-container{
+    position:relative;
+    bottom: 0px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
