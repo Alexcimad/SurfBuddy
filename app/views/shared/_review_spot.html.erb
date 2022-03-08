@@ -11,7 +11,7 @@
         <div class="container">
           <%= simple_form_for [@surf_spot, @spot_review] do |f| %>
             <div class="m-2">
-                <%= f.input :comment, label: false,:input_html => {:style => 'width: 100%', :rows => 3 } %>
+                <%= f.input :comment, label: false, placeholder: 'This spot is ...', :input_html => {:style => 'width: 100%', :rows => 3 } %>
                 <%= f.input :rating, collection: (1..5), label: false, id: "review_rating"%>
                 <%# Pour changer les couleurs des étoiles : ouvrir le fichier SurfBuddy\node_modules\jquery-bar-rating\dist\themes\css-stars.css %>
             </div>
@@ -19,7 +19,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <div><%= f.submit "Confirm", class:"btn btn-premium" %></div>
+        <div class="w-50"><%= f.submit "Confirm", class:"btn button-custom" %></div>
       </div>
       <% end %>
     </div>

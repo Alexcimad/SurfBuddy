@@ -1,4 +1,4 @@
-<div class="container-without-navbar show-container"> 
+<div class="container-without-navbar show-container">
   <div class="show-header">
     <div class="nav-absolute-left">
       <%= link_to surf_spots_path do %>
@@ -56,7 +56,7 @@
       <%end%>
       <% (5 - @average_rating.to_i - 1).times do %>
         <%= icon('far','star')%>
-      <%end%> 
+      <%end%>
     </div>
     </div>
 
@@ -115,12 +115,12 @@
       <% else %>
         <p>They are no comments and rating</p>
       <% end %>
-    </div> 
+    </div>
     <!-- Button trigger modal -->
     <div class="text-center mt-4">
-      <button type="button" class="hp-card-level text-center" data-toggle="modal" data-target="#Modalreview">
+      <div type="button" class="btn button-custom mb-2" data-toggle="modal" data-target="#Modalreview">
         <%=icon('fa','plus')%> Add a review
-      </button>
+      </div>
     </div>
     <!-- Modal -->
     <%= render 'shared/review_spot', surf_spot: @surf_spot %>
