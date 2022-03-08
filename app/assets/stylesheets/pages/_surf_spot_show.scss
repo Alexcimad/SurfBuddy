@@ -20,7 +20,7 @@ i{
   margin-right: 5px;
 }
 .localisation{
-  background-color: #86c6f4;
+  background-color: $mediumblue;
   border-radius: 10px;
   padding: 10px;
 }
@@ -72,6 +72,7 @@ border: 2px solid #00b5d9;
 }
 .nav-i-back{
   font-size: 35px;
+  color: $darkblue;
 }
 .nav-i-fav{
   font-size: 25px;
@@ -81,5 +82,5 @@ border: 2px solid #00b5d9;
   background-color: #EFFFFD;
 }
 .form-control{
-  border: 1px solid #dee2e6 !important;
+  border: 1px solid $darkblue !important;
 }
