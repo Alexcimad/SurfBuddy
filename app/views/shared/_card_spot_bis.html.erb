@@ -1,11 +1,11 @@
         <%= link_to surf_spot_path(surf_spot) do %>
-        <div class="test-card">
-            <div class="test-card-details">
-              <h5 class="m-2"><%= surf_spot.location %></h5>
-              <div class="d-flex justify-content-around m-2">
-                <div><%=icon('fas','wind')%><%= surf_spot.surf_conditions[0].wind_speed %>kts</div>
-                <div><%=icon('fas','water')%><%= surf_spot.surf_conditions[0].wave.ceil(2) %>m</div>
-                <div><%=icon('fas','location-arrow')%><%= surf_spot.surf_conditions[0].wind_direction %></div>
+        <div class="card2">
+        <img src="/assets/profile.png" alt="Profil">
+        <div>
+            <h3><%= surf_spot.location %></h3>
+            <div class="card-details2">
+                <div><img src="/assets/wind.svg"><%=surf_spot.surf_conditions[0].wind_speed%>kts</div>
+                <div><img src="/assets/cloud.svg"><%=surf_spot.surf_conditions[0].wave.ceil(2)%>m</div>
               </div>
               <div class="d-flex justify-content-around">
                 <p class="hp-card-level"><%= surf_spot.surf_conditions[0].level %></p>
