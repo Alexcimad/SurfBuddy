@@ -60,7 +60,7 @@
     </div>
     </div>
 
-    <div class="tags-container">
+    <div class="tags-container-show">
       <% @ftags_filtred = FavoriteSpotTag.where(favorite_spot_id: @surf_spot.favorite_spots) %>
         <% @ftags_filtred.each do |tag| %>
           <span class="card-tags">

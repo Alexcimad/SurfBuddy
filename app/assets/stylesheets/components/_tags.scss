@@ -42,8 +42,15 @@
     
 // }
 
-.tags-container{
-    position:relative;
+.tags-container-show {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.tags-container-card {
+    position:absolute;
     bottom: 0px;
     display: flex;
     flex-wrap: wrap;
