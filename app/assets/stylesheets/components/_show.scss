@@ -33,9 +33,12 @@
     display: flex;
     gap: 19px;
     overflow-x: scroll;
-    flex-wrap: none;
 }
 
 .average-rating-stars{
 
+}
+
+.nav {
+    flex-wrap: none;
 }
