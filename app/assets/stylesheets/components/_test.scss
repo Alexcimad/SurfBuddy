@@ -7,8 +7,8 @@
   border-radius: 13px;
   width: 270px;
 }
-.card2 > img {
-  width: 78px;
+.card2 > img-cl {
+  height: 100%;
 }
 .card2 > div {
   display: flex;
@@ -18,7 +18,6 @@
 }
 h3 {
   color: #333333;
-  font-family: "Circular Bold";
   font-size: 20px;
   letter-spacing: -.71px;
 
@@ -29,7 +28,6 @@ h3 {
   width: 130px;
   justify-content: space-between;
   color: #BDBDBD;
-  font-family: "Circular Medium";
   font-size: 17px;
   letter-spacing: -.71px;
 }

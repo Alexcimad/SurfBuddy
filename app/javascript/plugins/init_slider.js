@@ -24,8 +24,6 @@ const initSlider = () => {
         center: true
     })
     window.addEventListener ("dragmove", function (event) { event.preventDefault (); }, {passive: false});
-
-
 };
 
 export {initSlider};
