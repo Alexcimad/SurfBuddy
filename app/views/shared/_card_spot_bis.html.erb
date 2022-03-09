@@ -1,15 +1,16 @@
         <%= link_to surf_spot_path(surf_spot) do %>
-        <div class="card2">
-        <img src="/assets/profile.png" alt="Profil">
+      <div class="card2">
+        <%= cl_image_tag(surf_spot.photos.first.key,:width => 78, :crop=>"fit")%>
+        <%# <img src="/assets/profile.png" alt="Profil"> %>
         <div>
-            <h3><%= surf_spot.location %></h3>
-            <div class="card-details2">
-                <div><img src="/assets/wind.svg"><%=surf_spot.surf_conditions[0].wind_speed%>kts</div>
-                <div><img src="/assets/cloud.svg"><%=surf_spot.surf_conditions[0].wave.ceil(2)%>m</div>
-              </div>
-              <div class="d-flex justify-content-around">
-                <p class="hp-card-level"><%= surf_spot.surf_conditions[0].level %></p>
-              </div>
-            </div>
+          <h3><%= surf_spot.location %></h3>
+          <div class="card-details2">
+            <div><img src="/assets/wind.svg"><%=surf_spot.surf_conditions[0].wind_speed%>kts</div>
+            <div><img src="/assets/cloud.svg"><%=surf_spot.surf_conditions[0].wave.ceil(2)%>m</div>
+          </div>
+          <div class="d-flex justify-content-around">
+              <p class="hp-card-level"><%= surf_spot.surf_conditions[0].level %> <br> <% (surf_spot.surf_conditions[0].rating/2).times do%>🤙 <%end%></p>
+          </div>
         </div>
+      </div>
       <%end %>

@@ -21,8 +21,8 @@
         <div class="surf-condition-card  align-self-start">
           <div class="d-flex justify-content-around">
             <p class="text-center"><%=icon('fas','wind')%><%= surf_condition.wind_speed %>kts</p>
-            <p class="text-center"><%=icon('fas','water')%><%= surf_condition.wave.ceil(2) %>m</p>
             <p class="text-center"><%=icon('fas','location-arrow')%><%= surf_condition.wind_direction %></p>
+            <p class="text-center"><%=icon('fas','water')%><%= surf_condition.wave.ceil(2) %>m</p>
           </div>
           <%# --------LEVEL --------- %>
           <div class="d-flex justify-content-between align-items-center ">

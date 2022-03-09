@@ -94,7 +94,6 @@ class SurfSpotsController < ApplicationController
     else
       return helpers.asset_url("level_expert.png")
     end
-
   end
 
 end

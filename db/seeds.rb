@@ -43,15 +43,15 @@ jeremyF = User.create!(email: 'jeremyF@gmail.com',password: "WSL2021", nickname:
 # Add Spots
 
 surf_spot1 = SurfSpot.create!(location: "Lacanau", description: "Lorem Ipsum")
-file_user = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1644534494/pzrxzpomr8mup05gnztk.jpg")
+file_user = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1646859730/mevgwuhni89gsyovx4u6.jpg")
 surf_spot1.photos.attach(io: file_user, filename: "alexis_photo.jpg", content_type: "image/jpg")
 puts "---CREATING #{surf_spot1.location}"
 
 surf_spots << surf_spot1
 
 surf_spot2 = SurfSpot.create!(location: "Quiberon", description: "Lorem Ipsum")
-file_user2 = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1644534494/pzrxzpomr8mup05gnztk.jpg")
-surf_spot2.photos.attach(io: file_user2, filename: "alexis_photo.jpg", content_type: "image/jpg")
+file_user2 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1646859007/cpdfnelsn1hyh6bozovp.jpg")
+surf_spot2.photos.attach(io: file_user2, filename: "quiberon_photo.jpg", content_type: "image/jpg")
 puts "---CREATING #{surf_spot2.location}"
 surf_spots << surf_spot2
 
@@ -63,13 +63,13 @@ surf_spots << surf_spot3
 
 surf_spot4 = SurfSpot.create!(location: "Grande Plage Biarritz", description: "Awesome beach for surfing just before going to the casino ;)")
 puts "---CREATING #{surf_spot4.location}"
-file_user4 = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1644534494/pzrxzpomr8mup05gnztk.jpg")
-surf_spot4.photos.attach(io: file_user4, filename: "alexis_photo.jpg", content_type: "image/jpg")
+file_user4 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1646859521/o5ryzpmrzqgwampwjr3o.jpg")
+surf_spot4.photos.attach(io: file_user4, filename: "btz_grde_plage_photo.jpg", content_type: "image/jpg")
 surf_spots << surf_spot4
 
 surf_spot5 = SurfSpot.create!(location: "Côte des basques", description: "Great beach! Really secure for family surfing with a great view of villa Belza")
 puts "---CREATING #{surf_spot5.location}"
-file_user5 = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1644534494/pzrxzpomr8mup05gnztk.jpg")
+file_user5 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1646859305/l14arziphmzwtbxxlf7c.jpg")
 surf_spot5.photos.attach(io: file_user5, filename: "alexis_photo.jpg", content_type: "image/jpg")
 surf_spots << surf_spot5
 
