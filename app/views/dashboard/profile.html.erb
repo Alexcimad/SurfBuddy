@@ -28,9 +28,12 @@
     </div>
     <%# ----------FAVORITE SPOTS----------- %>
     <div class="profile-favorite-container">
-      <p  data-toggle="collapse" href="#collapseFavorite" role="button" aria-expanded="true" aria-controls="collapseExample">
-        My Favorites Spots
-      </p>
+      <div class="down">
+        <p  data-toggle="collapse" href="#collapseFavorite" role="button" aria-expanded="true" aria-controls="collapseExample">
+          My Favorites Spots
+        </p>
+        <i class="fas fa-chevron-down"></i>
+      </div>
       <div class="collapse" id="collapseFavorite">
         <div class="card card-body">
           <% @favorite_spots.each do |fav| %>

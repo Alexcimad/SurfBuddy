@@ -1,5 +1,6 @@
 .profile-favorite-container{
     border: 1px solid gray;
+    position: relative;
     h2{
         text-decoration: none;
     }
@@ -7,7 +8,15 @@
 
 .profile-booking-container{
     border: 1px solid gray;
+    align-items: center;
+    justify-content: center;
     h2{
         text-decoration: none;
     }
+}
+
+.down{
+    display: flex;
+    justify-content: space-between;
+    
 }
