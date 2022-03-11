@@ -19,7 +19,7 @@
       <div id="slot<%=index%>" class="tab-pane fade">
       <% end %>
         <div class="surf-condition-card  align-self-start">
-          <div class="d-flex justify-content-around">
+          <div class="d-flex justify-content-between">
             <p class="text-center"><%=icon('fas','wind')%><%= surf_condition.wind_speed %>kts</p>
             <p class="text-center"><%=icon('fas','location-arrow')%><%= surf_condition.wind_direction %></p>
             <p class="text-center"><%=icon('fas','water')%><%= surf_condition.wave.ceil(2) %>m</p>
@@ -44,8 +44,8 @@
               </div> 
             <%end%>
           </div>
+          <%= link_to 'Plan this surf session', surf_spot_surf_sessions_path(surf_spot,user_session: current_user.id, surf_cond: surf_condition.id), method: :post, class: "btn button-custom-large"  %>
         </div>
-        <%= link_to 'Plan this surf session', surf_spot_surf_sessions_path(surf_spot,user_session: current_user.id, surf_cond: surf_condition.id), method: :post, class: "btn button-custom-large"  %>
 
       </div>
     <%end%>
