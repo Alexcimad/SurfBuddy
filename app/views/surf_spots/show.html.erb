@@ -29,8 +29,6 @@
           </div>
         <% end %>
     </div>
-
-
   </div>
 
   <div class="surf_spot_title container mb-3">
@@ -41,33 +39,32 @@
     <p>
       <%= @surf_spot.description %>
     </p>
-    <%# ---------AVERAGE RATING------------- %>
-    <div class="average-rating-stars">
+    <%# ---------AVERAGE RATING-------------
+    <%# <div class="average-rating-stars">
       <% @average_rating.to_i.times do %>
-        <%= icon('fas','star') %>
-      <%end%>
-      <% if @average_rating >= (@average_rating.to_i + 0.25) && @average_rating <= (@average_rating.to_i + 0.75)%>
-        <%= icon('fas','star-half-alt')%>
-        <i class="fa-regular fa-star-half-stroke"></i>
+        <%# <%= icon('fas','star') %>
+      <%#end%>
+      <%##if @average_rating >= (@average_rating.to_i + 0.25) && @average_rating <= (@average_rating.to_i + 0.75)%>
+        <%#= icon('fas','star-half-alt')%>
+        <%# <i class="fa-regular fa-star-half-stroke"></i>
       <% elsif @average_rating < (@average_rating.to_i + 0.25) %>
-        <%= icon('far','star')%>
-      <% else %>
-        <%= icon('fas','star')%>
-      <%end%>
-      <% (5 - @average_rating.to_i - 1).times do %>
-        <%= icon('far','star')%>
-      <%end%>
-    </div>
-    </div>
-
-    <div class="tags-container-show">
-      <% @ftags_filtred = FavoriteSpotTag.where(favorite_spot_id: @surf_spot.favorite_spots) %>
-        <% @ftags_filtred.each do |tag| %>
+        <%# <%= icon('far','star')%>
+      <%# else %>
+        <%#= icon('fas','star')%>
+      <%#end%>
+      <%# (5 - @average_rating.to_i - 1).times do %>
+        <%#= icon('far','star')%>
+      <%#end%> 
+        <div class="tags-container-show">
+          <% @ftags_filtred = FavoriteSpotTag.where(favorite_spot_id: @surf_spot.favorite_spots) %>
+          <% @ftags_filtred.each do |tag| %>
           <span class="card-tags">
             <%= tag.tag.name %>
           </span>
-        <% end %>
+          <% end %>
+      </div>
     </div>
+
   </div>
 
   <%# -----------API----------------- %>
