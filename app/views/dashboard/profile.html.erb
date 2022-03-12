@@ -1,4 +1,4 @@
-<div class="mt-3">
+<div class="profile-container mt-3">
   <div class="profile-head-container">
     <div class="profile text-center">
           <%= image_tag "http://res.cloudinary.com/dmnzqtckp/image/upload/v1646940912/xxqphqz5rbbrvtuc2pbm.jpg", class: "profile-picture" %>
@@ -29,12 +29,20 @@
 
     <%# ----------MY BOOKINGS----------- %>
     <div class="profile-booking-container">
-      <p  data-toggle="collapse" href="#collapseBooking" role="button" aria-expanded="true" aria-controls="collapseExample">
-        My Bookings
-      </p>
-      <div class="collapse" id="collapseBooking">
+      <div class="down">
+        <p  data-toggle="collapse" href="#collapseBooking" role="button" aria-expanded="true" aria-controls="collapseExample">
+          My Bookings
+        </p>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <div class="collapse show" id="collapseBooking">
         <div class="card card-body">
-          <%# CONTENT %>
+          <% @surf_sessions.each do |session| %>
+            <% @session = session %>
+            <% surf_condition_id = session.surf_condition_id %>
+            <% session_spot = SurfCondition.find(surf_condition_id).surf_spot %>
+            <%= render 'shared/card_surf_session', surf_spot: session_spot, user: @user%>
+          <% end %>
         </div>
       </div>
     </div>
@@ -55,4 +63,5 @@
       </div>
     </div>
   </div>
+
 </div>
