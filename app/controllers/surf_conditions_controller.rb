@@ -5,6 +5,6 @@ class SurfConditionsController < ApplicationController
   
   def create
     @surf_spot = SurfSpot.new(surf_spot_params)
-
+    
   end
 end

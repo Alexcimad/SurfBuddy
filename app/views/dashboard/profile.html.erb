@@ -34,7 +34,11 @@
       </p>
       <div class="collapse" id="collapseBooking">
         <div class="card card-body">
-          <%# CONTENT %>
+          <% @surf_sessions.each do |session| %>
+            <% surf_condition_id = session.surf_condition_id %>
+            <% session_spot = SurfCondition.find(surf_condition_id).surf_spot %>
+            <%= render 'shared/card_surf_session', surf_spot: session_spot, user: @user%>
+          <% end %>
         </div>
       </div>
     </div>
@@ -55,4 +59,5 @@
       </div>
     </div>
   </div>
+
 </div>

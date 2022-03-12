@@ -5,4 +5,8 @@ class SurfSessionsController < ApplicationController
     redirect_to profile_path
   end
 
+  def index
+    @surf_sessions = SurfSession.all
+  end
+
 end

@@ -1,0 +1,19 @@
+
+<div class="card-profile">
+    <div id="<%= surf_spot.location %>-spotcard">
+        <div >
+            <div class="spot-card d-flex">
+                <%= link_to surf_spot_path(surf_spot) do%>
+                    <img class="d-flex align-items-center card-photo" src="https://api.navily.com/media/AGxLeNtHRsD2SpKfa40DAAN7sC7pCtotaZyLTHQrcAkJSZeXEG1e6Npvkcq1YL9l?w=128&crop_square=true" alt="Spot">
+                    <div class="spot-card-details">
+                        <div class="d-flex justify-content-between">
+                            <h2 class="spot-card-h2"><%= surf_spot.location %></h2>
+                            <%= render 'shared/favorite_profile', surf_spot: surf_spot  %>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+    
+        </div>
+    </div>
+</div>
