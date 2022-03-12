@@ -16,10 +16,7 @@ class DashboardController < ApplicationController
       end
       set_tags
       @favorite_spots = @user.favorite_spots  
-
-
       @surf_sessions = SurfSession.where(user_id: current_user)
-
     end
 
     private 

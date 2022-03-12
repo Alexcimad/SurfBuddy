@@ -10,6 +10,15 @@
                             <h2 class="spot-card-h2"><%= surf_spot.location %></h2>
                             <%= render 'shared/favorite_profile', surf_spot: surf_spot  %>
                         </div>
+                        <div>
+                            <% surf_condition = SurfCondition.find(@session.surf_condition_id) %>
+                            <% start_time = surf_condition.start_hour.strftime("%k")%>
+                            <%= start_time.to_i%>h - <%= start_time.to_i + 3 %>h
+                            <%= surf_condition.temp%>
+                            <%= surf_condition.wind_speed%>
+                            <%= surf_condition.wind_direction%>
+                            <%= surf_condition.level%>
+                        </div>
                     </div>
                 <% end %>
             </div>
