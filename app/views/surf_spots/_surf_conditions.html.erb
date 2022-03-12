@@ -29,20 +29,6 @@
             <div class="hp-card-level"> 
               <p class="text-center"><%= surf_condition.level %></p>
             </div>
-            <%# ------------CONDITIONS RATING------------- %>
-            <% if surf_condition.rating >= 7 %>  
-              <div class="hp-card-level green"> 
-                <p class="text-center d-flex align-items-center justify-content-center"><strong><%= surf_condition.rating %>/10</strong></p>
-              </div>
-            <% elsif surf_condition.rating < 5%>
-              <div class="hp-card-level red"> 
-                <p class="text-center d-flex align-items-center justify-content-center"><strong><%= surf_condition.rating %>/10</strong></p>
-              </div>          
-            <% else %>
-              <div class="hp-card-level orange"> 
-                <p class="text-center d-flex align-items-center justify-content-center"><strong><%= surf_condition.rating %>/10</strong></p>
-              </div> 
-            <%end%>
           </div>
           <%= link_to 'Plan this surf session', surf_spot_surf_sessions_path(surf_spot,user_session: current_user.id, surf_cond: surf_condition.id), method: :post, class: "btn button-custom-large"  %>
         </div>
