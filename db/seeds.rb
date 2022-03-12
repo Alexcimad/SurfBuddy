@@ -8,13 +8,14 @@
 require 'open-uri'
 
 puts "-DESTROYING CURRENT DATA"
-FavoriteSpot.destroy_all
-SpotReview.destroy_all
+SurfSession.destroy_all
 SurfSpot.destroy_all
 User.destroy_all
 Tag.destroy_all
 FavoriteSpotTag.destroy_all
 SurfCondition.destroy_all
+FavoriteSpot.destroy_all
+SpotReview.destroy_all
 
 CONST_LEVEL = ["Beginner", "Intermediate", "Expert"]
 surf_spots = []
@@ -85,7 +86,17 @@ file_user7 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1646940
 surf_spot7.photos.attach(io: file_user7, filename: "sainte_barbe.jpg", content_type: "image/jpg")
 surf_spots << surf_spot7
 
+surf_spot8 = SurfSpot.create!(location: "Plage Hendaye", description: "Great nice and big beach to begin surfing safely")
+puts "---CREATING #{surf_spot8.location}"
+file_user8 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1647099659/obzhz2jjt2qxssel5yzz.jpg")
+surf_spot8.photos.attach(io: file_user8, filename: "hendaye.jpg", content_type: "image/jpg")
+surf_spots << surf_spot8
 
+surf_spot9 = SurfSpot.create!(location: "Plage du penon", description: "Big beach in the Landes for surfing and family time")
+puts "---CREATING #{surf_spot9.location}"
+file_user9 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1647101018/gnutizz6e2vl8boxezwi.jpg")
+surf_spot9.photos.attach(io: file_user9, filename: "hendaye.jpg", content_type: "image/jpg")
+surf_spots << surf_spot9
 
 # Add Reviews
 spot_review1 = SpotReview.create!(comment: "I love this beach it was awesome", rating: 4, surf_spot_id: surf_spot1.id, user_id: user1.id)
@@ -115,6 +126,7 @@ spot_reviews << spot_review6
 spot_review7 = SpotReview.create!(comment: "Really nice surf spot for beginner in Britanny really close to visit Plouharnel! I recommend!", rating: 5, surf_spot_id: surf_spot7.id, user_id: user1.id)
 puts "----CREATING #{spot_review7.rating} stars"
 spot_reviews << spot_review7
+
 
 
 
@@ -177,6 +189,8 @@ def calc_wind_direction(v_wind_direction_rad)
   elsif v_wind_direction_rad <= (15*Math::PI/8) && v_wind_direction_rad > (13*Math::PI/8)
     wind_dir_result = "SE"
   elsif v_wind_direction_rad <= (2*Math::PI/8) && v_wind_direction_rad > (15*Math::PI/8)
+    wind_dir_result = "E"
+  else
     wind_dir_result = "E"
   end
 
