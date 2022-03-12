@@ -6,6 +6,13 @@
     padding-left: 3rem
 }
 
+.container1 {
+  max-width: 1360px;
+  padding-right: 3rem;
+  padding-left: 3rem;
+  margin: 5px;
+}
+
 @media (max-width:991px) {
     .container {
         padding-right: 2rem !important;
@@ -38,6 +45,7 @@
     max-width: 1638px;
     padding-right: 3rem;
     padding-left: 3rem;
+    margin-top: 20px;
 }
 
 @media (min-width:1732px) {
