@@ -27,6 +27,18 @@ i{
 .carousel-img{
   width: 100%;
 }
+
+.stat-container{
+  margin: 4px;
+  border-radius: 5px;
+  box-shadow: 4px 4px 10px rgba(128, 128, 128, 0.308);
+}
+
+.show-container{
+  color: rgb(107, 105, 105);
+}
+
+
 .schedules{
 display: flex;
 flex-wrap: wrap;
@@ -92,9 +104,7 @@ background-color: white;
   margin-bottom: 0;
 }
 
-.reviews-container p{
-  font-size: 20px;
-}
+
 
 .surf-condition-card i{
   color: #42C2FF;

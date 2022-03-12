@@ -1,22 +1,3 @@
-.show-container{
-    color: rgb(107, 105, 105);
-}
-
-.tags-container{
-    margin: 0px 8px;
-    position: absolute;
-}
-
-.stat-container{
-    margin: 4px;
-    border-radius: 5px;
-    box-shadow: 4px 4px 10px rgba(128, 128, 128, 0.308);
-}
-
-.reviews-container{
-    padding: 8px;
-
-}
 
 .hours-container{
     display: grid;
@@ -26,16 +7,6 @@
         margin: 0px;
     }
 }
-
-.sliderr {
-    background-color: $lightblue;
-    padding: 16px 5px;
-    padding-left: 22px;
-    display: flex;
-    gap: 16px;
-    overflow-x: scroll;
-}
-
 
 .nav {
     flex-wrap: nowrap !important;
