@@ -4,9 +4,21 @@
     <ul class="nav sliderr">
       <% surf_spot.surf_conditions.each_with_index do |surf_condition,index| %>
         <% if index == 0 %>
-          <li><a class="active schedule" data-toggle="tab" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('Paris'), format: "%Hh"%></a></li>
+          <% if surf_condition.level == "Beginner" %>
+          <li><a class="active schedule green" data-toggle="tab" aria-current="page" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('Paris'), format: "%Hh"%></a></li>
+          <% elsif surf_condition.level == "Intermediate" %>
+          <li><a class="active schedule orange" data-toggle="tab" aria-current="page" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('Paris'), format: "%Hh"%></a></li>
+          <% elsif surf_condition.level == "Intermediate" %>
+          <li><a class="active schedule red" data-toggle="tab" aria-current="page" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('Paris'), format: "%Hh"%></a></li>
+          <%end %>
         <% else %>
-          <li><a class="schedule" data-toggle="tab" aria-current="page" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('Paris'), format: "%Hh"%></a></li>
+          <% if surf_condition.level == "Beginner" %>
+          <li><a class="schedule green" data-toggle="tab" aria-current="page" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('Paris'), format: "%Hh"%></a></li>
+          <% elsif surf_condition.level == "Intermediate" %>
+          <li><a class="schedule orange" data-toggle="tab" aria-current="page" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('Paris'), format: "%Hh"%></a></li>
+          <% elsif surf_condition.level == "Intermediate" %>
+          <li><a class="schedule red" data-toggle="tab" aria-current="page" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('Paris'), format: "%Hh"%></a></li>
+          <%end %>
         <%end%>
       <%end%>
     </ul>
