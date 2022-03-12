@@ -1,0 +1,7 @@
+<div data-controller="favorite" class="text-right picto">
+  <% if current_user.favorite_spots.pluck(:surf_spot_id).include?(surf_spot.id) %>
+    <div class="nav-i-fav"><%= link_to icon('fas','heart') , surf_spot_favorite_path(surf_spot), remote: true, class: "no-fav-p fav-p" , data: { action: "click->favorite#toggleProfile" } %></div>
+  <% else %>
+    <div class="nav-i-fav"><%= link_to icon('fas','heart'), surf_spot_favorite_path(surf_spot), remote: true, class: "no-fav-p" , data: { action: "click->favorite#toggleProfile" } %></div>
+  <% end %>
+</div>

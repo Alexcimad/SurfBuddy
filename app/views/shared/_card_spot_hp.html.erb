@@ -2,13 +2,13 @@
   <%= link_to surf_spot_path(spot) do%>
     <p class="hp-card-img" ><%= cl_image_tag(spot.photos.first.key, class: 'hp-card--img', crop: :fill) %></p>
     <h3><%= spot.location %></h3>
-    <div class="test container row">
+    <div class="no-fav container row">
         <% @ftags_filtred = @ftags.where(favorite_spot_id: spot.favorite_spots) %>
         <% @ftags_filtred.each do |tag|%>
             <p class="card-tags"><%= tag.tag.name %></p>
         <% end %>
     </div>
-    <div class="test">
+    <div class="no-fav">
     <p class="hp-card-level"><%= spot.surf_conditions[0].level %></p>
     </div>
     <% end %>

@@ -79,16 +79,30 @@
   }
 }
 
-.test{
-  color: #86c6f434;
+.no-fav{
+  color: rgba(255, 255, 255, 0.329);
   &:hover{
-    color: #86c6f434;
+    color: rgba(255, 255, 255, 0.329);
   }
 }
 
 .fav{
-  color: $middleblue;
+  color: white;
   &:hover{
-    color: $middleblue;
+    color: white;
+  }
+}
+
+.no-fav-p{
+  color: #42c3ff6c;
+  &:hover{
+    color: #42c3ff6c;
+  }
+}
+
+.fav-p{
+  color: #42c2ff;
+  &:hover{
+    color: #42c2ff;
   }
 }
