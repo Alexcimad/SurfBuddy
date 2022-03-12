@@ -18,7 +18,7 @@
     Our awesome spots
   </h2>
   <div class="owl-carousel owl-theme" id="owl-carousel-hp">
-  <% @surf_spots_last.each do |spot| %>
+  <% @surf_spots.each do |spot| %>
     <div class="item" style="height: 360px;">
       <%= render "shared/card_spot_hp", spot: spot %>
     </div>
