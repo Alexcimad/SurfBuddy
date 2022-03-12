@@ -1,3 +1,13 @@
+<div class="d-flex justify-content-between mx-2">
+    <div>
+        <% surf_condition = SurfCondition.find(@session.surf_condition_id) %>
+        <%= surf_condition.start_hour.strftime("%d/%m/%Y") %>
+    </div>
+    <div>
+        <% start_time = surf_condition.start_hour.strftime("%k")%>
+        <%= start_time.to_i%>h - <%= start_time.to_i + 3 %>h
+    </div>
+</div>
 
 <div class="card-profile">
     <div id="<%= surf_spot.location %>-spotcard">
@@ -11,16 +21,14 @@
                             <%= render 'shared/favorite_profile', surf_spot: surf_spot  %>
                         </div>
                         <div>
-                            <% surf_condition = SurfCondition.find(@session.surf_condition_id) %>
-                            <%= surf_condition.start_hour.strftime("%d/%m/%Y") %>
-                            <% start_time = surf_condition.start_hour.strftime("%k")%>
-                            <%= start_time.to_i%>h - <%= start_time.to_i + 3 %>h
                             <div class="d-flex justify-content-between">
                                 <span class="text-center"><%=icon('fas','wind')%><%= surf_condition.wind_speed%>kts</span>
                                 <span class="text-center"><%=icon('fas','location-arrow')%><%= surf_condition.wind_direction%></span>
                                 <span class="text-center"><%=icon('fas','water')%><%= surf_condition.wave.ceil(2) %>m</span>
                             </div>
-                            <%= surf_condition.level%>
+                            <div class="hp-card-level profile-level">
+                                <%= surf_condition.level%>
+                            </div>
                         </div>
                     </div>
                 <% end %>

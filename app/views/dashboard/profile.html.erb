@@ -4,13 +4,7 @@
           <%= image_tag "http://res.cloudinary.com/dmnzqtckp/image/upload/v1646940912/xxqphqz5rbbrvtuc2pbm.jpg", class: "profile-picture" %>
     </div>
     <div class="profile-head-container-right">
-      <h1 class="text-center mt-3">Hello <%= @user.nickname %></h1>
-      <div class="d-flex justify-content-around">
-        <i class="fab fa-twitter-square"></i>
-        <i class="fab fa-facebook-square"></i>
-        <i class="fas fa-envelope-square"></i>
-        <i class="fas fa-phone-square"></i>
-      </div>
+      <h2 class="text-center mt-3">Hello <%= @user.nickname %></h2>
       <div class="d-flex align-center h-40">
          Level : <strong> <%= @user.level %></strong>
         <!-- Button trigger modal -->
@@ -30,9 +24,9 @@
     <%# ----------MY BOOKINGS----------- %>
     <div class="profile-booking-container">
       <div class="down">
-        <p  data-toggle="collapse" href="#collapseBooking" role="button" aria-expanded="true" aria-controls="collapseExample">
-          My Bookings
-        </p>
+        <span  data-toggle="collapse" href="#collapseBooking" role="button" aria-expanded="true" aria-controls="collapseExample">
+          My Bookings (<%= @surf_sessions.count %>)
+        </span>
         <i class="fas fa-chevron-down"></i>
       </div>
       <div class="collapse show" id="collapseBooking">
@@ -49,9 +43,9 @@
     <%# ----------FAVORITE SPOTS----------- %>
     <div class="profile-favorite-container">
       <div class="down">
-        <p  data-toggle="collapse" href="#collapseFavorite" role="button" aria-expanded="true" aria-controls="collapseExample">
-          My Favorites Spots
-        </p>
+        <span  data-toggle="collapse" href="#collapseFavorite" role="button" aria-expanded="true" aria-controls="collapseExample">
+          My Favorites Spots (<%= @favorite_spots.count %>)
+        </span>
         <i class="fas fa-chevron-down"></i>
       </div>
       <div class="collapse" id="collapseFavorite">

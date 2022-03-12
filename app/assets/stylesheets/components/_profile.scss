@@ -14,8 +14,9 @@
     margin-left: 16px;
 }
 
+
+
 .profile-favorite-container{
-    padding-left: 16px;
     border: 1px solid gray;
     position: relative;
     h2{
@@ -24,7 +25,6 @@
 }
 
 .profile-booking-container{
-    padding-left: 16px;
     border: 1px solid gray;
     position: relative;
     h2{
@@ -33,6 +33,9 @@
 }
 
 .down{
+    font-size: larger;
+    padding-left: 16px;
+    height: 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -44,4 +47,10 @@
 .cursor{
     margin-left: 7px;
     cursor: pointer;
+}
+
+.profile-level{
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
 }
