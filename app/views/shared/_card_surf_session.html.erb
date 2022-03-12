@@ -1,39 +1,41 @@
-<div class="d-flex justify-content-between mx-2">
-    <div>
-        <% surf_condition = SurfCondition.find(@session.surf_condition_id) %>
-        <%= surf_condition.start_hour.strftime("%d/%m/%Y") %>
+<div class="profile-card">
+    <div class="d-flex justify-content-between mx-2">
+        <div>
+            <% surf_condition = SurfCondition.find(@session.surf_condition_id) %>
+            <%= surf_condition.start_hour.strftime("%d/%m/%Y") %>
+        </div>
+        <div>
+            <% start_time = surf_condition.start_hour.strftime("%k")%>
+            <%= start_time.to_i%>h - <%= start_time.to_i + 3 %>h
+        </div>
     </div>
-    <div>
-        <% start_time = surf_condition.start_hour.strftime("%k")%>
-        <%= start_time.to_i%>h - <%= start_time.to_i + 3 %>h
-    </div>
-</div>
 
-<div class="card-profile">
-    <div id="<%= surf_spot.location %>-spotcard">
-        <div >
-            <div class="spot-card d-flex">
-                <%= link_to surf_spot_path(surf_spot) do%>
-                    <img class="d-flex align-items-center card-photo" src="https://api.navily.com/media/AGxLeNtHRsD2SpKfa40DAAN7sC7pCtotaZyLTHQrcAkJSZeXEG1e6Npvkcq1YL9l?w=128&crop_square=true" alt="Spot">
-                    <div class="spot-card-details">
-                        <div class="d-flex justify-content-between">
-                            <h2 class="spot-card-h2"><%= surf_spot.location %></h2>
-                            <%= render 'shared/favorite_profile', surf_spot: surf_spot  %>
-                        </div>
-                        <div>
+    <div class="card-profile">
+        <div id="<%= surf_spot.location %>-spotcard">
+            <div >
+                <div class="spot-card d-flex">
+                    <%= link_to surf_spot_path(surf_spot) do%>
+                        <img class="d-flex align-items-center card-photo" src="https://api.navily.com/media/AGxLeNtHRsD2SpKfa40DAAN7sC7pCtotaZyLTHQrcAkJSZeXEG1e6Npvkcq1YL9l?w=128&crop_square=true" alt="Spot">
+                        <div class="spot-card-details">
                             <div class="d-flex justify-content-between">
-                                <span class="text-center"><%=icon('fas','wind')%><%= surf_condition.wind_speed%>kts</span>
-                                <span class="text-center"><%=icon('fas','location-arrow')%><%= surf_condition.wind_direction%></span>
-                                <span class="text-center"><%=icon('fas','water')%><%= surf_condition.wave.ceil(2) %>m</span>
+                                <h2 class="spot-card-h2"><%= surf_spot.location %></h2>
+                                <%= render 'shared/favorite_profile', surf_spot: surf_spot  %>
                             </div>
-                            <div class="hp-card-level profile-level">
-                                <%= surf_condition.level%>
+                            <div>
+                                <div class="d-flex justify-content-between">
+                                    <span class="text-center"><%=icon('fas','wind')%><%= surf_condition.wind_speed%>kts</span>
+                                    <span class="text-center"><%=icon('fas','location-arrow')%><%= surf_condition.wind_direction%></span>
+                                    <span class="text-center"><%=icon('fas','water')%><%= surf_condition.wave.ceil(2) %>m</span>
+                                </div>
+                                <div class="hp-card-level profile-level">
+                                    <%= surf_condition.level%>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                <% end %>
+                    <% end %>
+                </div>
+        
             </div>
-    
         </div>
     </div>
 </div>
