@@ -6,7 +6,7 @@
 
 .profile-card{
     margin-bottom: 10px;
-    background-color: white;
+    background-color: transparent;
 }
 
 .profile-head-container{
@@ -21,15 +21,17 @@
 
 
 .profile-favorite-container{
+    background-color: rgba(128, 128, 128, 0.12);
     border: 1px solid gray;
     position: relative;
     h2{
         text-decoration: none;
     }
+    margin-bottom: 60px;
 }
 
 .profile-booking-container{
-    background-color: gray;
+    background-color: rgba(128, 128, 128, 0.12);
     border: 1px solid gray;
     position: relative;
     h2{

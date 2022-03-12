@@ -122,8 +122,9 @@ h3{
 .card-profile{
   box-shadow: 4px 4px 10px rgba(128, 128, 128, 0.308);
   margin: 8px;
-  border-radius: 4px;
   position: relative;
+  border-radius: 4px;
+
 }
 
 .card-body{
@@ -133,6 +134,11 @@ h3{
 
 .spot-card {
   width: auto;
+  border-radius: 4px;
+  img{
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+  }
 }
 
 .card-photo{
