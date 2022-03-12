@@ -1,5 +1,15 @@
+.profile-head-container{
+    display: flex;
+    padding-left: 12px;
+}
+
+.profile-head-container-right{
+    margin-left: 16px;
+}
+
 .profile-favorite-container{
     border: 1px solid gray;
+    position: relative;
     h2{
         text-decoration: none;
     }
@@ -7,7 +17,23 @@
 
 .profile-booking-container{
     border: 1px solid gray;
+    align-items: center;
+    justify-content: center;
     h2{
         text-decoration: none;
     }
+}
+
+.down{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    p{
+      align-items: center;
+    }
+}
+
+.cursor{
+    margin-left: 7px;
+    cursor: pointer;
 }
