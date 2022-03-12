@@ -3,17 +3,17 @@
 }
 
 .button-custom{
-  background-color: #42C2FF !important;
+  background-color: $figmablue !important;
   color: white !important;
   width: 50%;
 }
 .button-custom:hover{
   background-color: white !important;
-  color: #42C2FF !important;
+  color: $figmablue !important;
 }
 
 .button-custom-large{
-  background-color: #42C2FF !important;
+  background-color: $figmablue !important;
   color: white !important;
   width: 100% !important;
   margin-bottom: 10px;
