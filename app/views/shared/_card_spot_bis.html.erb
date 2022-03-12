@@ -5,10 +5,15 @@
         <div>
           <h3><%= surf_spot.location %></h3>
           <div class="card-details2">
-            <div><img src="/assets/wind.svg"><%=surf_spot.surf_conditions[0].wind_speed%>kts</div>
-            <div><img src="/assets/cloud.svg"><%=surf_spot.surf_conditions[0].wave.ceil(2)%>m</div>
+            <% if user_signed_in? && !surf_spot.best_surf_condition(current_user).nil? %>
+              <div><img src="/assets/wind.svg"><%=surf_spot.best_surf_condition(current_user).wind_speed%>kts</div>
+              <div><img src="/assets/cloud.svg"><%=surf_spot.best_surf_condition(current_user).wave.ceil(2)%>m</div>
+            <%else%>
+              <div><img src="/assets/wind.svg"><%=surf_spot.surf_conditions[0].wind_speed%>kts</div>
+              <div><img src="/assets/cloud.svg"><%=surf_spot.surf_conditions[0].wave.ceil(2)%>m</div>
+            <%end %>
           </div>
-          <% if user_signed_in? %>
+          <% if user_signed_in? && !surf_spot.best_surf_condition(current_user).nil?%>
           <div class="btn9"><%= current_user.level %> <span> <%=(surf_spot.best_surf_condition(current_user).rating/2) %> 🤙 </span></div>
           <% else %>
           <div class="btn9"><%= surf_spot.surf_conditions[0].level %> <span> <%=(surf_spot.surf_conditions[0].rating/2) %> 🤙 </span></div>
