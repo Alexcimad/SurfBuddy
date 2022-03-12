@@ -12,11 +12,14 @@
                         </div>
                         <div>
                             <% surf_condition = SurfCondition.find(@session.surf_condition_id) %>
+                            <%= surf_condition.start_hour.strftime("%d/%m/%Y") %>
                             <% start_time = surf_condition.start_hour.strftime("%k")%>
                             <%= start_time.to_i%>h - <%= start_time.to_i + 3 %>h
-                            <%= surf_condition.temp%>
-                            <%= surf_condition.wind_speed%>
-                            <%= surf_condition.wind_direction%>
+                            <div class="d-flex justify-content-between">
+                                <span class="text-center"><%=icon('fas','wind')%><%= surf_condition.wind_speed%>kts</span>
+                                <span class="text-center"><%=icon('fas','location-arrow')%><%= surf_condition.wind_direction%></span>
+                                <span class="text-center"><%=icon('fas','water')%><%= surf_condition.wave.ceil(2) %>m</span>
+                            </div>
                             <%= surf_condition.level%>
                         </div>
                     </div>
