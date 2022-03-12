@@ -5,7 +5,8 @@
   gap: 18px;
   padding: 12px 14px;
   border-radius: 13px;
-  width: 270px;
+  min-width: 290px;
+  min-height: 145px;
 }
 .card2 > img-cl {
   height: 100%;
@@ -35,4 +36,25 @@ h3 {
   display: flex;
   align-items: center;
   gap: 3px;
+}
+
+.btn9 {
+  background-color: #66BFF9;
+  color: white;
+  border-radius: 8px;
+  padding: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: -.71px;
+  display: inline-flex;
+  align-items: center;
+}
+.btn9 span {
+  margin-left: 10px;
+  background-color: #fff;
+  color: #66BFF9;
+  padding: 5px;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: bold;
 }
