@@ -4,6 +4,10 @@
     color: #6b6969;
 }
 
+.profile-card{
+    margin-bottom: 10px;
+    background-color: transparent;
+}
 
 .profile-head-container{
     display: flex;
@@ -14,17 +18,20 @@
     margin-left: 16px;
 }
 
+
+
 .profile-favorite-container{
-    padding-left: 16px;
+    background-color: rgba(128, 128, 128, 0.12);
     border: 1px solid gray;
     position: relative;
     h2{
         text-decoration: none;
     }
+    margin-bottom: 60px;
 }
 
 .profile-booking-container{
-    padding-left: 16px;
+    background-color: rgba(128, 128, 128, 0.12);
     border: 1px solid gray;
     position: relative;
     h2{
@@ -33,6 +40,9 @@
 }
 
 .down{
+    font-size: larger;
+    padding-left: 16px;
+    height: 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -44,4 +54,10 @@
 .cursor{
     margin-left: 7px;
     cursor: pointer;
+}
+
+.profile-level{
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
 }
