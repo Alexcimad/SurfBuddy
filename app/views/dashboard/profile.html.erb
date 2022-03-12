@@ -1,13 +1,13 @@
 <div class="mt-3 container-without-navbar">
   <div class="profile text-center">
-        <%= image_tag "https://res.cloudinary.com/dmnzqtckp/image/upload/v1644680497/development/24zlvs0qfskr1ujeuwkzl49yu7hc.jpg", class: "profile-picture" %>
+        <%= image_tag "http://res.cloudinary.com/dmnzqtckp/image/upload/v1646940912/xxqphqz5rbbrvtuc2pbm.jpg", class: "profile-picture" %>
   </div>
   <h1 class="text-center mt-3"><%= @user.nickname %></h1>
   <p class="text-center"> <strong><%= @user.level %></strong></p>
   <div class="text-center">
     <%= form_tag profile_path , method: :get do %>
       <%= select_tag :level,
-        options_for_select(["Beginner", "Elementary", "Intermediate", "Advanced", "Mastery"],@user.level)
+        options_for_select(["Beginner", "Intermediate", "Expert"],@user.level)
       %>
       <button name="button" type="submit">Save</button>
     <% end %>

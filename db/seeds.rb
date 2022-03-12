@@ -57,8 +57,8 @@ surf_spots << surf_spot2
 
 surf_spot3 = SurfSpot.create!(location: "Culs nus Hossegor", longitude: -1.44018, latitude: 43.6773, description: "Awesome beach for surfing while being naked")
 puts "---CREATING #{surf_spot3.location}"
-file_user3 = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1644534494/pzrxzpomr8mup05gnztk.jpg")
-surf_spot3.photos.attach(io: file_user3, filename: "alexis_photo.jpg", content_type: "image/jpg")
+file_user3 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1646940558/cx8g9oted6smctk5uxxa.jpg")
+surf_spot3.photos.attach(io: file_user3, filename: "cul_nus.jpg", content_type: "image/jpg")
 surf_spots << surf_spot3
 
 surf_spot4 = SurfSpot.create!(location: "Grande Plage Biarritz", description: "Awesome beach for surfing just before going to the casino ;)")
@@ -75,14 +75,14 @@ surf_spots << surf_spot5
 
 surf_spot6 = SurfSpot.create!(location: "Grande plage Quiberon", description: "Beautiful beach of Quiberon even if it's a little cold for surfing")
 puts "---CREATING #{surf_spot6.location}"
-file_user6 = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1644534494/pzrxzpomr8mup05gnztk.jpg")
-surf_spot6.photos.attach(io: file_user6, filename: "alexis_photo.jpg", content_type: "image/jpg")
+file_user6 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1646940387/s9uulc5zkbmj0pbtg4r5.jpg")
+surf_spot6.photos.attach(io: file_user6, filename: "grde_plage_quiberon.jpg", content_type: "image/jpg")
 surf_spots << surf_spot6
 
 surf_spot7 = SurfSpot.create!(location: "Plage de sainte barbe", description: "Great naturist and surfing beach but a little cold. I prefer basque country!")
 puts "---CREATING #{surf_spot7.location}"
-file_user7 = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1644534494/pzrxzpomr8mup05gnztk.jpg")
-surf_spot7.photos.attach(io: file_user7, filename: "alexis_photo.jpg", content_type: "image/jpg")
+file_user7 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1646940260/d6s0jiwaliuh7fuehh1q.jpg")
+surf_spot7.photos.attach(io: file_user7, filename: "sainte_barbe.jpg", content_type: "image/jpg")
 surf_spots << surf_spot7
 
 
