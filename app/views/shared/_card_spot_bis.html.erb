@@ -1,7 +1,9 @@
         <%= link_to surf_spot_path(surf_spot) do %>
       <div class="card2">
-        <%= cl_image_tag(surf_spot.photos.first.key,:width => 78, :crop=>"fit")%>
+        <%# <div> %>
+          <%= cl_image_tag(surf_spot.photos.first.key, class: "img-caroussel-map", :quality => "auto") %>
         <%# <img src="/assets/profile.png" alt="Profil"> %>
+        <%# </div> %>
         <div>
           <h3><%= surf_spot.location %></h3>
           <div class="card-details2">
