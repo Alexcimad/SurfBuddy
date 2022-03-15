@@ -8,10 +8,21 @@
   min-width: 290px;
   min-height: 145px;
 }
+
 .card2 > img {
   min-height: 100%;
   border-radius: 10px;
+
+.card3{
+  background-color: #ffffff;
+  display: flex;
+  gap: 18px;
+  padding: 12px 14px;
+  border-radius: 13px;
+  min-width: 290px;
+  min-height: 100%;
 }
+
 
 .card2 > div {
   display: flex;
@@ -44,7 +55,7 @@ h3 {
   background-color: #66BFF9;
   color: white;
   border-radius: 8px;
-  padding: 4px;
+  padding: 3px;
   font-size: 14px;
   font-weight: bold;
   letter-spacing: -.71px;
@@ -59,4 +70,9 @@ h3 {
   border-radius: 4px;
   font-size: 15px;
   font-weight: bold;
+}
+
+.img-caroussel-map{
+  width: 45%!important;
+  border-radius: 4px;
 }
