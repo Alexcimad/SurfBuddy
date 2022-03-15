@@ -19,7 +19,7 @@ class SurfSpotsController < ApplicationController
         lat: spot.latitude,
         lng: spot.longitude,
         id: spot.id,
-        info_window: render_to_string(partial: "info_window", locals: { spot: spot }),
+        info_window: render_to_string(partial: "info_window", locals: { surf_spot: spot }),
         image_url: helpers.asset_url("level_beginner.png")
       }
     end
