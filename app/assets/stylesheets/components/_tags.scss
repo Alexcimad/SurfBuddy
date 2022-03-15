@@ -14,14 +14,6 @@
     margin-bottom: 16px;
 }
 
-.tags-container-card {
-    position:absolute;
-    bottom: 0px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
 .tags-container-modal{
     display: flex;
     flex-wrap: wrap;
@@ -42,7 +34,7 @@
     color: #aaaaaa;
     border: 1px solid #aaaaaa;
     padding: 2px 5px;
-    margin: 4px;
+    margin-right: 5px;
     border-radius: 10px;
     &:hover{
         color: #aaaaaa;
@@ -58,4 +50,3 @@
         text-decoration: none;
       }
 }
-
