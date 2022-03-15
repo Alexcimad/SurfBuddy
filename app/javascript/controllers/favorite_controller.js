@@ -10,6 +10,12 @@ export default class extends Controller {
     event.currentTarget.classList.toggle('fav');
   }
 
+  toggleProfile(event) {
+    // console.log('toggle');
+    // console.log(event.currentTarget);
+    event.currentTarget.classList.toggle('fav-p');
+  }
+
   toggleTag(event) {
     event.currentTarget.classList.toggle('card-tags-favorite');
     // console.log(this.modalTarget)

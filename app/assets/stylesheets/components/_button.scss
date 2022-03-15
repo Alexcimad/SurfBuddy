@@ -1,3 +1,25 @@
 .btn{
   padding: 10px !important;
 }
+
+.button-custom{
+  background-color: $figmablue !important;
+  color: white !important;
+  width: 50%;
+}
+.button-custom:hover{
+  background-color: white !important;
+  color: $figmablue !important;
+}
+
+.button-custom-large{
+  background-color: $figmablue !important;
+  color: white !important;
+  width: 100% !important;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-size: 16px !important;
+  border-radius: 4px !important;
+  height: max-content !important;
+}
+

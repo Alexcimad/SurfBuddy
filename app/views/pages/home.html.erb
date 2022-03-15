@@ -15,23 +15,20 @@
 
 <div class="container">
   <h2 class="h2-title text-center m-4">
-    Surfbuddy latest spots
+    Our awesome spots
   </h2>
   <div class="owl-carousel owl-theme" id="owl-carousel-hp">
-  <% @surf_spots_last.each do |spot| %>
-    <div class="item">
+  <% @surf_spots.each do |spot| %>
+    <div class="item" style="height: 360px;">
       <%= render "shared/card_spot_hp", spot: spot %>
     </div>
   <% end %>
   </div>
 </div>
 
-
-
-
 <section class="container container-large mosaic my-5">
     <div class="text-center mb-5">
-        <h2 class="mb-2 text-xl text-weight-700">Surfbuddy peoples...</h2>
+        <h2 class="h2-title mb-2 text-center">Surfbuddy people</h2>
     </div>
     <div class="mosaic-pictures">
         <div class="card featured-col md-rounded">
@@ -67,7 +64,7 @@
             <div class="md-icon">
                 <img src="https://i.goopics.net/ueqpjj.png" loading="lazy" alt="Icone mouillage" class="w-100">
             </div>
-            <span class="text-lg text-center text-white text-weight-700">+<%= @surf_spots %></span>
+            <span class="text-lg text-center text-white text-weight-700">+<%= @surf_spots.count %></span>
             <p class="text-center text-white text-weight-700 text-md-plus">Surf spots</p>
         </div>
 

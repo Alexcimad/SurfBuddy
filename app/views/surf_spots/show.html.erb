@@ -29,100 +29,75 @@
           </div>
         <% end %>
     </div>
-
-
   </div>
 
   <div class="surf_spot_title container mb-3">
     <h1 class="mt-3">
       <%= @surf_spot.location %>
     </h1>
-
-    <p>
-      <%= @surf_spot.description %>
-    </p>
-    <%# ---------AVERAGE RATING------------- %>
-    <div class="average-rating-stars">
-      <% @average_rating.to_i.times do %>
-        <%= icon('fas','star') %>
-      <%end%>
-      <% if @average_rating >= (@average_rating.to_i + 0.25) && @average_rating <= (@average_rating.to_i + 0.75)%>
-        <%= icon('fas','star-half-alt')%>
-        <i class="fa-regular fa-star-half-stroke"></i>
-      <% elsif @average_rating < (@average_rating.to_i + 0.25) %>
-        <%= icon('far','star')%>
-      <% else %>
-        <%= icon('fas','star')%>
-      <%end%>
-      <% (5 - @average_rating.to_i - 1).times do %>
-        <%= icon('far','star')%>
-      <%end%>
-    </div>
-    </div>
-
-    <div class="tags-container">
+    <p><%= @surf_spot.description %></p>
+    <div class="tags-container-show">
       <% @ftags_filtred = FavoriteSpotTag.where(favorite_spot_id: @surf_spot.favorite_spots) %>
-        <% @ftags_filtred.each do |tag| %>
-          <span class="card-tags">
-            <%= tag.tag.name %>
-          </span>
-        <% end %>
-    </div>
-  </div>
-
-  <%# -----------API----------------- %>
-  <div class="surf_spot_conditions">
-    <%= render 'surf_conditions', surf_spot: @surf_spot %>
-  </div>
-
-
-
-
-  <p class="text-center">
-
-  <%# -----------REVIEWS----------------- %>
-  <div class="reviews-container">
-    <div>
-      <% if @surf_spot.spot_reviews.exists? %>
-
-        <% @surf_spot.spot_reviews.each do |review| %>
-          <div class="review-card d-flex">
-              <div class="review-img">
-                <img class="avatar-bordered review-photo" src="https://a0.muscache.com/defaults/user_pic-225x225.png?im_w=240">
-              </div>
-              <div class="w-100">
-                <div class="review-header d-flex justify-content-between">
-                  <%#= cl_image_tag(review.user.photo.key, crop: :fill, :gravity => :face, class: "avatar-bordered")%>
-                    <h3><%= review.user.nickname %></h3>
-                    <p><%= review.updated_at.strftime("%d %b %Y") %></p>
-                </div>
-                <div class="review-content">
-                  <p class="review-comment">
-                    <%= review.comment%>
-                  </p>
-                  <p class="review-comment">
-                    <%review.rating.times do %>
-                      <%= icon('fas','star')%>
-                    <%end%>
-                    <%(5 - review.rating).times do %>
-                      <%= icon('far','star')%>
-                    <%end%>
-                  </p>
-                </div>
-              </div>
-          </div>
-        <%end%>
-      <% else %>
-        <p>They are no comments and rating</p>
+      <% @ftags_filtred.each do |tag| %>
+      <span class="card-tags">
+        <%= tag.tag.name %>
+      </span>
       <% end %>
     </div>
-    <!-- Button trigger modal -->
-    <div class="text-center mt-4">
-      <div type="button" class="btn button-custom mb-2" data-toggle="modal" data-target="#Modalreview">
-        <%=icon('fa','plus')%> Add a review
-      </div>
+          <%# -----------API----------------- %>
+    <div class="surf_spot_conditions">
+      <%= render 'surf_conditions', surf_spot: @surf_spot %>
     </div>
-    <!-- Modal -->
-    <%= render 'shared/review_spot', surf_spot: @surf_spot %>
+
+    <%# -----------REVIEWS----------------- %>
+    <div class="reviews-container">
+      <div>
+        <% if @surf_spot.spot_reviews.exists? %>
+
+          <% @surf_spot.spot_reviews.each do |review| %>
+            <div class="review-card d-flex">
+                <div class="review-img">
+                  <img class="avatar-bordered review-photo" src="https://a0.muscache.com/defaults/user_pic-225x225.png?im_w=240">
+                </div>
+                <div class="w-100">
+                  <div class="review-header d-flex justify-content-between">
+                    <%#= cl_image_tag(review.user.photo.key, crop: :fill, :gravity => :face, class: "avatar-bordered")%>
+                      <h3><%= review.user.nickname %></h3>
+                      <p><%= review.updated_at.strftime("%d %b %Y") %></p>
+                  </div>
+                  <div class="review-content">
+                    <p class="review-comment">
+                      <%= review.comment%>
+                    </p>
+                    <p class="review-comment">
+                      <%review.rating.times do %>
+                        <%= icon('fas','star')%>
+                      <%end%>
+                      <%(5 - review.rating).times do %>
+                        <%= icon('far','star')%>
+                      <%end%>
+                    </p>
+                  </div>
+                </div>
+            </div>
+          <%end%>
+        <% else %>
+          <p>They are no comments and rating</p>
+        <% end %>
+      </div>
+      <!-- Button trigger modal -->
+      <div class="text-center mt-4">
+        <div type="button" class="btn button-custom mb-2" data-toggle="modal" data-target="#Modalreview">
+          <%=icon('fa','plus')%> Add a review
+        </div>
+      </div>
+      <!-- Modal -->
+      <%= render 'shared/review_spot', surf_spot: @surf_spot %>
+    </div>
   </div>
+
+
 </div>
+  
+</div>
+

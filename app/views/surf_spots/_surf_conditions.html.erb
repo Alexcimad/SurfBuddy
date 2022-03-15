@@ -1,12 +1,24 @@
-<div class="stat-container mb-4">
+<div class="stat-container">
   <%# --------HOURS --------- %>
   <div>
     <ul class="nav sliderr">
       <% surf_spot.surf_conditions.each_with_index do |surf_condition,index| %>
         <% if index == 0 %>
-          <li><a class="active schedule" data-toggle="tab" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('Paris'), format: "%Hh"%></a></li>
+          <% if surf_condition.level == "Beginner" %>
+          <li><a class="active schedule green" data-toggle="tab" aria-current="page" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('Paris'), format: "%Hh"%></a></li>
+          <% elsif surf_condition.level == "Intermediate" %>
+          <li><a class="active schedule orange" data-toggle="tab" aria-current="page" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('Paris'), format: "%Hh"%></a></li>
+          <% elsif surf_condition.level == "Expert" %>
+          <li><a class="active schedule red" data-toggle="tab" aria-current="page" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('Paris'), format: "%Hh"%></a></li>
+          <%end %>
         <% else %>
-          <li><a class="schedule" data-toggle="tab" aria-current="page" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('Paris'), format: "%Hh"%></a></li>
+          <% if surf_condition.level == "Beginner" %>
+          <li><a class="schedule green" data-toggle="tab" aria-current="page" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('Paris'), format: "%Hh"%></a></li>
+          <% elsif surf_condition.level == "Intermediate" %>
+          <li><a class="schedule orange" data-toggle="tab" aria-current="page" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('Paris'), format: "%Hh"%></a></li>
+          <% elsif surf_condition.level == "Expert" %>
+          <li><a class="schedule red" data-toggle="tab" aria-current="page" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('Paris'), format: "%Hh"%></a></li>
+          <%end %>
         <%end%>
       <%end%>
     </ul>
@@ -19,33 +31,19 @@
       <div id="slot<%=index%>" class="tab-pane fade">
       <% end %>
         <div class="surf-condition-card  align-self-start">
-          <div class="d-flex justify-content-around">
+          <div class="d-flex justify-content-between">
             <p class="text-center"><%=icon('fas','wind')%><%= surf_condition.wind_speed %>kts</p>
-            <p class="text-center"><%=icon('fas','water')%><%= surf_condition.wave.ceil(2) %>m</p>
             <p class="text-center"><%=icon('fas','location-arrow')%><%= surf_condition.wind_direction %></p>
+            <p class="text-center"><%=icon('fas','water')%><%= surf_condition.wave.ceil(2) %>m</p>
           </div>
           <%# --------LEVEL --------- %>
           <div class="d-flex justify-content-between align-items-center ">
             <div class="hp-card-level"> 
-              <p class="text-center"><%= surf_condition.level %></p>
-            </div>
-            <%# ------------CONDITIONS RATING------------- %>
-            <% if surf_condition.rating >= 7 %>  
-              <div class="hp-card-level green"> 
-                <p class="text-center d-flex align-items-center justify-content-center"><strong><%= surf_condition.rating %>/10</strong></p>
-              </div>
-            <% elsif surf_condition.rating < 5%>
-              <div class="hp-card-level red"> 
-                <p class="text-center d-flex align-items-center justify-content-center"><strong><%= surf_condition.rating %>/10</strong></p>
-              </div>          
-            <% else %>
-              <div class="hp-card-level orange"> 
-                <p class="text-center d-flex align-items-center justify-content-center"><strong><%= surf_condition.rating %>/10</strong></p>
-              </div> 
-            <%end%>
+              <div class="btn9"><%= surf_condition.level %> <span> <%=(surf_condition.rating/2) %> 🤙 </span></div>
+            </div>            
           </div>
+          <%= link_to 'Plan this surf session', surf_spot_surf_sessions_path(surf_spot,user_session: current_user.id, surf_cond: surf_condition.id), method: :post, class: "btn button-custom-large"  %>
         </div>
-        <%= link_to 'Plan this surf session', surf_spot_surf_sessions_path(surf_spot,user_session: current_user.id, surf_cond: surf_condition.id), method: :post, class: "btn button-custom text-center"  %>
 
       </div>
     <%end%>

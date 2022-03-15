@@ -8,13 +8,14 @@
 require 'open-uri'
 
 puts "-DESTROYING CURRENT DATA"
-FavoriteSpot.destroy_all
-SpotReview.destroy_all
+SurfSession.destroy_all
 SurfSpot.destroy_all
 User.destroy_all
 Tag.destroy_all
 FavoriteSpotTag.destroy_all
 SurfCondition.destroy_all
+FavoriteSpot.destroy_all
+SpotReview.destroy_all
 
 CONST_LEVEL = ["Beginner", "Intermediate", "Expert"]
 surf_spots = []
@@ -43,49 +44,59 @@ jeremyF = User.create!(email: 'jeremyF@gmail.com',password: "WSL2021", nickname:
 # Add Spots
 
 surf_spot1 = SurfSpot.create!(location: "Lacanau", description: "Lorem Ipsum")
-file_user = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1644534494/pzrxzpomr8mup05gnztk.jpg")
+file_user = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1646859730/mevgwuhni89gsyovx4u6.jpg")
 surf_spot1.photos.attach(io: file_user, filename: "alexis_photo.jpg", content_type: "image/jpg")
 puts "---CREATING #{surf_spot1.location}"
 
 surf_spots << surf_spot1
 
 surf_spot2 = SurfSpot.create!(location: "Quiberon", description: "Lorem Ipsum")
-file_user2 = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1644534494/pzrxzpomr8mup05gnztk.jpg")
-surf_spot2.photos.attach(io: file_user2, filename: "alexis_photo.jpg", content_type: "image/jpg")
+file_user2 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1646859007/cpdfnelsn1hyh6bozovp.jpg")
+surf_spot2.photos.attach(io: file_user2, filename: "quiberon_photo.jpg", content_type: "image/jpg")
 puts "---CREATING #{surf_spot2.location}"
 surf_spots << surf_spot2
 
 surf_spot3 = SurfSpot.create!(location: "Culs nus Hossegor", longitude: -1.44018, latitude: 43.6773, description: "Awesome beach for surfing while being naked")
 puts "---CREATING #{surf_spot3.location}"
-file_user3 = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1644534494/pzrxzpomr8mup05gnztk.jpg")
-surf_spot3.photos.attach(io: file_user3, filename: "alexis_photo.jpg", content_type: "image/jpg")
+file_user3 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1646940558/cx8g9oted6smctk5uxxa.jpg")
+surf_spot3.photos.attach(io: file_user3, filename: "cul_nus.jpg", content_type: "image/jpg")
 surf_spots << surf_spot3
 
 surf_spot4 = SurfSpot.create!(location: "Grande Plage Biarritz", description: "Awesome beach for surfing just before going to the casino ;)")
 puts "---CREATING #{surf_spot4.location}"
-file_user4 = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1644534494/pzrxzpomr8mup05gnztk.jpg")
-surf_spot4.photos.attach(io: file_user4, filename: "alexis_photo.jpg", content_type: "image/jpg")
+file_user4 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1646859521/o5ryzpmrzqgwampwjr3o.jpg")
+surf_spot4.photos.attach(io: file_user4, filename: "btz_grde_plage_photo.jpg", content_type: "image/jpg")
 surf_spots << surf_spot4
 
 surf_spot5 = SurfSpot.create!(location: "Côte des basques", description: "Great beach! Really secure for family surfing with a great view of villa Belza")
 puts "---CREATING #{surf_spot5.location}"
-file_user5 = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1644534494/pzrxzpomr8mup05gnztk.jpg")
+file_user5 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1646859305/l14arziphmzwtbxxlf7c.jpg")
 surf_spot5.photos.attach(io: file_user5, filename: "alexis_photo.jpg", content_type: "image/jpg")
 surf_spots << surf_spot5
 
 surf_spot6 = SurfSpot.create!(location: "Grande plage Quiberon", description: "Beautiful beach of Quiberon even if it's a little cold for surfing")
 puts "---CREATING #{surf_spot6.location}"
-file_user6 = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1644534494/pzrxzpomr8mup05gnztk.jpg")
-surf_spot6.photos.attach(io: file_user6, filename: "alexis_photo.jpg", content_type: "image/jpg")
+file_user6 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1646940387/s9uulc5zkbmj0pbtg4r5.jpg")
+surf_spot6.photos.attach(io: file_user6, filename: "grde_plage_quiberon.jpg", content_type: "image/jpg")
 surf_spots << surf_spot6
 
 surf_spot7 = SurfSpot.create!(location: "Plage de sainte barbe", description: "Great naturist and surfing beach but a little cold. I prefer basque country!")
 puts "---CREATING #{surf_spot7.location}"
-file_user7 = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1644534494/pzrxzpomr8mup05gnztk.jpg")
-surf_spot7.photos.attach(io: file_user7, filename: "alexis_photo.jpg", content_type: "image/jpg")
+file_user7 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1646940260/d6s0jiwaliuh7fuehh1q.jpg")
+surf_spot7.photos.attach(io: file_user7, filename: "sainte_barbe.jpg", content_type: "image/jpg")
 surf_spots << surf_spot7
 
+surf_spot8 = SurfSpot.create!(location: "Plage Hendaye", description: "Great nice and big beach to begin surfing safely")
+puts "---CREATING #{surf_spot8.location}"
+file_user8 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1647099659/obzhz2jjt2qxssel5yzz.jpg")
+surf_spot8.photos.attach(io: file_user8, filename: "hendaye.jpg", content_type: "image/jpg")
+surf_spots << surf_spot8
 
+surf_spot9 = SurfSpot.create!(location: "Plage du penon", description: "Big beach in the Landes for surfing and family time")
+puts "---CREATING #{surf_spot9.location}"
+file_user9 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1647101018/gnutizz6e2vl8boxezwi.jpg")
+surf_spot9.photos.attach(io: file_user9, filename: "hendaye.jpg", content_type: "image/jpg")
+surf_spots << surf_spot9
 
 # Add Reviews
 spot_review1 = SpotReview.create!(comment: "I love this beach it was awesome", rating: 4, surf_spot_id: surf_spot1.id, user_id: user1.id)
@@ -115,6 +126,7 @@ spot_reviews << spot_review6
 spot_review7 = SpotReview.create!(comment: "Really nice surf spot for beginner in Britanny really close to visit Plouharnel! I recommend!", rating: 5, surf_spot_id: surf_spot7.id, user_id: user1.id)
 puts "----CREATING #{spot_review7.rating} stars"
 spot_reviews << spot_review7
+
 
 
 
@@ -177,6 +189,8 @@ def calc_wind_direction(v_wind_direction_rad)
   elsif v_wind_direction_rad <= (15*Math::PI/8) && v_wind_direction_rad > (13*Math::PI/8)
     wind_dir_result = "SE"
   elsif v_wind_direction_rad <= (2*Math::PI/8) && v_wind_direction_rad > (15*Math::PI/8)
+    wind_dir_result = "E"
+  else
     wind_dir_result = "E"
   end
 

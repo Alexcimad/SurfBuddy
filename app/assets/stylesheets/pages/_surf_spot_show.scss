@@ -27,6 +27,18 @@ i{
 .carousel-img{
   width: 100%;
 }
+
+.stat-container{
+  margin: 4px;
+  border-radius: 5px;
+  box-shadow: 4px 4px 10px rgba(128, 128, 128, 0.308);
+}
+
+.show-container{
+  color: rgb(107, 105, 105);
+}
+
+
 .schedules{
 display: flex;
 flex-wrap: wrap;
@@ -39,13 +51,13 @@ flex: 1;
 border-radius: 6px;
 height: 50px;
 line-height: 50px;
-border: 2px solid #e1ebf5;
 text-align: center;
-font-size: 24px;
+font-weight: bolder;
+font-size: 28px;
 }
 .schedule.active{
-color: #00b5d9;
-border: 2px solid #00b5d9;
+text-decoration: none;
+background-color: white;
 }
 .level{
   border-radius: 50%;
@@ -83,4 +95,13 @@ border: 2px solid #00b5d9;
 }
 .form-control{
   border: 1px solid $darkblue !important;
+}
+
+.surf_spot_title > p{
+  font-size: 20px;
+  margin-bottom: 0;
+}
+
+.surf-condition-card i{
+  color: #42C2FF;
 }

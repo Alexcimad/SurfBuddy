@@ -12,3 +12,27 @@
     display: flex;
     justify-content: center;
   }
+
+  .sliderr {
+    background-color: $lightblue;
+    padding: 16px 5px;
+    padding-left: 22px;
+    display: flex;
+    gap: 16px;
+    overflow-x: scroll;
+}
+
+.green{
+    color:green;
+  }
+  .red{
+    color:red;
+  }
+  .orange{
+    color:orange;
+  }
+
+  a.schedule:hover{
+      color: $figmablue;
+  }
+  

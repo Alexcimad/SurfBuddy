@@ -1,50 +1,28 @@
-// .badge-pill {
-//     margin: 4px;
-//     background-color: $blue;
-//     border: 1px solid $blue;
-//     color: white;
-//     font-size: medium;
-// }
 
-// .other {
-//     background-color: #b5dbf7;
-//     border: 1px solid #b5dbf7;
-//     color: white;
-// }
-
-
-// .badge-pill-select {
-//     background-color: $blue;
-//     border: 1px solid $blue;
-//     color: white;
-// }
-
-// .badge-warning {
-//     color: #fff;
-//     // background-color: #$blue;
-//     // border: 1px solid #$blue;
-// }
-
-// .tag-no-favorite {
-//     background-color: white;
-//     border: 1px solid $blue;
-//     color: $blue;
-// }
-
-// .tagborder{
-//     // background-color: red;
-//     border: 2px solid rgba(119, 215, 253, 0.76);
-//     border-radius: 0px;
-//     padding: 4px;
-//     color: gray;
-//     font-size: 1em;
-//     margin: 15px;
-    
-// }
 
 .tags-container{
-    position:relative;
+    margin: 0px 8px;
+    position: absolute;
+}
+
+
+.tags-container-show {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.tags-container-card {
+    position:absolute;
     bottom: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.tags-container-modal{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -52,20 +30,32 @@
 
 .tag-add{
     cursor: pointer;
+    margin: 4px;
+    border-radius: 10px;
+    padding: 2px 5px;
+    border: 1px solid $darkblue;
+
 }
 
 .card-tags{
-    background-color: #DCDCDC;
-    color: #0C2A3E;
+    background-color: white;
+    color: #aaaaaa;
+    border: 1px solid #aaaaaa;
     padding: 2px 5px;
     margin: 4px;
     border-radius: 10px;
     &:hover{
-        color: #0C2A3E;
+        color: #aaaaaa;
+        text-decoration: none;
       }
 }
 
 .card-tags-favorite{
-    background-color: #a0a0a0;
+    color: $darkblue;
+    border: 1px solid $darkblue;
+    &:hover{
+        color: $darkblue;
+        text-decoration: none;
+      }
 }
 

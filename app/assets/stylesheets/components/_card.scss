@@ -36,24 +36,29 @@
   background-color: white;
   border-radius: 4px;
   padding: 10px 5px;
-  font-size: 24px;
+  //font-size: 24px;
+  margin-top: 12px;
 }
 
 // Homepage Card
 .hp-card{
-  background-color: #EFFFFD;
-  border-radius: 15px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px -3px rgba(112,112,112,0.25)  ;
+  border-radius: 13px;
   padding: 15px;
+  min-height: 340px;
 }
 .hp-card-img{
   text-align: center;
+  min-height: 240px;
 }
 .hp-card--img{
   width: 100%;
   border-radius: 15px;
+  min-height: 240px;
 }
 .hp-card-level{
-  background-color: #42c2ff;
+  background-color: $figmablue;
   color: white;
   font-weight: 700;
   padding: 5px;
@@ -63,6 +68,11 @@
     margin: 0px;
   }
 }
+
+a, a:hover, a:active, a:visited, a:focus {
+  text-decoration:none;
+}
+
 .test{
   width: 55%;
   text-align: center;
@@ -117,8 +127,26 @@ h3{
 
 .card-profile{
   box-shadow: 4px 4px 10px rgba(128, 128, 128, 0.308);
+  margin: 8px;
+  position: relative;
+  border-radius: 4px;
+
 }
 
 .card-body{
   padding: 0px;
+  background-color: transparent;
+}
+
+.spot-card {
+  width: auto;
+  border-radius: 4px;
+  img{
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+  }
+}
+
+.card-photo{
+  border-top-right-radius: 4px;
 }
