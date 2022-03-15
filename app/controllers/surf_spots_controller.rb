@@ -9,7 +9,7 @@ class SurfSpotsController < ApplicationController
   #all surfspots
   def index
     if params[:search].present?
-      @surf_spots = SurfSpot.near(params[:search][:location], 20)
+      @surf_spots = SurfSpot.near(params[:search][:location], 50)
     else
       @surf_spots = SurfSpot.all
     end

@@ -43,24 +43,14 @@ jeremyF = User.create!(email: 'jeremyF@gmail.com',password: "WSL2021", nickname:
 
 # Add Spots
 
-surf_spot1 = SurfSpot.create!(location: "Lacanau", description: "Lorem Ipsum")
-file_user = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1646859730/mevgwuhni89gsyovx4u6.jpg")
-surf_spot1.photos.attach(io: file_user, filename: "alexis_photo.jpg", content_type: "image/jpg")
-puts "---CREATING #{surf_spot1.location}"
 
-surf_spots << surf_spot1
 
-surf_spot2 = SurfSpot.create!(location: "Quiberon", description: "Lorem Ipsum")
-file_user2 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1646859007/cpdfnelsn1hyh6bozovp.jpg")
-surf_spot2.photos.attach(io: file_user2, filename: "quiberon_photo.jpg", content_type: "image/jpg")
-puts "---CREATING #{surf_spot2.location}"
-surf_spots << surf_spot2
 
-surf_spot3 = SurfSpot.create!(location: "Culs nus Hossegor", longitude: -1.44018, latitude: 43.6773, description: "Awesome beach for surfing while being naked")
-puts "---CREATING #{surf_spot3.location}"
-file_user3 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1646940558/cx8g9oted6smctk5uxxa.jpg")
-surf_spot3.photos.attach(io: file_user3, filename: "cul_nus.jpg", content_type: "image/jpg")
-surf_spots << surf_spot3
+surf_spot8 = SurfSpot.create!(location: "Plage Hendaye", description: "Great nice and big beach to begin surfing safely")
+puts "---CREATING #{surf_spot8.location}"
+file_user8 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1647099659/obzhz2jjt2qxssel5yzz.jpg")
+surf_spot8.photos.attach(io: file_user8, filename: "hendaye.jpg", content_type: "image/jpg")
+surf_spots << surf_spot8
 
 surf_spot4 = SurfSpot.create!(location: "Grande Plage Biarritz", description: "Awesome beach for surfing just before going to the casino ;)")
 puts "---CREATING #{surf_spot4.location}"
@@ -74,29 +64,60 @@ file_user5 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1646859
 surf_spot5.photos.attach(io: file_user5, filename: "alexis_photo.jpg", content_type: "image/jpg")
 surf_spots << surf_spot5
 
-surf_spot6 = SurfSpot.create!(location: "Grande plage Quiberon", description: "Beautiful beach of Quiberon even if it's a little cold for surfing")
-puts "---CREATING #{surf_spot6.location}"
-file_user6 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1646940387/s9uulc5zkbmj0pbtg4r5.jpg")
-surf_spot6.photos.attach(io: file_user6, filename: "grde_plage_quiberon.jpg", content_type: "image/jpg")
-surf_spots << surf_spot6
+surf_spot12 = SurfSpot.create!(location: "Plage Uhabia", description: "Beautiful beach in basque country near Guethary and the Parlementia spot")
+puts "---CREATING #{surf_spot12.location}"
+file_user12 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1647369054/zdc7pkfoqc8yjcdtm4el.jpg")
+surf_spot12.photos.attach(io: file_user12, filename: "alexis_photo.jpg", content_type: "image/jpg")
+surf_spots << surf_spot12
 
-surf_spot7 = SurfSpot.create!(location: "Plage de sainte barbe", description: "Great naturist and surfing beach but a little cold. I prefer basque country!")
-puts "---CREATING #{surf_spot7.location}"
-file_user7 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1646940260/d6s0jiwaliuh7fuehh1q.jpg")
-surf_spot7.photos.attach(io: file_user7, filename: "sainte_barbe.jpg", content_type: "image/jpg")
-surf_spots << surf_spot7
+surf_spot13 = SurfSpot.create!(location: "Plage des sables d'or", description: "Nice and wide beach in Anglet to surf, swim or just chill !")
+puts "---CREATING #{surf_spot13.location}"
+file_user13 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1647368983/fzexffn6u5fvrkntfi7c.jpg")
+surf_spot13.photos.attach(io: file_user13, filename: "alexis_photo.jpg", content_type: "image/jpg")
+surf_spots << surf_spot13
 
-surf_spot8 = SurfSpot.create!(location: "Plage Hendaye", description: "Great nice and big beach to begin surfing safely")
-puts "---CREATING #{surf_spot8.location}"
-file_user8 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1647099659/obzhz2jjt2qxssel5yzz.jpg")
-surf_spot8.photos.attach(io: file_user8, filename: "hendaye.jpg", content_type: "image/jpg")
-surf_spots << surf_spot8
+surf_spot14 = SurfSpot.create!(location: "Parlementia Guethary", description: "Beautiful spot for longboarding but the waves are quite far from the beach. I would not recommend it for beginners")
+puts "---CREATING #{surf_spot14.location}"
+file_user14 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1647368899/xt3hjckgfecnpvgydpv6.jpg")
+surf_spot14.photos.attach(io: file_user14, filename: "alexis_photo.jpg", content_type: "image/jpg")
+surf_spots << surf_spot14
+
+surf_spot3 = SurfSpot.create!(location: "Culs nus Hossegor", longitude: -1.44018, latitude: 43.6773, description: "Awesome beach for surfing while being naked")
+puts "---CREATING #{surf_spot3.location}"
+file_user3 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1646940558/cx8g9oted6smctk5uxxa.jpg")
+surf_spot3.photos.attach(io: file_user3, filename: "cul_nus.jpg", content_type: "image/jpg")
+surf_spots << surf_spot3
 
 surf_spot9 = SurfSpot.create!(location: "Plage du penon", description: "Big beach in the Landes for surfing and family time")
 puts "---CREATING #{surf_spot9.location}"
 file_user9 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1647101018/gnutizz6e2vl8boxezwi.jpg")
 surf_spot9.photos.attach(io: file_user9, filename: "hendaye.jpg", content_type: "image/jpg")
 surf_spots << surf_spot9
+
+surf_spot1 = SurfSpot.create!(location: "Lacanau", description: "Lorem Ipsum")
+file_user = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1646859730/mevgwuhni89gsyovx4u6.jpg")
+surf_spot1.photos.attach(io: file_user, filename: "alexis_photo.jpg", content_type: "image/jpg")
+puts "---CREATING #{surf_spot1.location}"
+
+surf_spots << surf_spot1
+
+surf_spot6 = SurfSpot.create!(location: "Grande plage Quiberon", description: "Beautiful beach of Quiberon even if it's a little cold for surfing")
+puts "---CREATING #{surf_spot6.location}"
+file_user6 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1646940387/s9uulc5zkbmj0pbtg4r5.jpg")
+surf_spot6.photos.attach(io: file_user6, filename: "grde_plage_quiberon.jpg", content_type: "image/jpg")
+surf_spots << surf_spot6
+
+surf_spot2 = SurfSpot.create!(location: "Quiberon", description: "Lorem Ipsum")
+file_user2 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1646859007/cpdfnelsn1hyh6bozovp.jpg")
+surf_spot2.photos.attach(io: file_user2, filename: "quiberon_photo.jpg", content_type: "image/jpg")
+puts "---CREATING #{surf_spot2.location}"
+surf_spots << surf_spot2
+
+surf_spot7 = SurfSpot.create!(location: "Plage de sainte barbe", description: "Great naturist and surfing beach but a little cold. I prefer basque country!")
+puts "---CREATING #{surf_spot7.location}"
+file_user7 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1646940260/d6s0jiwaliuh7fuehh1q.jpg")
+surf_spot7.photos.attach(io: file_user7, filename: "sainte_barbe.jpg", content_type: "image/jpg")
+surf_spots << surf_spot7
 
 # Add Reviews
 spot_review1 = SpotReview.create!(comment: "I love this beach it was awesome", rating: 4, surf_spot_id: surf_spot1.id, user_id: user1.id)
