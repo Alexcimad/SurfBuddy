@@ -8,6 +8,11 @@
   min-width: 290px;
   min-height: 145px;
 }
+
+.card2 > img {
+  min-height: 100%;
+  border-radius: 10px;
+
 .card3{
   background-color: #ffffff;
   display: flex;
@@ -17,9 +22,8 @@
   min-width: 290px;
   min-height: 100%;
 }
-.card2 > img-cl {
-  height: 100%;
-}
+
+
 .card2 > div {
   display: flex;
   flex-direction: column;
