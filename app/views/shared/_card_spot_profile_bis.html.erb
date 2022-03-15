@@ -1,17 +1,15 @@
-
 <div class="card-profile">
-    <div id="<%= surf_spot.location %>-spotcard">
-        <div >
-            <div class="spot-card d-flex">
-                <%= link_to surf_spot_path(surf_spot) do%>
-                    <img class="d-flex align-items-center card-photo" src="https://api.navily.com/media/AGxLeNtHRsD2SpKfa40DAAN7sC7pCtotaZyLTHQrcAkJSZeXEG1e6Npvkcq1YL9l?w=128&crop_square=true" alt="Spot">
-                    <div class="spot-card-details">
-                        <div class="d-flex justify-content-between">
-                            <h2 class="spot-card-h2"><%= surf_spot.location %></h2>
-                            <%= render 'shared/favorite_profile', surf_spot: surf_spot  %>
-                        </div>
-                        <i><%= surf_spot.description.first(30) %> ...</i>
-                        <div class="tags-container-card">
+  <%= link_to surf_spot_path(surf_spot) do %>
+    <div class="card3">
+      <%= cl_image_tag(surf_spot.photos.first.key,:width => 78, :crop=>"fit")%>
+        <div class="w-100">
+          <div class="d-flex justify-content-between">
+            <h3><%= surf_spot.location %></h3>
+            <%= render 'shared/favorite_profile', surf_spot: surf_spot  %>
+          </div>
+          <div>
+            <i><%= surf_spot.description.first(25) %> ...</i>
+                        <div class="mt-2">
                             <% @ftags_filtred = @ftags.where(favorite_spot_id: surf_spot.favorite_spots) %>
                             <% @ftags_filtred.each do |tag| %>
                                 <% if tag.favorite_spot.user == current_user %>
@@ -21,17 +19,14 @@
                                 <% end %>
                             <% end %>
                             <!-- Button add tag modal -->
-                            <span  class="tag-add hp-card-level ml-3" data-toggle="modal" data-target="#tagModal<%= fav.id%>">
+                            <span  class="tag-add hp-card-level" data-toggle="modal" data-target="#tagModal<%= fav.id%>">
                                 <i class="fas fa-pencil-alt"></i>
                             </span>
                             <!-- Modal -->
                             <%= render 'shared/tags_select', fav: fav %>
                         </div>
-                    </div>
-                <% end %>
-            </div>
-            <!-- Tags -->
-    
+          </div>
         </div>
     </div>
+  <% end %>
 </div>
