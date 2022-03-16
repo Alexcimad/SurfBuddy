@@ -20,35 +20,26 @@
   </div>
   <hr>
   <div class="profile-body-container">
-
-    <%# ----------MY BOOKINGS----------- %>
-    <div class="profile-booking-container">
-      <div class="down">
-        <span  data-toggle="collapse" href="#collapseBooking" role="button" aria-expanded="true" aria-controls="collapseExample">
-          My Bookings (<%= @surf_sessions.count %>)
-        </span>
-        <i class="fas fa-chevron-down"></i>
-      </div>
-      <div class="collapse show" id="collapseBooking">
-        <div class="card card-body mb-2">
-          <% @surf_sessions.each do |session| %>
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Planned sessions</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Favorites</a>
+      </li>
+    </ul>
+    <div class="tab-content" id="pills-tabContent">
+      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+          <div class="card card-body mb-2">
+            <% @surf_sessions.each do |session| %>
             <% @session = session %>
             <% surf_condition_id = session.surf_condition_id %>
             <% session_spot = SurfCondition.find(surf_condition_id).surf_spot %>
             <%= render 'shared/card_surf_session', surf_spot: session_spot, user: @user%>
-          <% end %>
-        </div>
+            <% end %>
+          </div>
       </div>
-    </div>
-    <%# ----------FAVORITE SPOTS----------- %>
-    <div class="profile-favorite-container">
-      <div class="down">
-        <span  data-toggle="collapse" href="#collapseFavorite" role="button" aria-expanded="true" aria-controls="collapseExample">
-          My Favorites Spots (<%= @favorite_spots.count %>)
-        </span>
-        <i class="fas fa-chevron-down"></i>
-      </div>
-      <div class="collapse" id="collapseFavorite">
+      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
         <div class="card card-body">
           <% @favorite_spots.each do |fav| %>
             <%= render 'shared/card_spot_profile_bis', surf_spot: fav.surf_spot, user: @user, fav: fav %>
@@ -57,5 +48,4 @@
       </div>
     </div>
   </div>
-
 </div>
