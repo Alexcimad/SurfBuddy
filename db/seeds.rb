@@ -24,7 +24,7 @@ spot_reviews = []
 # Add Users
 
 puts "--CREATING ALEXIS USER"
-user = User.create!(email: 'alex.cimadev@gmail.com', password: "Wagon2021", nickname: "Alexis", level: CONST_LEVEL.sample)
+user = User.create!(email: 'alex.cimadev@gmail.com', password: "Wagon2021", nickname: "Alexis", level: "Beginner")
 
 puts "--CREATING THEO USER"
 user1 = User.create!(email: 'theogalais@gmail.com',password: "theogalais@gmail.com", nickname: "Théo", level: CONST_LEVEL.sample)
