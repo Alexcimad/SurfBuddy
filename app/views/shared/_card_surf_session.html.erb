@@ -5,8 +5,8 @@
       <%= surf_condition.start_hour.strftime("%d/%m/%Y") %>
     </strong>
     <strong>
-      <% start_time = surf_condition.start_hour.strftime("%k")%>
-      <%= start_time.to_i%>h - <%= start_time.to_i + 3 %>h
+      <% start_time = surf_condition.start_hour.in_time_zone('Paris').strftime("%k")%>
+      <%= start_time.to_i%>h - <%= (start_time.to_i + 2) % 24 %>h
     </strong>
   </div>
 
