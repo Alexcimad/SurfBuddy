@@ -5,19 +5,19 @@
       <% surf_spot.surf_conditions.each_with_index do |surf_condition,index| %>
         <% if index == 0 %>
           <% if surf_condition.level == "Beginner" %>
-          <li><a class="active schedule green" data-toggle="tab" aria-current="page" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('Paris'), format: "%Hh"%></a></li>
+          <li><a class="active schedule green" data-toggle="tab" aria-current="page" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('London'), format: "%H%p"%></a></li>
           <% elsif surf_condition.level == "Intermediate" %>
-          <li><a class="active schedule orange" data-toggle="tab" aria-current="page" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('Paris'), format: "%Hh"%></a></li>
+          <li><a class="active schedule orange" data-toggle="tab" aria-current="page" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('London'), format: "%H%p"%></a></li>
           <% elsif surf_condition.level == "Expert" %>
-          <li><a class="active schedule red" data-toggle="tab" aria-current="page" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('Paris'), format: "%Hh"%></a></li>
+          <li><a class="active schedule red" data-toggle="tab" aria-current="page" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('London'), format: "%H%p"%></a></li>
           <%end %>
         <% else %>
           <% if surf_condition.level == "Beginner" %>
-          <li><a class="schedule green" data-toggle="tab" aria-current="page" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('Paris'), format: "%Hh"%></a></li>
+          <li><a class="schedule green" data-toggle="tab" aria-current="page" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('London'), format: "%H%p"%></a></li>
           <% elsif surf_condition.level == "Intermediate" %>
-          <li><a class="schedule orange" data-toggle="tab" aria-current="page" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('Paris'), format: "%Hh"%></a></li>
+          <li><a class="schedule orange" data-toggle="tab" aria-current="page" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('London'), format: "%H%p"%></a></li>
           <% elsif surf_condition.level == "Expert" %>
-          <li><a class="schedule red" data-toggle="tab" aria-current="page" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('Paris'), format: "%Hh"%></a></li>
+          <li><a class="schedule red" data-toggle="tab" aria-current="page" href="#slot<%=index%>"><%= l surf_condition.start_hour.in_time_zone('London'), format: "%H%p"%></a></li>
           <%end %>
         <%end%>
       <%end%>
@@ -38,9 +38,9 @@
           </div>
           <%# --------LEVEL --------- %>
           <div class="d-flex justify-content-between align-items-center ">
-            <div class="hp-card-level"> 
+            <div class="hp-card-level">
               <div class="btn9"><%= surf_condition.level %> <span> <%=(surf_condition.rating/2) %> 🤙 </span></div>
-            </div>            
+            </div>
           </div>
           <%= link_to 'Plan this surf session', surf_spot_surf_sessions_path(surf_spot,user_session: current_user.id, surf_cond: surf_condition.id), method: :post, class: "btn button-custom-large"  %>
         </div>
@@ -49,4 +49,3 @@
     <%end%>
   </div>
 </div>
-  
