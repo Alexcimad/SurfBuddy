@@ -2,11 +2,11 @@
   <div class="d-flex justify-content-between mx-2">
     <strong>
       <% surf_condition = SurfCondition.find(@session.surf_condition_id) %>
-      <%= surf_condition.start_hour.strftime("%d/%m/%Y") %>
+      <%= surf_condition.start_hour.strftime("%b %d, %Y") %>
     </strong>
     <strong>
-      <% start_time = surf_condition.start_hour.in_time_zone('Paris').strftime("%k")%>
-      <%= start_time.to_i%>h - <%= (start_time.to_i + 2) % 24 %>h
+      <% start_time = surf_condition.start_hour.in_time_zone('Paris')%>
+      <%= start_time.strftime("%I%P")%> - <%= (start_time + 2.hour).strftime("%I%P")%>
     </strong>
   </div>
 
