@@ -27,7 +27,7 @@
 
 .stat-container{
   margin: 4px;
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: 4px 4px 10px rgba(128, 128, 128, 0.308);
 }
 
@@ -81,14 +81,11 @@ background-color: white;
 }
 .nav-i-back{
   font-size: 35px;
-  color: $darkblue;
+  color: white;
 }
 .nav-i-fav{
   font-size: 25px;
   color: white;
-}
-.surf_spot_conditions{
-  background-color: #EFFFFD;
 }
 .form-control{
   border: 1px solid $darkblue !important;
