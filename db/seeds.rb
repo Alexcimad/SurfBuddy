@@ -43,9 +43,6 @@ jeremyF = User.create!(email: 'jeremyF@gmail.com',password: "WSL2021", nickname:
 
 # Add Spots
 
-
-
-
 surf_spot8 = SurfSpot.create!(location: "Plage Hendaye", description: "Great nice and big beach to begin surfing safely")
 puts "---CREATING #{surf_spot8.location}"
 file_user8 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1647099659/obzhz2jjt2qxssel5yzz.jpg")
@@ -101,30 +98,46 @@ puts "---CREATING #{surf_spot1.location}"
 
 surf_spots << surf_spot1
 
-surf_spot6 = SurfSpot.create!(location: "Grande plage Quiberon", description: "Beautiful beach of Quiberon even if it's a little cold for surfing")
-puts "---CREATING #{surf_spot6.location}"
-file_user6 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1646940387/s9uulc5zkbmj0pbtg4r5.jpg")
-surf_spot6.photos.attach(io: file_user6, filename: "grde_plage_quiberon.jpg", content_type: "image/jpg")
-surf_spots << surf_spot6
+# SPOT IN BZH
 
-surf_spot2 = SurfSpot.create!(location: "Quiberon", description: "Lorem Ipsum")
-file_user2 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1646859007/cpdfnelsn1hyh6bozovp.jpg")
-surf_spot2.photos.attach(io: file_user2, filename: "quiberon_photo.jpg", content_type: "image/jpg")
-puts "---CREATING #{surf_spot2.location}"
-surf_spots << surf_spot2
+surf_spot20 = SurfSpot.create!(location: "Plage de la Falaise", description: "Beautiful beach of Quiberon even if it's a little cold for surfing")
+puts "---CREATING #{surf_spot20.location}"
+file_user20 = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1647545802/production/Spots/Plage-de-la-Falaise_mcykv7.jpg")
+surf_spot20.photos.attach(io: file_user20, filename: "grde_plage_quiberon.jpg", content_type: "image/jpg")
+surf_spots << surf_spot20
 
-surf_spot7 = SurfSpot.create!(location: "Plage de sainte barbe", description: "Great naturist and surfing beach but a little cold. I prefer basque country!")
-puts "---CREATING #{surf_spot7.location}"
-file_user7 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1646940260/d6s0jiwaliuh7fuehh1q.jpg")
-surf_spot7.photos.attach(io: file_user7, filename: "sainte_barbe.jpg", content_type: "image/jpg")
-surf_spots << surf_spot7
+surf_spot21 = SurfSpot.create!(location: "Plage de Penthièvre", description: "Kerhillio, the most famous beach of the town, is famous for its flat bottom and its waves, allowing different practices (Kitesurf, surfing, bodyboard, windsurf ...)")
+file_photo21_1 = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1647544685/production/Spots/Plage-de-Kerhilio_oy9uyl.jpg")
+surf_spot21.photos.attach(io: file_photo21_1, filename: "kerhilio.jpg", content_type: "image/jpg")
+file_photo21_2 = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1647544685/production/Spots/Plage-de-Kerhilio-2_ackgzg.jpg")
+surf_spot21.photos.attach(io: file_photo21_2, filename: "kerhilio.jpg", content_type: "image/jpg")
+puts "---CREATING #{surf_spot21.location}"
+surf_spots << surf_spot21
+
+surf_spot22 = SurfSpot.create!(location: "Plage du Mané Guen", description: "Surfing is best practiced with South-West and North-West winds to avoid off-shore, and in favorable conditions with North, South and West winds.")
+puts "---CREATING #{surf_spot22.location}"
+file_user22 = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1647545803/production/Spots/Fort-Bloque-2_p8forq.jpg")
+surf_spot22.photos.attach(io: file_user22, filename: "sainte_barbe.jpg", content_type: "image/jpg")
+surf_spots << surf_spot22
+
+surf_spot23 = SurfSpot.create!(location: "Plage de Penvins", description: "Offering a lot of space with good wind conditions, it is an ideal spot.")
+puts "---CREATING #{surf_spot23.location}"
+file_user23 = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1647545802/production/Spots/Plage-de-Penvins_yptzxp.jpg")
+surf_spot23.photos.attach(io: file_user23, filename: "sainte_barbe.jpg", content_type: "image/jpg")
+surf_spots << surf_spot23
+
+surf_spot24 = SurfSpot.create!(location: "Fort Bloqué", description: "Guidel Plage is a very good surf spot accessible to all levels. The conditions are often good even if it can be less good than its neighbors.")
+puts "---CREATING #{surf_spot24.location}"
+file_user24 = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1647545803/production/Spots/Fort-Bloque_bx2dnx.jpg")
+surf_spot24.photos.attach(io: file_user24, filename: "sainte_barbe.jpg", content_type: "image/jpg")
+surf_spots << surf_spot24
 
 # Add Reviews
 spot_review1 = SpotReview.create!(comment: "I love this beach it was awesome", rating: 4, surf_spot_id: surf_spot1.id, user_id: user1.id)
 puts "----CREATING #{spot_review1.rating} stars"
 spot_reviews << spot_review1
 
-spot_review2 = SpotReview.create!(comment: "What a great place for surfing!", rating: 3, surf_spot_id: surf_spot2.id, user_id: user1.id)
+spot_review2 = SpotReview.create!(comment: "What a great place for surfing!", rating: 3, surf_spot_id: surf_spot23.id, user_id: user1.id)
 puts "----CREATING #{spot_review2.rating} stars"
 spot_reviews << spot_review2
 
@@ -144,7 +157,7 @@ spot_review6 = SpotReview.create!(comment: "perfect spot for beginner surfer wit
 puts "----CREATING #{spot_review6.rating} stars"
 spot_reviews << spot_review6
 
-spot_review7 = SpotReview.create!(comment: "Really nice surf spot for beginner in Britanny really close to visit Plouharnel! I recommend!", rating: 5, surf_spot_id: surf_spot7.id, user_id: user1.id)
+spot_review7 = SpotReview.create!(comment: "Really nice surf spot for beginner in Britanny really close to visit Plouharnel! I recommend!", rating: 5, surf_spot_id: surf_spot21.id, user_id: user1.id)
 puts "----CREATING #{spot_review7.rating} stars"
 spot_reviews << spot_review7
 
@@ -155,7 +168,7 @@ spot_reviews << spot_review7
 
 puts "----CREATING FAVORITES SPOTS"
 fav_spot1 = FavoriteSpot.create!(surf_spot_id: surf_spot1.id ,user_id: user2.id)
-fav_spot2 = FavoriteSpot.create!(surf_spot_id: surf_spot2.id ,user_id: user2.id)
+fav_spot2 = FavoriteSpot.create!(surf_spot_id: surf_spot21.id ,user_id: user2.id)
 fav_spot3 = FavoriteSpot.create!(surf_spot_id: surf_spot3.id ,user_id: user1.id)
 fav_spot4 = FavoriteSpot.create!(surf_spot_id: surf_spot4.id ,user_id: user3.id)
 
