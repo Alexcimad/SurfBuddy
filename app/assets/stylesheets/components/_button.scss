@@ -1,25 +1,40 @@
-.btn{
-  padding: 10px !important;
+.button{
+  background-color: $figmablue;
+  border-radius: 10px;
+  color: white;
 }
-
-.button-custom{
-  background-color: $figmablue !important;
-  color: white !important;
+.button-small{
+  width: 50%;
+  margin: 0 auto 0 auto;
+}
+.button-large{
+  width: 100%;
+  padding: 20px;
+  display: block;
+  text-align: center;
+}
+.button-small p{
+  padding: 5px;
+}
+.button-light{
+  background-color: white;
+  border-radius: 10px;
+  color: $figmablue;
+  border: 1px solid $figmablue;
+  padding: 5px;
+  text-align: center;
   width: 50%;
 }
-.button-custom:hover{
-  background-color: white !important;
-  color: $figmablue !important;
+.button-secondary{
+  border-radius: 10px;
+  color: #6c757d;
+  border: 1px solid #6c757d;
+  padding: 7px;
 }
-
-.button-custom-large{
+.button-secondary p{
+  padding: 5px;
+}
+.button-custom{
   background-color: $figmablue !important;
-  color: white !important;
-  width: 100% !important;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  font-size: 16px !important;
-  border-radius: 4px !important;
-  height: max-content !important;
+  color: white;
 }
-
