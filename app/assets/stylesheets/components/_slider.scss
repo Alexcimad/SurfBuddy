@@ -36,3 +36,13 @@
       color: $figmablue;
   }
   
+
+  .nav-pills .nav-link{
+    border-radius: 10px;
+    border: 2px solid $figmablue;
+    color: $figmablue;
+  }
+
+  .nav-pills .nav-link.active{
+    background-color: $figmablue;
+  }
