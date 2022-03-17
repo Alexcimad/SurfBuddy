@@ -8,6 +8,8 @@ export default class extends Controller {
     // console.log('toggle');
     // console.log(event.currentTarget);
     event.currentTarget.classList.toggle('fav');
+    // var d1 = document.getElementById('one');
+    // d1.insertAdjacentHTML('afterend', '<div id="two">two</div>');
   }
 
   toggleProfile(event) {
