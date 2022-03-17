@@ -45,7 +45,7 @@
       <% end %>
     </div>
           <%# -----------API----------------- %>
-    <div class="surf_spot_conditions">
+    <div>
       <%= render 'surf_conditions', surf_spot: @surf_spot %>
     </div>
 
@@ -82,13 +82,13 @@
             </div>
           <%end%>
         <% else %>
-          <p>They are no comments and rating</p>
+          <p class="text-center">They are no comments and ratings</p>
         <% end %>
       </div>
       <!-- Button trigger modal -->
       <div class="text-center mt-4">
-        <div type="button" class="btn button-custom mb-2" data-toggle="modal" data-target="#Modalreview">
-          <%=icon('fa','plus')%> Add a review
+        <div type="button" class="button button-small" data-toggle="modal" data-target="#Modalreview">
+          <p><%=icon('fa','plus')%> Add a review</p>
         </div>
       </div>
       <!-- Modal -->
@@ -98,6 +98,5 @@
 
 
 </div>
-  
-</div>
 
+</div>

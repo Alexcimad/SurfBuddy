@@ -1,7 +1,7 @@
 <div class="stat-container">
   <%# --------HOURS --------- %>
   <div>
-    <ul class="nav sliderr">
+    <ul class="nav sliderr radius-10">
       <% surf_spot.surf_conditions.each_with_index do |surf_condition,index| %>
         <% if index == 0 %>
           <% if surf_condition.level == "Beginner" %>
@@ -30,19 +30,17 @@
       <% else %>
       <div id="slot<%=index%>" class="tab-pane fade">
       <% end %>
-        <div class="surf-condition-card  align-self-start">
-          <div class="d-flex justify-content-between">
-            <p class="text-center"><%=icon('fas','wind')%><%= surf_condition.wind_speed %>kts</p>
-            <p class="text-center"><%=icon('fas','location-arrow')%><%= surf_condition.wind_direction %></p>
-            <p class="text-center"><%=icon('fas','water')%><%= surf_condition.wave.ceil(2) %>m</p>
+        <div class="surf-condition-card">
+          <div class="d-flex justify-content-left">
+            <p class="text-center mr-4"><%=icon('fas','wind')%> <%= surf_condition.wind_speed %> kts</p>
+            <p class="text-center mr-4"><%=icon('fas','location-arrow')%> <%= surf_condition.wind_direction %></p>
+            <p class="text-center mr-4"><%=icon('fas','water')%> <%= surf_condition.wave.ceil(2) %> m</p>
           </div>
           <%# --------LEVEL --------- %>
-          <div class="d-flex justify-content-between align-items-center ">
-            <div class="hp-card-level">
-              <div class="btn9"><%= surf_condition.level %> <span> <%=(surf_condition.rating/2) %> 🤙 </span></div>
-            </div>
-          </div>
-          <%= link_to 'Plan this surf session', surf_spot_surf_sessions_path(surf_spot,user_session: current_user.id, surf_cond: surf_condition.id), method: :post, class: "btn button-custom-large"  %>
+              <div class="button-light mb-3">
+                <%= surf_condition.level %> | <span> <%=(surf_condition.rating/2) %> 🤙 </span>
+              </div>
+          <div><%= link_to 'Plan this surf session', surf_spot_surf_sessions_path(surf_spot,user_session: current_user.id, surf_cond: surf_condition.id), method: :post, class: "button button-large" %></div>
         </div>
 
       </div>
