@@ -1,7 +1,8 @@
 <div class="profile-container mt-3">
   <div class="profile-head-container">
     <div class="profile text-center">
-          <%= image_tag "http://res.cloudinary.com/dmnzqtckp/image/upload/v1646940912/xxqphqz5rbbrvtuc2pbm.jpg", class: "profile-picture" %>
+      <%# <%= image_tag "http://res.cloudinary.com/dmnzqtckp/image/upload/v1646940912/xxqphqz5rbbrvtuc2pbm.jpg", class: "profile-picture" %>
+      <%= cl_image_tag(current_user.photo.key, crop: :fill, :gravity => :face, class: "profile-picture")%>
     </div>
     <div class="profile-head-container-right">
       <h2 class="text-center mt-3">Hello <%= @user.nickname %></h2>
