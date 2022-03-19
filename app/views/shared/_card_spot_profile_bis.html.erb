@@ -1,37 +1,35 @@
 <div class="card-profile">
-
-    <div class="card3 card3-favorite">
-        <%= link_to surf_spot_path(surf_spot), class: "img-caroussel-map-favorite" do %>
-          <%= cl_image_tag(surf_spot.photos.first.key) %>
-        <% end %>
-        <div class="w-100">
-          <div class="d-flex justify-content-between">
-            <h3><%= surf_spot.location %></h3>
-            <%= render 'shared/favorite_profile', surf_spot: surf_spot  %>
-          </div>
-          <div>
-            <i><%= surf_spot.description.first(18) %> ...</i>
-            <div class="mt-2 d-flex" >
-              <div id="addTag<%=fav.id%>"> 
-                  <% @ftags_filtred = @ftags.where(favorite_spot_id: surf_spot.favorite_spots) %>
-                  <% @ftags_filtred.each do |tag| %>
-                      <% if tag.favorite_spot.user == current_user %>
-                          <span class="card-tags card-tags-favorite"><%= tag.tag.name %></span>
-                      <% else %>
-                          <span class="card-tags"><%= tag.tag.name %></span>
-                      <% end %>
-                  <% end %>
-              </div>
-                <!-- Button add tag modal -->
-                <span  class="tag-add hp-card-level" data-toggle="modal" data-target="#tagModal<%= fav.id%>">
-                    <i class="fas fa-pencil-alt"></i>
-                </span>
-                <!-- Modal -->
-                <%= render 'shared/tags_select', fav: fav %>
+  <div class="card3 card3-favorite">
+      <%= link_to surf_spot_path(surf_spot), class: "img-caroussel-map-favorite" do %>
+        <%= cl_image_tag(surf_spot.photos.first.key) %>
+      <% end %>
+      <div class="w-100">
+        <div class="d-flex justify-content-between">
+          <h3><%= surf_spot.location %></h3>
+          <%= render 'shared/favorite_profile', surf_spot: surf_spot  %>
+        </div>
+        <div>
+          <i><%= surf_spot.description.first(18) %> ...</i>
+          <div class="mt-2 d-flex" >
+            <div id="addTag<%=fav.id%>"> 
+                <% @ftags_filtred = @ftags.where(favorite_spot_id: surf_spot.favorite_spots) %>
+                <% @ftags_filtred.each do |tag| %>
+                    <% if tag.favorite_spot.user == current_user %>
+                        <span class="card-tags card-tags-favorite"><%= tag.tag.name %></span>
+                    <% else %>
+                        <span class="card-tags"><%= tag.tag.name %></span>
+                    <% end %>
+                <% end %>
             </div>
+            <!-- Button add tag modal -->
+            <span  class="tag-add hp-card-level" data-toggle="modal" data-target="#tagModal<%= fav.id%>">
+                <i class="fas fa-pencil-alt"></i>
+            </span>
+            <!-- Modal -->
+            <%= render 'shared/tags_select', fav: fav %>
           </div>
         </div>
       </div>
-    </div>
+  </div>
 </div>
   
