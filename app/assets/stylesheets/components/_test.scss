@@ -1,0 +1,84 @@
+
+.card2 {
+  background-color: #ffffff;
+  display: flex;
+  gap: 18px;
+  padding: 12px 14px;
+  border-radius: 13px;
+  min-width: 290px;
+  min-height: 145px;
+}
+
+.card2 > img {
+  min-height: 100%;
+  border-radius: 10px;
+}
+
+.card3{
+  background-color: #ffffff;
+  display: flex;
+  gap: 18px;
+  padding: 12px 14px;
+  border-radius: 13px;
+  min-width: 290px;
+  min-height: 100%;
+}
+
+
+.card2 > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+}
+h3 {
+  color: #333333;
+  font-size: 20px;
+  letter-spacing: -.71px;
+
+}
+.card-details2 {
+  display: flex;
+  align-items: center;
+  width: 130px;
+  justify-content: space-between;
+  color: #BDBDBD;
+  font-size: 17px;
+  letter-spacing: -.71px;
+}
+.card-details2 > div {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.btn9 {
+  background-color: #66BFF9;
+  color: white;
+  border-radius: 8px;
+  padding: 3px;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: -.71px;
+  display: inline-flex;
+  align-items: center;
+}
+.btn9 span {
+  margin-left: 10px;
+  background-color: #fff;
+  color: #66BFF9;
+  padding: 5px;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.img-caroussel-map{
+  width: 45% !important;
+  border-radius: 4px;
+}
+.img-caroussel{
+  width: 155px;
+  height: 106px;
+  border-radius: 4px;
+}
