@@ -186,9 +186,13 @@ fav_spot4 = FavoriteSpot.create!(surf_spot_id: surf_spot4.id ,user_id: user3.id)
 puts "----CREATING TAGS"
 tag1 = Tag.create!(name: "beach break")
 tag2 = Tag.create!(name: "reef break")
-tag3 = Tag.create!(name: "galets")
-tag4 = Tag.create!(name: "sable")
-tag5 = Tag.create!(name: "roches")
+tag3 = Tag.create!(name: "pebbles")
+tag4 = Tag.create!(name: "sand")
+tag5 = Tag.create!(name: "rocks")
+tag6 = Tag.create!(name: "beach rescue")
+tag7 = Tag.create!(name: "shower")
+tag8 = Tag.create!(name: "snack bar")
+tag8 = Tag.create!(name: "surf club")
 
 # Add Favorite_spots_tags
 

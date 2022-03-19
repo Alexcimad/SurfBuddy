@@ -40,6 +40,7 @@ document.addEventListener('turbolinks:load', () => {
   initSlider();
   initAutocomplete();
   initStarRating();
+  addTagLive();
 })
 
 document.addEventListener('turbolinks:update', () => {
