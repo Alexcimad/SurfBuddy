@@ -1,7 +1,7 @@
 <div class="profile-container mt-3">
   <div class="profile-head-container">
     <div class="profile text-center">
-          <%= image_tag "http://res.cloudinary.com/dmnzqtckp/image/upload/v1646940912/xxqphqz5rbbrvtuc2pbm.jpg", class: "profile-picture" %>
+      <%= cl_image_tag(current_user.photo.key, crop: :fill, :gravity => :face, class: "profile-picture")%>
     </div>
     <div class="profile-head-container-right">
       <h2 class="text-center mt-3">Hello <%= @user.nickname %></h2>
@@ -22,10 +22,10 @@
   <div class="profile-body-container">
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
       <li class="nav-item" role="presentation">
-        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Planned sessions</a>
+        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Planned sessions (<%= @surf_sessions.count %>)</a>
       </li>
       <li class="nav-item" role="presentation">
-        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Favorites</a>
+        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Favorites (<%= current_user.favorite_spots.count %>)</a>
       </li>
     </ul>
     <div class="tab-content" id="pills-tabContent">

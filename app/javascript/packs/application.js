@@ -43,5 +43,12 @@ document.addEventListener('turbolinks:load', () => {
   addTagLive();
 })
 
+document.addEventListener('turbolinks:update', () => {
+  initMapbox();
+  initSlider();
+  initAutocomplete();
+  initStarRating();
+})
+
 // initStarRating();
 

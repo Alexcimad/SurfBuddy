@@ -57,11 +57,12 @@
           <% @surf_spot.spot_reviews.each do |review| %>
             <div class="review-card d-flex">
                 <div class="review-img">
-                  <img class="avatar-bordered review-photo" src="https://a0.muscache.com/defaults/user_pic-225x225.png?im_w=240">
+                  <%= cl_image_tag(review.user.photo.key, crop: :fill, :gravity => :face, class: "avatar-bordered review-photo")%>
+
+                  <%# <img class="avatar-bordered review-photo" src="https://a0.muscache.com/defaults/user_pic-225x225.png?im_w=240"> %>
                 </div>
                 <div class="w-100">
                   <div class="review-header d-flex justify-content-between">
-                    <%#= cl_image_tag(review.user.photo.key, crop: :fill, :gravity => :face, class: "avatar-bordered")%>
                       <h3><%= review.user.nickname %></h3>
                       <p><%= review.updated_at.strftime("%d %b %Y") %></p>
                   </div>
@@ -82,7 +83,7 @@
             </div>
           <%end%>
         <% else %>
-          <p class="text-center">They are no comments and ratings</p>
+          <p class="text-center">There are no comments or ratings</p>
         <% end %>
       </div>
       <!-- Button trigger modal -->
