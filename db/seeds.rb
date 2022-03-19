@@ -99,7 +99,7 @@ file_user9 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1647101
 surf_spot9.photos.attach(io: file_user9, filename: "hendaye.jpg", content_type: "image/jpg")
 surf_spots << surf_spot9
 
-surf_spot1 = SurfSpot.create!(location: "Lacanau", description: "Lorem Ipsum")
+surf_spot1 = SurfSpot.create!(location: "Lacanau", description: "beautiful beach for surfing with a good surf shool from UCPA")
 file_user = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1646859730/mevgwuhni89gsyovx4u6.jpg")
 surf_spot1.photos.attach(io: file_user, filename: "alexis_photo.jpg", content_type: "image/jpg")
 puts "---CREATING #{surf_spot1.location}"
@@ -169,6 +169,29 @@ spot_review7 = SpotReview.create!(comment: "Really nice surf spot for beginner i
 puts "----CREATING #{spot_review7.rating} stars"
 spot_reviews << spot_review7
 
+spot_review_Lac = SpotReview.create!(comment: "Really nice surf spot I discovered with UCPA", rating: 5, surf_spot_id: surf_spot1.id, user_id: user1.id)
+puts "----CREATING #{spot_review7.rating} stars"
+spot_reviews << spot_review7
+
+spot_review_Lac2 = SpotReview.create!(comment: "Big beaches for surfing near Bordeaux! Awesome!", rating: 5, surf_spot_id: surf_spot1.id, user_id: user2.id)
+puts "----CREATING #{spot_review7.rating} stars"
+spot_reviews << spot_review7
+
+spot_review_hend = SpotReview.create!(comment: "Really nice beach for beginners compared to the big conditions of Biarritz!", rating: 5, surf_spot_id: surf_spot8.id, user_id: user1.id)
+puts "----CREATING #{spot_review7.rating} stars"
+spot_reviews << spot_review7
+
+spot_review_hend2 = SpotReview.create!(comment: "Really nice beach for beginners and just enjoy the beach!", rating: 5, surf_spot_id: surf_spot8.id, user_id: user2.id)
+puts "----CREATING #{spot_review7.rating} stars"
+spot_reviews << spot_review7
+
+spot_review_penon = SpotReview.create!(comment: "Great surfing beach near Hossegor but not for every level!", rating: 4, surf_spot_id: surf_spot9.id, user_id: user1.id)
+puts "----CREATING #{spot_review7.rating} stars"
+spot_reviews << spot_review7
+
+spot_review_penon2 = SpotReview.create!(comment: "Great beach for surfing in Seignosse!", rating: 5, surf_spot_id: surf_spot9.id, user_id: user2.id)
+puts "----CREATING #{spot_review7.rating} stars"
+spot_reviews << spot_review7
 
 
 
