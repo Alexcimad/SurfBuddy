@@ -251,7 +251,6 @@ def calculate_spot_level_rating(args={})
   wave_height = args[:wave_height]
   if wave_height < 1.0
     level = "Beginner"
-    global_rate += 1
   elsif wave_height < 2.0
     level = "Intermediate"
     global_rate += 2
@@ -260,18 +259,37 @@ def calculate_spot_level_rating(args={})
     global_rate += 3
   end
 
+  if level == "Beginner"
+    if wave_height > 0.80
+      global_rate += 8
+    elsif wave_height > 0.60
+      global_rate += 6
+    elsif wave_height > 0.40
+      global_rate += 4
+    else
+      global_rate += 2
+    end
+  end
+
+
   #Use period condition in wave weight condition
   period = args[:period]
-  if period <= 5
-    global_rate += 1
-  elsif (6..8).include? period
-    global_rate +=2
-  elsif (9..10).include? period
-    global_rate +=3
-  elsif (11..12).include? period
-    global_rate +=4
+  if level != "Beginner"
+    if period <= 5
+      global_rate += 1
+    elsif (6..8).include? period
+      global_rate +=2
+    elsif (9..10).include? period
+      global_rate +=3
+    elsif (11..12).include? period
+      global_rate +=4
+    else
+      global_rate += 5
+    end
   else
-    global_rate += 5
+    if period > 6
+      global_rate += 1
+    end
   end
 
   # Use wind direction/speed into calculation
@@ -283,10 +301,16 @@ def calculate_spot_level_rating(args={})
     when "SW"
       global_rate += 1
     when "W"
-      global_rate += 2
+      if level != "Beginner"
+        global_rate += 2
+      else
+        global_rate += 1
+      end
     end
   elsif wind_speed < 3
-    global_rate += 2
+    if level != "Beginner"
+      global_rate += 2
+    end
   end
 
   return {level: level, rating: global_rate}
