@@ -34,12 +34,14 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initSlider } from "../plugins/init_slider";
 import { initAutocomplete } from "../plugins/init_autocomplete";
 import { initStarRating } from '../plugins/init_star_rating';
+import { addTagLive } from '../plugins/add_tag_live';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initSlider();
   initAutocomplete();
   initStarRating();
+  addTagLive();
 })
 
 document.addEventListener('turbolinks:update', () => {
