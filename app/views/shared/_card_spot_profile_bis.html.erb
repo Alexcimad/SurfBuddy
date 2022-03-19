@@ -11,15 +11,17 @@
           </div>
           <div>
             <i><%= surf_spot.description.first(18) %> ...</i>
-            <div class="mt-2" id="addTag">
-                <% @ftags_filtred = @ftags.where(favorite_spot_id: surf_spot.favorite_spots) %>
-                <% @ftags_filtred.each do |tag| %>
-                    <% if tag.favorite_spot.user == current_user %>
-                        <span class="card-tags card-tags-favorite"><%= tag.tag.name %></span>
-                    <% else %>
-                        <span class="card-tags"><%= tag.tag.name %></span>
-                    <% end %>
-                <% end %>
+            <div class="mt-2 d-flex" >
+              <div id="addTag<%=fav.id%>"> 
+                  <% @ftags_filtred = @ftags.where(favorite_spot_id: surf_spot.favorite_spots) %>
+                  <% @ftags_filtred.each do |tag| %>
+                      <% if tag.favorite_spot.user == current_user %>
+                          <span class="card-tags card-tags-favorite"><%= tag.tag.name %></span>
+                      <% else %>
+                          <span class="card-tags"><%= tag.tag.name %></span>
+                      <% end %>
+                  <% end %>
+              </div>
                 <!-- Button add tag modal -->
                 <span  class="tag-add hp-card-level" data-toggle="modal" data-target="#tagModal<%= fav.id%>">
                     <i class="fas fa-pencil-alt"></i>

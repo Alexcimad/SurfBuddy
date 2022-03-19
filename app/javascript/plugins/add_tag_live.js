@@ -1,7 +1,10 @@
 import $ from 'jquery';
 
-function addTagLive = () => {
-    console.log("hello")
+const addTagLive = () => {
+    // console.log(document.querySelector("#closeAddTag"))
+    // document.querySelector("#closeAddTag").addEventListener("click",()=>{
+    //     console.log("hello")
+    // })
 };
   
 export { addTagLive };
