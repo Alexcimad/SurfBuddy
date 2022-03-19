@@ -323,7 +323,7 @@ def fetch_current_conditions(surf_spot)
 
   response_wind_temp_JSON = JSON.parse(response_wind_temp.body)
   wind_info = convert_API_response_to_hash(response_wind_temp_JSON)
-  for i in 0..13 do
+  for i in 0..12 do
     wind_speed = Math.sqrt(wind_info[1][wind_info[0]+i]["wind_u-surface"]**2 + wind_info[1][wind_info[0]+i]["wind_v-surface"]**2)/0.514
     wind_direction_rad = Math.atan2(wind_info[1][wind_info[0]+i]["wind_v-surface"],wind_info[1][wind_info[0]+i]["wind_u-surface"])
     wind_direction = calc_wind_direction(wind_direction_rad)
