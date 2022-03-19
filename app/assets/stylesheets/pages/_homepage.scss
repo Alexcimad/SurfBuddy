@@ -1,6 +1,6 @@
 .top{
-  background-image: url(https://res.cloudinary.com/dmnzqtckp/image/upload/v1646334549/development/surf_buddy_background_olau1k.png);
-  height: 100vh;
+  background: url(https://res.cloudinary.com/dmnzqtckp/image/upload/v1647689174/production/surf-buddy-bg_f5bl3v.jpg) bottom no-repeat;
+  height: 70vh;
 }
 .form-control{
   border : none !important;
@@ -27,12 +27,4 @@ label{
 }
 #search_location{
   padding: 23px;
-}
-.button-custom{
-  background-color: #42C2FF !important;
-  color: white !important;
-}
-.button-custom:hover{
-  background-color: white !important;
-  color: #42C2FF !important;
 }

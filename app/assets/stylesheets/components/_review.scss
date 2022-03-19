@@ -1,8 +1,21 @@
+
+.reviews-container {
+  margin-top: 16px;
+  padding: 8px;
+
+}
+
+.reviews-container p{
+  font-size: 20px;
+}
+
+
 .review-card{
   background-color: white;
+  margin-top: 10px;
   margin-bottom: 10px;
   padding: 5px 10px;
-  border-radius: 20px;
+  box-shadow: 3px 3px 10px rgba(175, 175, 175, 0.308);
 }
 
 .review-card .review-header{
@@ -19,6 +32,14 @@
   height: 75px;
 }
 
+.review-card .review-header p{
+  font-size: 13px;
+}
+
 .review-card .review-comment{
   font-style: italic;
+}
+
+.review-photo{
+  width: 67px;
 }

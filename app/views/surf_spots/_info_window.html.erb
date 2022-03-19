@@ -1,11 +1,25 @@
-<%= link_to surf_spot_path(spot) do%>
-  <div class="d-flex">
-    <div class="custom-img">
-      <img class="spot-card-img-modal" src="https://api.navily.com/media/AGxLeNtHRsD2SpKfa40DAAN7sC7pCtotaZyLTHQrcAkJSZeXEG1e6Npvkcq1YL9l?w=128&crop_square=true" alt="Spot">
-    </div>
-    <div>
-      <h2 class="spot-card-h2"><%= spot.location %></h2>
-      <p><%=icon('fas','star')%>(<%= spot.spot_reviews.length %> comments)</p>
-    </div>
-  </div>
-<% end %>
+        <%= link_to surf_spot_path(surf_spot) do %>
+      <div class="card2">
+        <%# <div> %>
+          <%= cl_image_tag(surf_spot.photos.first.key, class: "img-caroussel-map", :quality => "auto") %>
+        <%# <img src="/assets/profile.png" alt="Profil"> %>
+        <%# </div> %>
+        <div>
+          <h3><%= surf_spot.location %></h3>
+          <div class="card-details2">
+            <% if user_signed_in? && !surf_spot.best_surf_condition(current_user).nil? %>
+              <div><img src="/assets/wind.svg"><%=surf_spot.best_surf_condition(current_user).wind_speed%>kts</div>
+              <div><img src="/assets/cloud.svg"><%=surf_spot.best_surf_condition(current_user).wave.ceil(2)%>m</div>
+            <%else%>
+              <div><img src="/assets/wind.svg"><%=surf_spot.surf_conditions[0].wind_speed%>kts</div>
+              <div><img src="/assets/cloud.svg"><%=surf_spot.surf_conditions[0].wave.ceil(2)%>m</div>
+            <%end %>
+          </div>
+          <% if user_signed_in? && !surf_spot.best_surf_condition(current_user).nil?%>
+          <div class="btn9"><%= current_user.level %> <span> <%=(surf_spot.best_surf_condition(current_user).rating/2) %> 🤙 </span></div>
+          <% else %>
+          <div class="btn9"><%= surf_spot.surf_conditions[0].level %> <span> <%=(surf_spot.surf_conditions[0].rating/2) %> 🤙 </span></div>
+          <%end%>
+        </div>
+      </div>
+      <%end %>

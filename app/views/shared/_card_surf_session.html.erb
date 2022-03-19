@@ -1,0 +1,37 @@
+<div class="profile-card">
+  <div class="d-flex justify-content-between mx-2">
+    <strong>
+      <% surf_condition = SurfCondition.find(@session.surf_condition_id) %>
+      <%= surf_condition.start_hour.strftime("%b %d, %Y") %>
+    </strong>
+    <strong>
+      <% start_time = surf_condition.start_hour.in_time_zone('Paris')%>
+      <%= start_time.strftime("%I%P")%> - <%= (start_time + 2.hour).strftime("%I%P")%>
+    </strong>
+  </div>
+
+<div class="card-profile">
+  <%= link_to surf_spot_path(surf_spot) do %>
+    <div class="card3">
+        <%= cl_image_tag(surf_spot.photos.first.key, class: "img-caroussel") %>
+        <div>
+          <h3><%= surf_spot.location %></h3>
+          <div class="card-details2">
+            <% if user_signed_in? && !surf_spot.best_surf_condition(current_user).nil? %>
+              <div><img src="/assets/wind.svg"><%=surf_spot.best_surf_condition(current_user).wind_speed%>kts</div>
+              <div><img src="/assets/cloud.svg"><%=surf_spot.best_surf_condition(current_user).wave.ceil(2)%>m</div>
+            <%else%>
+              <div><img src="/assets/wind.svg"><%=surf_spot.surf_conditions[0].wind_speed%>kts</div>
+              <div><img src="/assets/cloud.svg"><%=surf_spot.surf_conditions[0].wave.ceil(2)%>m</div>
+            <%end %>
+          </div>
+          <% if user_signed_in? && !surf_spot.best_surf_condition(current_user).nil?%>
+          <div class="btn9"><%= current_user.level %> <span> <%=(surf_spot.best_surf_condition(current_user).rating/2) %> 🤙 </span></div>
+          <% else %>
+          <div class="btn9"><%= surf_spot.surf_conditions[0].level %> <span> <%=(surf_spot.surf_conditions[0].rating/2) %> 🤙 </span></div>
+          <%end%>
+        </div>
+    </div>
+  <% end %>
+</div>
+</div>

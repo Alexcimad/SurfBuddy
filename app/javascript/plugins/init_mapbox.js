@@ -5,7 +5,7 @@ const buildMap = (mapElement) => {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     return new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/satellite-v9'
+      style: 'mapbox://styles/mapbox/outdoors-v11'
     });
   };
 
@@ -13,6 +13,7 @@ const buildMap = (mapElement) => {
     markers.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window);
       const element = document.createElement('div');
+      element.dataset.id = marker.id;
       element.className = 'marker';
       element.style.backgroundImage = `url('${marker.image_url}')`;
       element.style.backgroundSize = 'contain';
@@ -29,7 +30,7 @@ const buildMap = (mapElement) => {
   const fitMapToMarkers = (map, markers) => {
     const bounds = new mapboxgl.LngLatBounds();
     markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-    map.fitBounds(bounds, { padding: 70, maxZoom: 11.5 });
+    map.fitBounds(bounds, { padding: 100, maxZoom: 12 });
   };
 
   const initMapbox = () => {

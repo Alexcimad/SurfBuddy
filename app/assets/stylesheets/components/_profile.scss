@@ -1,0 +1,72 @@
+.profile-container{
+    font-family: "Roboto", "Nunito", "Helvetica", "sans-serif";
+    font-weight: 500;
+    color: #6b6969;
+}
+
+.profile-card{
+    margin-bottom: 10px;
+    background-color: transparent;
+}
+
+.profile-head-container{
+    display: flex;
+    padding-left: 12px;
+}
+
+.profile-head-container-right{
+    margin-left: 16px;
+}
+
+
+
+.profile-favorite-container{
+    background-color: rgba(128, 128, 128, 0.12);
+
+    position: relative;
+    h2{
+        text-decoration: none;
+    }
+    margin-bottom: 60px;
+}
+
+.profile-booking-container{
+    background-color: rgba(128, 128, 128, 0.12);
+    position: relative;
+    h2{
+        text-decoration: none;
+    }
+}
+
+.down{
+    font-size: larger;
+    padding-left: 16px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    p{
+      align-items: center;
+    }
+}
+
+.cursor{
+    margin-left: 7px;
+    cursor: pointer;
+}
+
+.profile-level{
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+}
+
+.img-caroussel-map-favorite{
+    width: 90%!important;
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 4px;
+    }
+}

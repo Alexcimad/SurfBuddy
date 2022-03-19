@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :spot_reviews
   has_many :favorite_spots
+  has_one_attached :photo
 end

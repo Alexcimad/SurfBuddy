@@ -9,15 +9,7 @@ class SurfSpotsController < ApplicationController
   #all surfspots
   def index
     if params[:search].present?
-      if params[:search][:location].present?
-        if params[:search][:km].present?
-          @surf_spots = SurfSpot.near(params[:search][:location],params[:search][:km])
-        else
-          @surf_spots = SurfSpot.near(params[:search][:location], 20)
-        end
-      else
-        @surf_spots = SurfSpot.all
-      end
+      @surf_spots = SurfSpot.near(params[:search][:location], 50)
     else
       @surf_spots = SurfSpot.all
     end
@@ -26,11 +18,13 @@ class SurfSpotsController < ApplicationController
       {
         lat: spot.latitude,
         lng: spot.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { spot: spot }),
-        image_url: choose_marker_icon(spot)
+        id: spot.id,
+        info_window: render_to_string(partial: "info_window", locals: { surf_spot: spot }),
+        image_url: helpers.asset_url("surfer.png")
       }
     end
     set_tags
+    
   end
 
   # READ one
@@ -91,17 +85,6 @@ class SurfSpotsController < ApplicationController
 
   def set_tags
     @ftags = FavoriteSpotTag.all
-  end
-
-  def choose_marker_icon(v_spot)
-    if v_spot.surf_conditions[0].level == "Beginner"
-      return helpers.asset_url("level_beginner.png")
-    elsif v_spot.surf_conditions[0].level == "Intermediate"
-      return helpers.asset_url("level_intermediate.png")
-    else
-      return helpers.asset_url("level_expert.png")
-    end
-
   end
 
 end

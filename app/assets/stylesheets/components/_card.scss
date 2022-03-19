@@ -33,38 +33,130 @@
 }
 
 .surf-condition-card{
-  background-color: white;
-  border-radius: 4px;
-  padding: 10px 5px;
-  font-size: 24px;
+  padding: 15px;
+}
+.radius-10{
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 // Homepage Card
 .hp-card{
-  background-color: white;
-  border-radius: 15px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px -3px rgba(112,112,112,0.25)  ;
+  border-radius: 13px;
   padding: 15px;
+  min-height: 400px;
 }
 .hp-card-img{
   text-align: center;
+  min-height: 240px;
 }
 .hp-card--img{
   width: 100%;
   border-radius: 15px;
+  min-height: 240px;
 }
 .hp-card-level{
-  background-color: #42c2ff;
+  background-color: $figmablue;
   color: white;
   font-weight: 700;
   padding: 5px;
+  width: fit-content;
   border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 0px;
+  text-align: center;
+  p{
+    margin: 0px;
+  }
 }
+
+a, a:hover, a:active, a:visited, a:focus {
+  text-decoration:none;
+}
+
 .test{
-  width: 37%;
+  width: 55%;
   text-align: center;
 }
 
 h3{
   color:#0C2A3E;
   font-weight: 700;
+}
+
+// Design spot card of sliders
+.spot-card-slider{
+  display: flex;
+  border-radius: 15px;
+  background-color: white;
+  padding: 3px 5px;
+  min-height: 150px;
+}
+
+.spot-card-slider h2{
+  font-size : 16px;
+  color: #62C3FE;
+}
+
+.slider-conditions{
+  display: flex;
+  color:#62C3FE;
+
+}
+
+.slider-level-card{
+  display: flex;
+  background-color: #62C3FE;
+  color: white;
+  border-radius: 4px;
+}
+
+.slider-spot-rating{
+  background-color: white;
+  color: #62C3FE;
+}
+
+.spot-card-img-slider{
+  border-radius: 20px;
+  padding: 5px;
+  width: 50px;
+  height: 50px;
+  margin : 3px;
+}
+
+// ----------Profile---------------
+
+.card-profile{
+  box-shadow: 4px 4px 10px rgba(128, 128, 128, 0.308);
+  margin: 8px;
+  position: relative;
+  border-radius: 4px;
+
+}
+
+.card-body{
+  padding: 0px;
+  background-color: transparent;
+}
+
+.spot-card {
+  width: auto;
+  border-radius: 4px;
+  img{
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+  }
+}
+
+.card-photo{
+  border-top-right-radius: 4px;
+}
+
+.surf_conditions_date{
+  font-size: 15px;
+  line-height: 10px;
+  
 }

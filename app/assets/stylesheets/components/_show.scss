@@ -1,0 +1,31 @@
+.show-container{
+    color: rgb(107, 105, 105);
+}
+
+.tags-container{
+    margin: 0px 8px;
+    position: absolute;
+}
+
+.reviews-container{
+    padding: 8px;
+    margin-bottom: 65px;
+
+}
+
+.hours-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(5px, auto);
+    li{
+        margin: 0px;
+    }
+}
+
+.nav {
+    flex-wrap: nowrap !important;
+}
+
+.spot-card-details{
+    position: relative;
+}

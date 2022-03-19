@@ -15,32 +15,18 @@
 
 <div class="container">
   <h2 class="h2-title text-center m-4">
-    Surfbuddy latest spots
+    Our awesome spots
   </h2>
-
-<div class="hp-cards ">
-<% @surf_spots_last.each do |spot| %>
-  <div class="hp-card">
-    <p class="hp-card-img" ><%= cl_image_tag(spot.photos.first.key, class: 'hp-card--img', crop: :fill) %></p>
-    <h3><%= spot.location %></h3>
-    <div class="test container row">
-        <% @ftags_filtred = @ftags.where(favorite_spot_id: spot.favorite_spots) %>
-        <% @ftags_filtred.each do |tag|%>
-            <p class="card-tags"><%= tag.tag.name %></p>
-        <% end %>
-    </div>
-    <div class="test">
-    <p class="hp-card-level"><%= spot.surf_conditions[0].level %></p>
-    </div>
+  <div class="owl-carousel owl-theme" id="owl-carousel-hp">
+  <% @surf_spots.each do |spot| %>
+      <%= render "shared/card_spot_hp", spot: spot %>
+  <% end %>
   </div>
-<% end %>
 </div>
-
-
 
 <section class="container container-large mosaic my-5">
     <div class="text-center mb-5">
-        <h2 class="mb-2 text-xl text-weight-700">Surfbuddy peoples...</h2>
+        <h2 class="h2-title mb-2 text-center">Surfbuddy people</h2>
     </div>
     <div class="mosaic-pictures">
         <div class="card featured-col md-rounded">
@@ -76,7 +62,7 @@
             <div class="md-icon">
                 <img src="https://i.goopics.net/ueqpjj.png" loading="lazy" alt="Icone mouillage" class="w-100">
             </div>
-            <span class="text-lg text-center text-white text-weight-700">+<%= @surf_spots %></span>
+            <span class="text-lg text-center text-white text-weight-700">+<%= @surf_spots.count %></span>
             <p class="text-center text-white text-weight-700 text-md-plus">Surf spots</p>
         </div>
 
