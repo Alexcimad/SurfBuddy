@@ -42,5 +42,12 @@ document.addEventListener('turbolinks:load', () => {
   initStarRating();
 })
 
+document.addEventListener('turbolinks:update', () => {
+  initMapbox();
+  initSlider();
+  initAutocomplete();
+  initStarRating();
+})
+
 // initStarRating();
 

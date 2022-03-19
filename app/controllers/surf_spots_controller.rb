@@ -24,6 +24,7 @@ class SurfSpotsController < ApplicationController
       }
     end
     set_tags
+    
   end
 
   # READ one

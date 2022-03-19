@@ -24,16 +24,24 @@ spot_reviews = []
 # Add Users
 
 puts "--CREATING ALEXIS USER"
-user = User.create!(email: 'alex.cimadev@gmail.com', password: "Wagon2021", nickname: "Alexis", level: CONST_LEVEL.sample)
+user = User.create!(email: 'alex.cimadev@gmail.com', password: "Wagon2021", nickname: "Alexis", level: "Beginner")
+alexis_file = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1644443820/mabmadzzb9wnhg76yt1d.jpg")
+user.photo.attach(io: alexis_file, filename: "alexis.jpg", content_type: "image/jpg")
 
 puts "--CREATING THEO USER"
 user1 = User.create!(email: 'theogalais@gmail.com',password: "theogalais@gmail.com", nickname: "Théo", level: CONST_LEVEL.sample)
+theo_file = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1644680963/production/log5zzdrovarb1vpisbjtm491bs4.jpg")
+user1.photo.attach(io: theo_file, filename: "theo.jpg", content_type: "image/jpg")
 
 puts "--CREATING DAVID USER"
 user2 = User.create!(email: 'davidsantos@live.fr',password: "davidsantos@live.fr", nickname: "David", level: CONST_LEVEL.sample)
+david_file = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1644680965/production/r501o41vgtgspbo8cntr0vi6c2yc.jpg")
+user2.photo.attach(io: david_file, filename: "david.jpg", content_type: "image/jpg")
 
 puts "--CREATING ARON USER"
 user3 = User.create!(email: 'aron@gmail.com',password: "aron@gmail.com", nickname: "Aron", level: CONST_LEVEL.sample)
+aron_file = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1644537695/mrsoostbbotjg0bszbnm.png")
+user3.photo.attach(io: aron_file, filename: "aron.jpg", content_type: "image/jpg")
 
 puts "--CREATING KELLY S. USER"
 kellyS = User.create!(email: 'kellyS@gmail.com',password: "WSL2021", nickname: "Kelly", level: CONST_LEVEL.sample)
