@@ -11,7 +11,7 @@
           </div>
           <div>
             <i><%= surf_spot.description.first(18) %> ...</i>
-            <div class="mt-2">
+            <div class="mt-2" id="addTag">
                 <% @ftags_filtred = @ftags.where(favorite_spot_id: surf_spot.favorite_spots) %>
                 <% @ftags_filtred.each do |tag| %>
                     <% if tag.favorite_spot.user == current_user %>

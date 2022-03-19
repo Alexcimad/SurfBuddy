@@ -1,9 +1,9 @@
-<div class="modal fade" id="tagModal<%= fav.id%>" tabindex="-1" role="dialog" aria-labelledby="tagModalLabel" aria-hidden="true">
+<div class="modal" id="tagModal<%= fav.id%>" tabindex="-1" role="dialog" aria-labelledby="tagModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="tagModalLabel">Select favorite tags</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" data-button='{"func": "func1"}' aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -21,6 +21,7 @@
                     <% end %>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
