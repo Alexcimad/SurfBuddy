@@ -59,7 +59,7 @@ surf_spots << surf_spot8
 
 surf_spot4 = SurfSpot.create!(location: "Grande Plage Biarritz", description: "Awesome beach for surfing just before going to the casino ;)")
 puts "---CREATING #{surf_spot4.location}"
-file_user4 = URI.open("http://res.cloudinary.com/dmnzqtckp/image/upload/v1646859521/o5ryzpmrzqgwampwjr3o.jpg")
+file_user4 = URI.open("https://res.cloudinary.com/dmnzqtckp/image/upload/v1647687878/production/Spots/Biarritz_kkfkyq.jpg")
 surf_spot4.photos.attach(io: file_user4, filename: "btz_grde_plage_photo.jpg", content_type: "image/jpg")
 surf_spots << surf_spot4
 
