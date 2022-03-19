@@ -2,9 +2,9 @@
 .contain {
     margin: 0 auto;
     max-width: 1200px;
-    height: 25vh;    
+    height: 25vh;
   }
-  
+
   .item {
     align-items: center;
     background-color: transparent;
@@ -14,7 +14,7 @@
   }
 
   .sliderr {
-    background-color: $lightblue;
+    background-color: $light-gray;
     padding: 16px 5px;
     padding-left: 22px;
     display: flex;
@@ -23,19 +23,19 @@
 }
 
 .green{
-    color:green;
+    color:#7BB791;
   }
   .red{
-    color:red;
+    color:#E87773;
   }
   .orange{
-    color:orange;
+    color:#F9C04E;
   }
 
   a.schedule:hover{
       color: $figmablue;
   }
-  
+
 
   .nav-pills .nav-link{
     border-radius: 10px;
