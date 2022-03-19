@@ -13,9 +13,7 @@
 <div class="card-profile">
   <%= link_to surf_spot_path(surf_spot) do %>
     <div class="card3">
-
-        <%= cl_image_tag(surf_spot.photos.first.key, class: "img-caroussel-map") %>
-      
+        <%= cl_image_tag(surf_spot.photos.first.key, class: "img-caroussel") %>
         <div>
           <h3><%= surf_spot.location %></h3>
           <div class="card-details2">
