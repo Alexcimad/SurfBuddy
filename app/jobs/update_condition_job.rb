@@ -4,11 +4,11 @@ class UpdateConditionJob < ApplicationJob
   def perform(spot_id)
     # Do something later
     spot = SurfSpot.find(spot_id)
-    puts "Destroy old spot conditions"
+    puts "Destroy old spot conditions for #{spot.location}"
     spot.surf_conditions.destroy_all
-    puts "Spot condtions update #{spot.location} is started"
+    puts "Spot conditions update for #{spot.location} is started"
     fetch_current_conditions(spot)
-    puts "Spot conditions update #{spot.location} is finished"
+    puts "Spot conditions update for #{spot.location} is finished"
   end
 
 
