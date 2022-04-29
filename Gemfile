@@ -28,6 +28,9 @@ gem 'redis', '~> 4.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
+
 gem 'devise'
 gem "breadcrumbs_on_rails"
 gem 'geocoder'
