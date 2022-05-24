@@ -1,7 +1,9 @@
 <div data-controller="favorite" class="text-right picto">
-  <% if current_user.favorite_spots.pluck(:surf_spot_id).include?(surf_spot.id) %>
-    <div class="nav-i-fav"><%= link_to icon('fas','heart') , surf_spot_favorite_path(surf_spot), remote: true, class: "no-fav fav" , data: { action: "click->favorite#toggle" } %></div>
-  <% else %>
-    <div class="nav-i-fav"><%= link_to icon('fas','heart'), surf_spot_favorite_path(surf_spot), remote: true, class: "no-fav" , data: { action: "click->favorite#toggle" } %></div>
+  <% if user_signed_in? %>
+    <% if current_user.favorite_spots.pluck(:surf_spot_id).include?(surf_spot.id) %>
+      <div class="nav-i-fav"><%= link_to icon('fas','heart') , surf_spot_favorite_path(surf_spot), remote: true, class: "no-fav fav" , data: { action: "click->favorite#toggle" } %></div>
+    <% else %>
+      <div class="nav-i-fav"><%= link_to icon('fas','heart'), surf_spot_favorite_path(surf_spot), remote: true, class: "no-fav" , data: { action: "click->favorite#toggle" } %></div>
+    <% end %>
   <% end %>
 </div>
